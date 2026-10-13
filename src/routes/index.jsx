@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { LetterCascade } from "@/components/ui/letter-cascade";
-import { ArrowDown, ArrowLeftRight, ArrowRight, ArrowUpRight, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Compass, Eye, Layers, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowLeftRight, ArrowRight, ArrowUpRight, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Compass, Eye, Layers, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -16,6 +16,8 @@ import heroBannerImg from "@/assets/hero-banner.png";
 import drag1 from "@/assets/drag1.png"
 import drag2 from "@/assets/drag2.png"
 import heroSectionVideo from "@/assets/hero_section.png";
+import humanPortraitImg from "@/assets/ariz-hero-portrait.jpg";
+import humanWorkspaceImg from "@/assets/ariz-about-workspace.jpg";
 import brandsShowcaseImg from "@/assets/brands-performance-showcase-clean.png";
 import pendantLampImg from "@/assets/pendant_lamp.png";
 
@@ -138,147 +140,109 @@ function HomePage() {
 
       <main>
         {/* Responsive Custom Hero with Clean Borderless Visual */}
+        {/* Editorial Luxury Designer Hero (Human-Designed Aesthetic) */}
         <section className="editorial-hero custom-designer-hero" id="top">
-          {/* Studio Backdrop: Curved Sky-Blue Curves, Perspective Line & Hanging Pendant Lamp */}
+          {/* Subtle Ambient Warm Studio Atmosphere */}
           <div className="hero-studio-backdrop-scene" aria-hidden="true">
-            <svg
-              className="hero-backdrop-curves-svg"
-              viewBox="0 0 1440 680"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <defs>
-                <linearGradient id="skyWaveGradLeft" x1="0%" y1="0%" x2="50%" y2="100%">
-                  <stop offset="0%" stopColor="#67AFFB" />
-                  <stop offset="60%" stopColor="#89C4FD" />
-                  <stop offset="100%" stopColor="#A8D6FD" />
-                </linearGradient>
-                <linearGradient id="skyCircleGradCenter" x1="25%" y1="0%" x2="75%" y2="100%">
-                  <stop offset="0%" stopColor="#60ABFA" />
-                  <stop offset="50%" stopColor="#80C0FD" />
-                  <stop offset="100%" stopColor="#B3DAFE" />
-                </linearGradient>
-                <linearGradient id="studioAmbientFloor" x1="0%" y1="50%" x2="100%" y2="50%">
-                  <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
-                  <stop offset="42%" stopColor="#FFFFFF" stopOpacity="0" />
-                  <stop offset="70%" stopColor="#E6F2FE" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#D9ECFE" stopOpacity="0.95" />
-                </linearGradient>
-              </defs>
-
-              {/* Ambient Studio Floor Wash on Right */}
-              <rect x="0" y="0" width="1440" height="680" fill="url(#studioAmbientFloor)" />
-
-              {/* Continuous Organic Sky-Blue Wave flowing from Top-Left into the Circular Lamp Arch */}
-              <path
-                d="M -20 -20 L 0 90 C 80 65 160 60 240 68 C 320 76 390 105 450 140 C 495 170 525 220 575 220 C 640 215 700 125 740 -20 Z"
-                fill="url(#skyCircleGradCenter)"
-              />
-
-              {/* Architectural Perspective Line */}
-              <line
-                x1="575"
-                y1="220"
-                x2="1440"
-                y2="50"
-                stroke="#87BEFC"
-                strokeWidth="1.6"
-                strokeOpacity="0.85"
-              />
-            </svg>
-
-            {/* Hanging Pendant Ceiling Lamp with Golden Cap & Warm Downward Glow */}
-            <div className="hero-pendant-lamp-wrapper">
-              <div className="hero-lamp-glow-cone" />
-              <img
-                src={pendantLampImg}
-                alt=""
-                className="hero-pendant-lamp-img"
-                draggable={false}
-              />
-            </div>
+            <div className="hero-warm-ambient-radial" />
           </div>
-
           <div className="hero-banner-inner-grid">
             {/* Left Content Column */}
             <div className="hero-banner-content-col">
-              {/* Studio Brand Name at the Top of 'I AM, YOGESH DAHIYA' */}
-              <h2 className="hero-studio-top-brand">
-                <TextReveal triggerOnMount delay={0.06} stagger={0.05}>
-                  SS PRODUCTION HOUSE
-                </TextReveal>
-              </h2>
+              {/* Pill Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFE8DC]/80 border border-[#B88E3E]/30 text-[#8C6621] text-xs font-bold tracking-wider uppercase mb-3">
+                <Sparkles className="w-3.5 h-3.5 text-[#B88E3E]" />
+                <span>HELLO, I'M YOGESH DAHIYA</span>
+              </div>
 
-              <h1 className="hero-custom-h1" aria-label="I AM, YOGESH DAHIYA">
-                <span className="hero-custom-line-1">
-                  <TextReveal triggerOnMount delay={0.16} stagger={0.06}>
-                    I AM,
-                  </TextReveal>
+              {/* Master Display Heading */}
+              <h1 className="hero-custom-h1" aria-label="I Design. I Direct. I Build Visual Identities & Tactile Packaging.">
+                <span className="block text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#161616]">
+                  I Design. I Direct.
                 </span>
-                <span className="hero-custom-line-2">
-                  <LetterCascade
-                    text="YOGESH DAHIYA"
-                    stiffness={350}
-                    damping={8}
-                    staggerDuration={0.06}
-                    letterClassName={(i) => (i < 6 ? "hero-gold-text" : "hero-dark-text")}
-                  />
+                <span className="block text-3xl sm:text-4xl lg:text-5xl font-serif italic text-[#B88E3E] my-1">
+                  I Build Visual Identities
+                </span>
+                <span className="block text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#161616]">
+                  &amp; Tactile Packaging.
                 </span>
               </h1>
 
-              <p className="hero-designer-role-tag">
-                <TextReveal triggerOnMount delay={0.52} stagger={0.035}>
-                  Graphic Designer &amp; Visual Director
-                </TextReveal>
+              <p className="hero-designer-role-tag text-sm font-semibold tracking-wide text-[#7A7164] mt-2 mb-3">
+                Senior Graphic Designer &amp; Visual Director · SS Production House
               </p>
 
-              {/* Decorative Accent Divider Bar (Clean Golden Rounded Bar matching reference image) */}
-              <div className="hero-custom-divider" aria-hidden="true" />
+              {/* Decorative Accent Divider */}
+              <div className="w-16 h-1 rounded-full bg-[#B88E3E] mb-4" aria-hidden="true" />
 
               {/* Paragraph Narrative */}
-              <p className="hero-custom-desc">
-                <TextReveal triggerOnMount delay={0.65} stagger={0.016}>
-                  {portfolio.intro}
-                </TextReveal>
+              <p className="hero-custom-desc text-base text-[#524D44] max-w-lg leading-relaxed mb-6">
+                Crafting bespoke rigid packaging, editorial monographs, brand identities, and commercial studio visuals for ambitious brands in Bhiwadi, Delhi-NCR, and across India.
               </p>
 
-              {/* Call to action buttons row: Explore Designs + Get In Touch */}
-              <div className="hero-custom-cta-wrap">
+              {/* Call to action buttons row */}
+              <div className="hero-custom-cta-wrap flex flex-wrap items-center gap-3 mb-6">
                 <a
                   href="#work"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollTo("work");
                   }}
-                  className="hero-custom-pill-btn"
+                  className="inline-flex items-center gap-2 bg-[#141414] hover:bg-[#2B2B2B] text-white px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-md hover:-translate-y-0.5"
                 >
                   <span>EXPLORE SELECTED DESIGNS</span>
-                  <span className="hero-pill-arrow-circle">
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
+                  <ArrowRight className="w-4 h-4" />
                 </a>
 
                 <Link
                   to="/contact"
-                  className="hero-custom-secondary-pill-btn"
+                  className="inline-flex items-center gap-2 bg-transparent hover:bg-[#EFE8DC]/50 border border-[#C7BAA7] text-[#2D271D] px-6 py-3 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5"
                   title="Contact SS Production House"
                 >
                   <span>GET IN TOUCH</span>
-                  <span className="hero-pill-arrow-circle">
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-[#B88E3E]" />
                 </Link>
+              </div>
+
+              {/* Quick Connect & Studio Verification Info */}
+              <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-[#7A7164]">
+                <span className="font-bold tracking-wider text-[#9E9484] uppercase">DIRECT CONNECT:</span>
+                <a
+                  href="https://wa.me/919671445186"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-emerald-700 flex items-center gap-1 text-[#2D271D] font-semibold"
+                >
+                  <span>WhatsApp: +91 96714 45186</span>
+                </a>
+                <span className="text-[#DDD4C4]">|</span>
+                <span className="text-[#555]">Capital Highstreet, Bhiwadi</span>
               </div>
             </div>
 
-            {/* Right Visual Column (Borderless Clean Visual) */}
-            <div className="hero-banner-visual-col">
-              <div className="hero-clean-visual-wrap">
+            {/* Right Visual Column: Authentic Human Portrait with Warm Concentric Rings */}
+            <div className="hero-banner-visual-col relative flex items-center justify-center">
+              {/* Concentric Ambient Studio Halo */}
+              <div className="absolute w-[360px] sm:w-[420px] h-[360px] sm:h-[420px] rounded-full bg-gradient-to-tr from-[#EFE8DC]/80 via-[#F7F2EA]/40 to-transparent pointer-events-none" />
+              <div className="absolute w-[400px] sm:w-[460px] h-[400px] sm:h-[460px] rounded-full border border-dashed border-[#B88E3E]/20 pointer-events-none" />
+              <div className="absolute w-[440px] sm:w-[500px] h-[440px] sm:h-[500px] rounded-full border border-[#B88E3E]/10 pointer-events-none" />
+
+              {/* Floating Experience Badge */}
+              <div className="absolute top-4 left-0 sm:-left-4 z-20 bg-white/95 backdrop-blur-sm border border-[#E0D5C3] px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-3">
+                <span className="text-2xl font-black text-[#161616]">5+</span>
+                <div className="text-[11px] font-bold text-[#666] leading-tight">
+                  <div>Years of</div>
+                  <div>Experience</div>
+                </div>
+                <Star className="w-4 h-4 text-[#B88E3E] fill-[#B88E3E]" />
+              </div>
+
+              {/* Authentic Studio Portrait */}
+              <div className="relative z-10 w-full max-w-[380px] rounded-[28px] overflow-hidden shadow-2xl border border-[#E2D7C5]/60 bg-white">
                 <img
-                  src={heroSectionVideo}
-                  alt="Yogesh Dahiya - Graphic Designer & Visual Director"
-                  className="hero-scene-character-image"
+                  src={humanPortraitImg}
+                  alt="Yogesh Dahiya — Senior Graphic Designer & Visual Director"
+                  className="w-full h-auto aspect-[3/4] object-cover block"
                   loading="eager"
                   draggable={false}
                 />

@@ -19,6 +19,13 @@ import logoSketch from "@/assets/09_Sketch.png";
 import logoAfterEffects from "@/assets/10_After_Effects.png";
 
 import benetoLogo from "@/assets/beneto_logo.jpg";
+import arizHeroPortrait from "@/assets/ariz-hero-portrait.jpg";
+import arizAboutWorkspace from "@/assets/ariz-about-workspace.jpg";
+import arizProjAgency from "@/assets/ariz-proj-agency.jpg";
+import arizProjAnalytics from "@/assets/ariz-proj-analytics.jpg";
+import arizProjEcommerce from "@/assets/ariz-proj-ecommerce.jpg";
+import arizProjPhoto from "@/assets/ariz-proj-photo.jpg";
+import clientSarah from "@/assets/client-sarah.jpg";
 import bioLeafLogo from "@/assets/bio_leaf_logo.jpg";
 import meherTablewareLogo from "@/assets/meher_tbblewaer_logo.jpg";
 import rTechLogo from "@/assets/r_tech_logo.jpg";
@@ -3106,6 +3113,150 @@ export const portfolio = {
     // 6. LOGO (anshika_logo, aw_logo)
     { id: "drag-logo-1", title: "anshika_logo", category: "Logo Design", categoryKey: "logo-design", image: logoAnshika, isPdf: false },
     { id: "drag-logo-2", title: "aw_logo", category: "Logo Design", categoryKey: "logo-design", image: logoAw, isPdf: false },
-  ]
+  ],
+  ariz: {
+    name: "ARIZ",
+    badge: "HELLO, I'M ARIZ",
+    headlinePart1: "I Design. I Code.",
+    headlineAccent: "I Build Digital",
+    headlinePart2: "Experiences.",
+    heroDescription: "Creative developer & designer crafting modern, high-performance websites and applications that are beautiful, functional and user-focused.",
+    experienceBadge: "5+",
+    experienceLabel: "Years of Experience",
+    heroPortrait: arizHeroPortrait,
+    aboutImage: arizAboutWorkspace,
+    aboutKicker: "ABOUT ME",
+    aboutTitle: "Building brands and digital products with passion and precision.",
+    aboutDescription: "I'm a creative software developer and designer with a passion for building beautiful, functional and scalable digital experiences. I enjoy turning ideas into real products that solve problems and create impact.",
+    stats: [
+      { id: "stat-1", value: "50+", label: "Projects Completed", icon: "Layers" },
+      { id: "stat-2", value: "30+", label: "Happy Clients", icon: "Heart" },
+      { id: "stat-3", value: "5+", label: "Years of Experience", icon: "Star" },
+      { id: "stat-4", value: "100%", label: "Commitment to Quality", icon: "ShieldCheck" },
+    ],
+    servicesKicker: "SERVICES",
+    servicesTitle: "What I Can Help You With",
+    services: [
+      {
+        id: "srv-1",
+        title: "Web Development",
+        icon: "Monitor",
+        desc: "Fast, responsive and scalable websites built with modern technologies.",
+      },
+      {
+        id: "srv-2",
+        title: "UI/UX Design",
+        icon: "PenTool",
+        desc: "Beautiful, user-centered designs that enhance experience.",
+      },
+      {
+        id: "srv-3",
+        title: "Web Applications",
+        icon: "Code",
+        desc: "Robust web apps with clean code and seamless functionality.",
+      },
+      {
+        id: "srv-4",
+        title: "Performance & SEO",
+        icon: "Rocket",
+        desc: "Optimized for speed, SEO and best performance.",
+      },
+    ],
+    skillsKicker: "SKILLS & TOOLS",
+    skillsTitle: "Technologies I Work With",
+    skillsBars: [
+      { name: "JavaScript (ES6+)", percent: 90 },
+      { name: "React.js", percent: 85 },
+      { name: "Next.js", percent: 80 },
+      { name: "TypeScript", percent: 80 },
+      { name: "HTML & CSS", percent: 95 },
+      { name: "UI/UX Design", percent: 85 },
+    ],
+    techStack: [
+      { name: "JavaScript", key: "js", label: "JavaScript", badge: "JS", color: "#F7DF1E", textColor: "#000000" },
+      { name: "TypeScript", key: "ts", label: "TypeScript", badge: "TS", color: "#3178C6", textColor: "#FFFFFF" },
+      { name: "React", key: "react", label: "React", badge: "⚛", color: "#61DAFB", textColor: "#000000" },
+      { name: "Next.js", key: "next", label: "Next.js", badge: "N", color: "#000000", textColor: "#FFFFFF" },
+      { name: "HTML5", key: "html5", label: "HTML5", badge: "5", color: "#E34F26", textColor: "#FFFFFF" },
+      { name: "CSS3", key: "css3", label: "CSS3", badge: "3", color: "#1572B6", textColor: "#FFFFFF" },
+      { name: "Sass", key: "sass", label: "Sass", badge: "S", color: "#CC6699", textColor: "#FFFFFF" },
+      { name: "Tailwind CSS", key: "tailwind", label: "Tailwind CSS", badge: "〰", color: "#38BDF8", textColor: "#000000" },
+      { name: "Git", key: "git", label: "Git", badge: "⎇", color: "#F05032", textColor: "#FFFFFF" },
+      { name: "Figma", key: "figma", label: "Figma", badge: "F", color: "#A259FF", textColor: "#FFFFFF" },
+    ],
+    projectsKicker: "FEATURED PROJECTS",
+    projectsTitle: "A Selection of My Recent Work",
+    featuredProjects: [
+      {
+        id: "fp-1",
+        title: "Creative Agency Website",
+        category: "Web Design",
+        image: arizProjAgency,
+        tag: "Web Design",
+      },
+      {
+        id: "fp-2",
+        title: "Analytics Dashboard",
+        category: "Web Application",
+        image: arizProjAnalytics,
+        tag: "Web Application",
+      },
+      {
+        id: "fp-3",
+        title: "Ecommerce Store",
+        category: "Full Stack Development",
+        image: arizProjEcommerce,
+        tag: "Full Stack Development",
+      },
+      {
+        id: "fp-4",
+        title: "Photography Portfolio",
+        category: "Web Design",
+        image: arizProjPhoto,
+        tag: "Web Design",
+      },
+    ],
+    testimonialsKicker: "TESTIMONIALS",
+    testimonialsTitle: "What Clients Say About Me",
+    testimonials: [
+      {
+        id: "test-1",
+        quote: "Ariz delivered an amazing website that exceeded our expectations. Great communication and top-notch quality!",
+        name: "Sarah Johnson",
+        role: "CEO, Bright Minds",
+        avatar: clientSarah,
+      },
+      {
+        id: "test-2",
+        quote: "Professional, creative and highly skilled. He turned our idea into a powerful web application.",
+        name: "David Smith",
+        role: "Founder, DevLaunch",
+        avatar: null,
+        initials: "DS",
+      },
+      {
+        id: "test-3",
+        quote: "Working with Ariz was a fantastic experience. He's reliable, fast and pays attention to every detail.",
+        name: "Emily Davis",
+        role: "Marketing Manager, BloomCo",
+        avatar: null,
+        initials: "ED",
+      },
+    ],
+    contactKicker: "GET IN TOUCH",
+    contactTitle: "Let's Build Something Amazing Together",
+    contactDetails: {
+      email: "hello@ariz.dev",
+      phone: "+1 (555) 123-4567",
+      location: "San Francisco, CA",
+      availability: "Open for new projects",
+    },
+    socialLinks: [
+      { name: "GitHub", href: "https://github.com", icon: "Github" },
+      { name: "LinkedIn", href: "https://linkedin.com", icon: "Linkedin" },
+      { name: "Dribbble", href: "https://dribbble.com", icon: "Dribbble" },
+      { name: "Mail", href: "mailto:hello@ariz.dev", icon: "Mail" },
+    ],
+  },
 };
 

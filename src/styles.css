@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+@import "./ariz.css";
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -270,9 +271,11 @@ a {
   0% {
     transform: rotate(-15deg);
   }
+
   50% {
     transform: rotate(15deg);
   }
+
   100% {
     transform: rotate(-15deg);
   }
@@ -835,9 +838,11 @@ a {
   0% {
     transform: translateX(-50%) rotate(-14deg);
   }
+
   50% {
     transform: translateX(-50%) rotate(14deg);
   }
+
   100% {
     transform: translateX(-50%) rotate(-14deg);
   }
@@ -1399,8 +1404,8 @@ h4.text-reveal-container {
   opacity: 0;
   filter: blur(4px);
   transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.72s ease,
-              filter 0.85s ease;
+    opacity 0.72s ease,
+    filter 0.85s ease;
   will-change: transform, opacity, filter;
 }
 
