@@ -13,13 +13,16 @@ import pdfIcon from "@/assets/pdf-icon.svg";
 import missionBg from "@/assets/mission-bg.jpg";
 import visionBg from "@/assets/vision-bg.jpg";
 import heroBannerImg from "@/assets/hero-banner.png";
-import drag1 from "@/assets/drag1.png"
-import drag2 from "@/assets/drag2.png"
+import drag1 from "@/assets/drag1.png";
+import drag2 from "@/assets/drag2.png";
 import heroSectionVideo from "@/assets/hero_section.png";
-import humanPortraitImg from "@/assets/ariz-hero-portrait.jpg";
-import humanWorkspaceImg from "@/assets/ariz-about-workspace.jpg";
 import brandsShowcaseImg from "@/assets/brands-performance-showcase-clean.png";
 import pendantLampImg from "@/assets/pendant_lamp.png";
+import servicesShowcaseImg from "@/assets/services_showcase_hexagon.jpg";
+import serviceGraphicDesignImg from "@/assets/service_graphic_design.jpg";
+import serviceUiUxImg from "@/assets/service_ui_ux_design.jpg";
+import serviceAppDevImg from "@/assets/service_app_dev.jpg";
+import { LogoPreloader } from "@/components/LogoPreloader";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,6 +40,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   const [heroMounted, setHeroMounted] = useState(true);
+  const [showPreloader, setShowPreloader] = useState(true);
   const cursorRef = useRef(null);
   const reelController = useRef(null);
 
@@ -57,6 +61,9 @@ function HomePage() {
 
   useEffect(() => {
     setHeroMounted(true);
+    const handleReplayEvent = () => setShowPreloader(true);
+    window.addEventListener("ss_replay_logo_intro", handleReplayEvent);
+    return () => window.removeEventListener("ss_replay_logo_intro", handleReplayEvent);
   }, []);
 
   useEffect(() => {
@@ -135,114 +142,155 @@ function HomePage() {
 
   return (
     <div className="portfolio-shell" ref={cursorRef}>
+      {showPreloader && (
+        <LogoPreloader onComplete={() => setShowPreloader(false)} />
+      )}
       <div className="cursor-wash" aria-hidden="true" />
       <SiteHeader />
 
       <main>
         {/* Responsive Custom Hero with Clean Borderless Visual */}
-        {/* Editorial Luxury Designer Hero (Human-Designed Aesthetic) */}
         <section className="editorial-hero custom-designer-hero" id="top">
-          {/* Subtle Ambient Warm Studio Atmosphere */}
+          {/* Studio Backdrop: Curved Sky-Blue Curves, Perspective Line & Hanging Pendant Lamp */}
           <div className="hero-studio-backdrop-scene" aria-hidden="true">
-            <div className="hero-warm-ambient-radial" />
+            <svg
+              className="hero-backdrop-curves-svg"
+              viewBox="0 0 1440 680"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <defs>
+                <linearGradient id="skyWaveGradLeft" x1="0%" y1="0%" x2="50%" y2="100%">
+                  <stop offset="0%" stopColor="#67AFFB" />
+                  <stop offset="60%" stopColor="#89C4FD" />
+                  <stop offset="100%" stopColor="#A8D6FD" />
+                </linearGradient>
+                <linearGradient id="skyCircleGradCenter" x1="25%" y1="0%" x2="75%" y2="100%">
+                  <stop offset="0%" stopColor="#60ABFA" />
+                  <stop offset="50%" stopColor="#80C0FD" />
+                  <stop offset="100%" stopColor="#B3DAFE" />
+                </linearGradient>
+                <linearGradient id="studioAmbientFloor" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
+                  <stop offset="42%" stopColor="#FFFFFF" stopOpacity="0" />
+                  <stop offset="70%" stopColor="#E6F2FE" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#D9ECFE" stopOpacity="0.95" />
+                </linearGradient>
+              </defs>
+
+              {/* Ambient Studio Floor Wash on Right */}
+              <rect x="0" y="0" width="1440" height="680" fill="url(#studioAmbientFloor)" />
+
+              {/* Continuous Organic Sky-Blue Wave flowing from Top-Left into the Circular Lamp Arch */}
+              <path
+                d="M -20 -20 L 0 90 C 80 65 160 60 240 68 C 320 76 390 105 450 140 C 495 170 525 220 575 220 C 640 215 700 125 740 -20 Z"
+                fill="url(#skyCircleGradCenter)"
+              />
+
+              {/* Architectural Perspective Line */}
+              <line
+                x1="575"
+                y1="220"
+                x2="1440"
+                y2="50"
+                stroke="#87BEFC"
+                strokeWidth="1.6"
+                strokeOpacity="0.85"
+              />
+            </svg>
+
+            {/* Hanging Pendant Ceiling Lamp with Golden Cap & Warm Downward Glow */}
+            <div className="hero-pendant-lamp-wrapper">
+              <div className="hero-lamp-glow-cone" />
+              <img
+                src={pendantLampImg}
+                alt=""
+                className="hero-pendant-lamp-img"
+                draggable={false}
+              />
+            </div>
           </div>
+
           <div className="hero-banner-inner-grid">
             {/* Left Content Column */}
             <div className="hero-banner-content-col">
-              {/* Pill Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFE8DC]/80 border border-[#B88E3E]/30 text-[#8C6621] text-xs font-bold tracking-wider uppercase mb-3">
-                <Sparkles className="w-3.5 h-3.5 text-[#B88E3E]" />
-                <span>HELLO, I'M YOGESH DAHIYA</span>
-              </div>
+              {/* Studio Brand Name at the Top of 'I AM, YOGESH DAHIYA' */}
+              <h2 className="hero-studio-top-brand">
+                <TextReveal triggerOnMount delay={0.06} stagger={0.05}>
+                  SS PRODUCTION HOUSE
+                </TextReveal>
+              </h2>
 
-              {/* Master Display Heading */}
-              <h1 className="hero-custom-h1" aria-label="I Design. I Direct. I Build Visual Identities & Tactile Packaging.">
-                <span className="block text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#161616]">
-                  I Design. I Direct.
+              <h1 className="hero-custom-h1" aria-label="I AM, YOGESH DAHIYA">
+                <span className="hero-custom-line-1">
+                  <TextReveal triggerOnMount delay={0.16} stagger={0.06}>
+                    I AM,
+                  </TextReveal>
                 </span>
-                <span className="block text-3xl sm:text-4xl lg:text-5xl font-serif italic text-[#B88E3E] my-1">
-                  I Build Visual Identities
-                </span>
-                <span className="block text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#161616]">
-                  &amp; Tactile Packaging.
+                <span className="hero-custom-line-2">
+                  <LetterCascade
+                    text="YOGESH DAHIYA"
+                    stiffness={350}
+                    damping={8}
+                    staggerDuration={0.06}
+                    letterClassName={(i) => (i < 6 ? "hero-gold-text" : "hero-dark-text")}
+                  />
                 </span>
               </h1>
 
-              <p className="hero-designer-role-tag text-sm font-semibold tracking-wide text-[#7A7164] mt-2 mb-3">
-                Senior Graphic Designer &amp; Visual Director · SS Production House
+              <p className="hero-designer-role-tag">
+                <TextReveal triggerOnMount delay={0.52} stagger={0.035}>
+                  Graphic Designer &amp; Visual Director
+                </TextReveal>
               </p>
 
-              {/* Decorative Accent Divider */}
-              <div className="w-16 h-1 rounded-full bg-[#B88E3E] mb-4" aria-hidden="true" />
+              {/* Decorative Accent Divider Bar (Clean Golden Rounded Bar matching reference image) */}
+              <div className="hero-custom-divider" aria-hidden="true" />
 
               {/* Paragraph Narrative */}
-              <p className="hero-custom-desc text-base text-[#524D44] max-w-lg leading-relaxed mb-6">
-                Crafting bespoke rigid packaging, editorial monographs, brand identities, and commercial studio visuals for ambitious brands in Bhiwadi, Delhi-NCR, and across India.
+              <p className="hero-custom-desc">
+                <TextReveal triggerOnMount delay={0.65} stagger={0.016}>
+                  {portfolio.intro}
+                </TextReveal>
               </p>
 
-              {/* Call to action buttons row */}
-              <div className="hero-custom-cta-wrap flex flex-wrap items-center gap-3 mb-6">
+              {/* Call to action buttons row: Explore Designs + Get In Touch */}
+              <div className="hero-custom-cta-wrap">
                 <a
                   href="#work"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollTo("work");
                   }}
-                  className="inline-flex items-center gap-2 bg-[#141414] hover:bg-[#2B2B2B] text-white px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-md hover:-translate-y-0.5"
+                  className="hero-custom-pill-btn"
                 >
                   <span>EXPLORE SELECTED DESIGNS</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span className="hero-pill-arrow-circle">
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
                 </a>
 
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-transparent hover:bg-[#EFE8DC]/50 border border-[#C7BAA7] text-[#2D271D] px-6 py-3 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5"
+                  className="hero-custom-secondary-pill-btn"
                   title="Contact SS Production House"
                 >
                   <span>GET IN TOUCH</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#B88E3E]" />
+                  <span className="hero-pill-arrow-circle">
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </span>
                 </Link>
-              </div>
-
-              {/* Quick Connect & Studio Verification Info */}
-              <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-[#7A7164]">
-                <span className="font-bold tracking-wider text-[#9E9484] uppercase">DIRECT CONNECT:</span>
-                <a
-                  href="https://wa.me/919671445186"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-emerald-700 flex items-center gap-1 text-[#2D271D] font-semibold"
-                >
-                  <span>WhatsApp: +91 96714 45186</span>
-                </a>
-                <span className="text-[#DDD4C4]">|</span>
-                <span className="text-[#555]">Capital Highstreet, Bhiwadi</span>
               </div>
             </div>
 
-            {/* Right Visual Column: Authentic Human Portrait with Warm Concentric Rings */}
-            <div className="hero-banner-visual-col relative flex items-center justify-center">
-              {/* Concentric Ambient Studio Halo */}
-              <div className="absolute w-[360px] sm:w-[420px] h-[360px] sm:h-[420px] rounded-full bg-gradient-to-tr from-[#EFE8DC]/80 via-[#F7F2EA]/40 to-transparent pointer-events-none" />
-              <div className="absolute w-[400px] sm:w-[460px] h-[400px] sm:h-[460px] rounded-full border border-dashed border-[#B88E3E]/20 pointer-events-none" />
-              <div className="absolute w-[440px] sm:w-[500px] h-[440px] sm:h-[500px] rounded-full border border-[#B88E3E]/10 pointer-events-none" />
-
-              {/* Floating Experience Badge */}
-              <div className="absolute top-4 left-0 sm:-left-4 z-20 bg-white/95 backdrop-blur-sm border border-[#E0D5C3] px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-3">
-                <span className="text-2xl font-black text-[#161616]">5+</span>
-                <div className="text-[11px] font-bold text-[#666] leading-tight">
-                  <div>Years of</div>
-                  <div>Experience</div>
-                </div>
-                <Star className="w-4 h-4 text-[#B88E3E] fill-[#B88E3E]" />
-              </div>
-
-              {/* Authentic Studio Portrait */}
-              <div className="relative z-10 w-full max-w-[380px] rounded-[28px] overflow-hidden shadow-2xl border border-[#E2D7C5]/60 bg-white">
+            {/* Right Visual Column (Borderless Clean Visual) */}
+            <div className="hero-banner-visual-col">
+              <div className="hero-clean-visual-wrap">
                 <img
-                  src={humanPortraitImg}
-                  alt="Yogesh Dahiya — Senior Graphic Designer & Visual Director"
-                  className="w-full h-auto aspect-[3/4] object-cover block"
+                  src={heroSectionVideo}
+                  alt="Yogesh Dahiya - Graphic Designer & Visual Director"
+                  className="hero-scene-character-image"
                   loading="eager"
                   draggable={false}
                 />
@@ -271,46 +319,22 @@ function HomePage() {
           </div>
         </section>
 
-        {/* Client Logos Auto-Drifting Ticker — Right to Left (Logos & Clean Names) */}
-        <section className="hero-clients-ticker-section" aria-label="Client Brands">
-          <div className="hero-clients-ticker-inner">
-            <AutoScrollRow
-              items={portfolio.clientLogos || []}
-              direction="rtl"
-              speedPixelsPerSecond={48}
-              renderItem={(client) => (
-                <div className="hero-client-logo-item" key={client.id || client.name}>
-                  {client.logo ? (
-                    <img
-                      src={client.logo}
-                      alt={client.name}
-                      className="hero-client-logo-img"
-                      loading="eager"
-                    />
-                  ) : (
-                    <div className="hero-client-text-badge">
-                      <span className="hero-client-text-name">{client.name}</span>
-                    </div>
-                  )}
-                </div>
-              )}
-            />
-          </div>
-        </section>
+        {/* Client Logos Stepped Reel — Emerging from Right Side One by One with Pause & Drag */}
+        <DraggableSteppedLogoReel clients={portfolio.clientLogos || []} />
 
         {/* Selected Works Section */}
         <section className="portfolio-section work" id="work">
-          <div className="work-header-flex">
-            <div className="work-header-left">
-              <p className="section-index">
-                <span>01</span> <TextReveal delay={0.05}>Selected designs</TextReveal>
-              </p>
-              <h2 className="work-section-compact-titlefont-bold">
-                <TextReveal delay={0.12} stagger={0.05}>
-                  OUR GENUINE GRAPHIC WORKS.
-                </TextReveal>
-              </h2>
-            </div>
+          <div className="work-ambient-circle-left" aria-hidden="true" />
+          <div className="work-ambient-circle-right" aria-hidden="true" />
+          <div className="section-intro">
+            <p className="section-index">
+              <span>01</span> <TextReveal delay={0.05}>Selected designs</TextReveal>
+            </p>
+            <h2 className="work-section-compact-title">
+              <TextReveal delay={0.12} stagger={0.05}>
+                OUR GENUINE GRAPHIC WORKS.
+              </TextReveal>
+            </h2>
           </div>
 
           {/* Single-Line Infinite Draggable Works Reel (Right to Left) */}
@@ -369,90 +393,16 @@ function HomePage() {
 
 
 
-        {/* ROI Services Highlight Section (Above Studio Tools & Software Stack) */}
-        {portfolio.roiServicesSection && (
-          <section className="roi-services-section" aria-label="Our Services — High ROI Solutions">
-            <div className="roi-bg-ambient" aria-hidden="true" />
-            <div className="roi-bg-dots" aria-hidden="true" />
-            <div className="roi-services-container">
-              <div className="roi-services-header scroll-reveal">
-                <span className="roi-services-eyebrow">
-                  <TextReveal delay={0.05}>{portfolio.roiServicesSection.badge}</TextReveal>
-                </span>
-                <h2 className="roi-services-title">
-                  <TextReveal delay={0.12} stagger={0.04}>
-                    {portfolio.roiServicesSection.titlePrefix}
-                  </TextReveal>{" "}
-                  <span className="roi-blue-accent">
-                    <TextReveal delay={0.25} stagger={0.04}>
-                      {portfolio.roiServicesSection.titleHighlight}
-                    </TextReveal>
-                  </span>{" "}
-                  <TextReveal delay={0.35} stagger={0.04}>
-                    {portfolio.roiServicesSection.titleSuffix}
-                  </TextReveal>
-                </h2>
-              </div>
-
-              <div className="roi-services-grid">
-                {portfolio.roiServicesSection.items.map((service, index) => (
-                  <article
-                    key={service.id}
-                    className={`roi-service-card scroll-reveal scroll-reveal-delay-${(index % 4) + 1}`}
-                  >
-                    {/* Top Right Hatched Stripes Pattern */}
-                    <div className="roi-card-hatch-pattern" aria-hidden="true" />
-
-                    {/* Top Floating Circular Icon Badge */}
-                    <div className="roi-card-icon-badge">
-                      {service.iconType === "pen-tool" && (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="roi-icon-svg">
-                          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                          <path d="m15 5 4 4" />
-                        </svg>
-                      )}
-                      {service.iconType === "megaphone" && (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="roi-icon-svg">
-                          <path d="m3 11 18-5v12L3 14v-3z" />
-                          <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
-                          <path d="M21 9v6" />
-                        </svg>
-                      )}
-                      {service.iconType === "code" && (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="roi-icon-svg">
-                          <rect width="18" height="14" x="3" y="5" rx="2" />
-                          <path d="m9 11-2 2 2 2" />
-                          <path d="m15 11 2 2-2 2" />
-                          <path d="M11 17l2-6" />
-                        </svg>
-                      )}
-                      {service.iconType === "photoshoot" && (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="roi-icon-svg">
-                          <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
-                          <circle cx="12" cy="13" r="3" />
-                        </svg>
-                      )}
-                    </div>
-
-                    <h3 className="roi-card-title">{service.title}</h3>
-                    <p className="roi-card-desc">{service.description}</p>
-
-                    <Link to={service.linkTo} className="roi-card-action">
-                      <span>{service.linkText.replace(" →", "")}</span>
-                      <span className="roi-card-action-arrow">→</span>
-                    </Link>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
+        {/* Our Services Interactive Accordion Section */}
+        <OurServicesAccordionSection />
 
         {/* Brand Performance & Packaging Agency Showcase Section (We Build Brands That Performs - Guaranteed) */}
         <BrandPerformanceSection />
 
         {/* Studio Tools & Software Stack Draggable Ticker — Drifting Right to Left */}
         <section className="studio-stack-ticker-section" aria-label="Studio Creative Software Stack">
+          <div className="studio-stack-ambient-circle-left" aria-hidden="true" />
+          <div className="studio-stack-ambient-circle-right" aria-hidden="true" />
           <div className="studio-stack-ticker-header">
             <h3 className="studio-stack-title">
               <TextReveal delay={0.06} stagger={0.035}>
@@ -493,6 +443,20 @@ function HomePage() {
 
       <SiteFooter />
       <FloatingWhatsApp />
+
+      {/* Floating Action Trigger: Replay Logo Preloader Animation Anytime */}
+      <button
+        type="button"
+        className="site-logo-reveal-trigger"
+        onClick={() => setShowPreloader(true)}
+        title="Replay Preloader Animation"
+        aria-label="Replay Logo Preloader Animation"
+      >
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+          <polygon points="5 3 19 12 5 21 5 3" />
+        </svg>
+        <span>Logo Preloader</span>
+      </button>
     </div>
   );
 }
@@ -838,6 +802,397 @@ function Project({ project, priority, index = 0 }) {
         <b>{project.id}</b>
       </div>
     </article>
+  );
+}
+
+function DraggableSteppedLogoReel({ clients = [] }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const currentDragDeltaRef = useRef(0);
+  const timerRef = useRef(null);
+
+  const total = clients.length;
+
+  const nextSlide = () => {
+    if (total === 0) return;
+    setActiveIndex((prev) => (prev + 1) % total);
+  };
+
+  const prevSlide = () => {
+    if (total === 0) return;
+    setActiveIndex((prev) => (prev - 1 + total) % total);
+  };
+
+  // Auto-step: Slide in from right (0.72s), PAUSE for 2.1s, then slide next in from right
+  const startTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % total);
+    }, 2800);
+  };
+
+  const stopTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+  };
+
+  useEffect(() => {
+    if (total <= 1) return;
+    if (!isHovered && !isDragging) {
+      startTimer();
+    } else {
+      stopTimer();
+    }
+    return () => stopTimer();
+  }, [total, isHovered, isDragging, activeIndex]);
+
+  // Pointer drag gestures (mouse + touch)
+  const handlePointerDown = (e) => {
+    isDraggingRef.current = true;
+    setIsDragging(true);
+    startXRef.current = e.clientX || 0;
+    currentDragDeltaRef.current = 0;
+    stopTimer();
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch { }
+  };
+
+  const handlePointerMove = (e) => {
+    if (!isDraggingRef.current) return;
+    const currentX = e.clientX || 0;
+    const delta = currentX - startXRef.current;
+    currentDragDeltaRef.current = delta;
+    setDragOffset(delta);
+  };
+
+  const handlePointerUp = (e) => {
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+    setIsDragging(false);
+
+    const delta = currentDragDeltaRef.current;
+    const threshold = 40;
+
+    if (delta < -threshold) {
+      // Swiped/dragged left -> next logo enters from right
+      nextSlide();
+    } else if (delta > threshold) {
+      // Swiped/dragged right -> previous logo
+      prevSlide();
+    }
+
+    setDragOffset(0);
+    currentDragDeltaRef.current = 0;
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch { }
+  };
+
+  const handlePointerCancel = (e) => {
+    if (isDraggingRef.current) {
+      isDraggingRef.current = false;
+      setIsDragging(false);
+      setDragOffset(0);
+      currentDragDeltaRef.current = 0;
+    }
+  };
+
+  if (!clients || clients.length === 0) return null;
+
+  // return (
+  //   // <section className="hero-clients-ticker-section" aria-label="Client Brands">
+  //   //   {/* Light sky blue ambient circular glow */}
+  //   //   <div className="hero-clients-ambient-circle" aria-hidden="true" />
+
+  //   //   <div className="hero-clients-stepped-wrapper">
+  //   //     <div className="hero-clients-stepped-header">
+  //   //       <span className="hero-clients-eyebrow-tag">
+  //   //         <span className="hero-clients-step-dot" />
+  //   //         PARTNER BRANDS &amp; CLIENTS
+  //   //       </span>
+  //   //       <div className="hero-clients-step-counter">
+  //   //         <span>{String(activeIndex + 1).padStart(2, "0")}</span>
+  //   //         <span style={{ opacity: 0.35 }}>/</span>
+  //   //         <span>{String(total).padStart(2, "0")}</span>
+  //   //       </div>
+  //   //     </div>
+
+  //   //     <div className="hero-clients-stage-row">
+  //   //       {/* Previous Arrow Button */}
+  //   //       <button
+  //   //         type="button"
+  //   //         className="hero-client-step-arrow-btn prev"
+  //   //         onClick={() => {
+  //   //           prevSlide();
+  //   //           startTimer();
+  //   //         }}
+  //   //         aria-label="Previous client logo"
+  //   //       >
+  //   //         <ChevronLeft size={18} />
+  //   //       </button>
+
+  //   //       {/* Draggable Viewport */}
+  //   //       <div
+  //   //         className={`hero-clients-stepped-viewport ${isDragging ? "is-dragging" : ""}`}
+  //   //         onPointerDown={handlePointerDown}
+  //   //         onPointerMove={handlePointerMove}
+  //   //         onPointerUp={handlePointerUp}
+  //   //         onPointerCancel={handlePointerCancel}
+  //   //         onMouseEnter={() => setIsHovered(true)}
+  //   //         onMouseLeave={() => setIsHovered(false)}
+  //   //       >
+  //   //         {clients.map((client, idx) => {
+  //   //           let diff = idx - activeIndex;
+  //   //           while (diff < -Math.floor(total / 2)) diff += total;
+  //   //           while (diff > Math.floor(total / 2)) diff -= total;
+
+  //   //           const isVisible = Math.abs(diff) <= 1;
+  //   //           const translateX = `calc(${diff * 100}% + ${dragOffset}px)`;
+
+  //   //           return (
+  //   //             <div
+  //   //               key={client.id || client.name}
+  //   //               className={`hero-stepped-logo-slide ${diff === 0 ? "is-active" : ""}`}
+  //   //               style={{
+  //   //                 transform: `translate3d(${translateX}, 0, 0)`,
+  //   //                 transition: isDragging ? "none" : "transform 0.72s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease",
+  //   //                 opacity: isVisible ? (diff === 0 ? 1 : 0.2) : 0,
+  //   //                 pointerEvents: diff === 0 ? "auto" : "none",
+  //   //                 visibility: Math.abs(diff) > 2 ? "hidden" : "visible",
+  //   //               }}
+  //   //             >
+  //   //               <div className="hero-client-single-wrap">
+  //   //                 {client.logo ? (
+  //   //                   <img
+  //   //                     src={client.logo}
+  //   //                     alt={client.name}
+  //   //                     className="hero-client-logo-img"
+  //   //                     loading="eager"
+  //   //                     draggable={false}
+  //   //                   />
+  //   //                 ) : (
+  //   //                   <div className="hero-client-text-badge">
+  //   //                     <span className="hero-client-text-name">{client.name}</span>
+  //   //                   </div>
+  //   //                 )}
+  //   //                 <span className="hero-client-brand-caption">{client.name}</span>
+  //   //               </div>
+  //   //             </div>
+  //   //           );
+  //   //         })}
+  //   //       </div>
+
+  //   //       {/* Next Arrow Button */}
+  //   //       <button
+  //   //         type="button"
+  //   //         className="hero-client-step-arrow-btn next"
+  //   //         onClick={() => {
+  //   //           nextSlide();
+  //   //           startTimer();
+  //   //         }}
+  //   //         aria-label="Next client logo"
+  //   //       >
+  //   //         <ChevronRight size={18} />
+  //   //       </button>
+  //   //     </div>
+
+  //   //     {/* Drag or Swipe Hint */}
+  //   //     <div className="hero-clients-drag-hint">
+  //   //       <ArrowLeftRight size={12} className="hero-clients-drag-icon" />
+  //   //       <span>DRAG OR SWIPE TO EXPLORE</span>
+  //   //     </div>
+  //   //   </div>
+  //   // </section>
+  // );
+  return null;
+}
+
+function OurServicesAccordionSection() {
+  const [openServiceId, setOpenServiceId] = useState("web-dev"); // Default to 1st service
+
+  const services = [
+    {
+      id: "web-dev",
+      number: "1.",
+      title: "Web Development",
+      image: servicesShowcaseImg,
+      imageAlt: "Web Development & IT Architecture Showcase",
+      shortTagline: "High-Performance Modern Web Applications & E-Commerce",
+      description:
+        "From custom web applications to scalable e-commerce systems, we craft high-speed, secure, and SEO-optimized digital platforms using modern frameworks like React, Next.js, and Node.js.",
+      features: [
+
+      ],
+      techStack: [],
+      linkTo: "/services",
+    },
+    {
+      id: "graphic-design",
+      number: "2.",
+      title: "Graphic Design",
+      image: serviceGraphicDesignImg,
+      imageAlt: "Graphic Design, Packaging Dielines & Luxury Branding",
+      shortTagline: "Visual Identity, Luxury FMCG Packaging & Print Systems",
+      description:
+        "Transformative brand identities, high-precision packaging dielines, luxury label systems, and bespoke marketing collateral crafted to command attention on retail shelves and digital screens.",
+      features: [
+      ],
+      techStack: ["Illustrator", "Photoshop", "InDesign", "3D Staging", "Print CMYK"],
+      linkTo: "/services",
+    },
+    {
+      id: "ui-ux-design",
+      number: "3.",
+      title: "UI/UX Design",
+      image: serviceUiUxImg,
+      imageAlt: "UI/UX Design Systems, Wireframing & Figma Prototypes",
+      shortTagline: "Human-Centric Digital Interfaces & Intuitive User Journeys",
+      description:
+        "Psychology-driven digital experiences designed with intuitive navigation, fluid micro-interactions, cohesive design systems, and comprehensive user research.",
+      features: [
+      ],
+      techStack: ["Figma", "Design Systems", "Prototyping", "User Research", "Micro-Interactions"],
+      linkTo: "/services",
+    },
+    {
+      id: "app-dev",
+      number: "4.",
+      title: "Social Media Marketing",
+      image: serviceAppDevImg,
+      imageAlt: "Social Media Marketing",
+      shortTagline: "Social Media Marketing & Management Solutions",
+      description:
+        "Social Media Marketing & Management Solutions",
+      features: [
+
+      ],
+      techStack: ["React Native", "Flutter", "iOS & Android", "Firebase", "Node.js API"],
+      linkTo: "/services",
+    },
+  ];
+
+  const handleToggle = (id) => {
+    // When clicking second service, hide first and show second accordingly!
+    setOpenServiceId((prev) => (prev === id ? null : id));
+  };
+
+  const activeService = services.find((s) => s.id === openServiceId) || services[0];
+
+  return (
+    <section className="home-services-accordion-section" id="services" aria-label="Our Services">
+      {/* Light sky blue ambient circular glow */}
+      <div className="home-services-ambient-circle-left" aria-hidden="true" />
+      <div className="home-services-ambient-circle-right" aria-hidden="true" />
+
+      <div className="home-services-container">
+        {/* Header pill badge and subtitle matching screenshot */}
+        <div className="home-services-header">
+          <div className="home-services-pill-badge">
+            <h2>Our Services</h2>
+          </div>
+          <p className="home-services-subtitle">
+            From strategy to execution , our winning combination of innovative thinking, scentific design, sophisticated development , and ongoing analysis ensure we're delivering value to help you grow.
+          </p>
+        </div>
+
+        {/* Two-column layout: Left image with vertical Call Now, Right exclusive accordion */}
+        <div className="home-services-body-grid">
+          {/* Left Column: Changes image dynamically based on selected service */}
+          <div className="home-services-visual-col">
+            <a
+              href="tel:+919876543210"
+              className="home-services-call-now-vertical"
+              aria-label="Call Now for Inquiries"
+              title="Call Now"
+            >
+              <span>Call Now</span>
+            </a>
+
+            <div className="home-services-image-frame">
+              <img
+                key={activeService.id}
+                src={activeService.image}
+                alt={activeService.imageAlt}
+                className="home-services-showcase-img"
+                loading="eager"
+                width={640}
+                height={400}
+              />
+              <div className="home-services-image-glow-overlay" aria-hidden="true" />
+            </div>
+          </div>
+
+          {/* Right Column: Exclusive Accordion of 4 Services */}
+          <div className="home-services-accordion-col">
+            {services.map((service) => {
+              const isOpen = openServiceId === service.id;
+              return (
+                <div
+                  key={service.id}
+                  className={`home-service-acc-item ${isOpen ? "is-open" : ""}`}
+                >
+                  <button
+                    type="button"
+                    className="home-service-acc-trigger"
+                    onClick={() => handleToggle(service.id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`service-content-${service.id}`}
+                  >
+                    <div className="home-service-acc-title-wrap">
+                      <span className="home-service-acc-num">{service.number}</span>
+                      <span className="home-service-acc-title">{service.title}</span>
+                    </div>
+
+                    <div className={`home-service-acc-arrow ${isOpen ? "is-rotated" : ""}`} aria-hidden="true">
+                      <ChevronDown size={22} />
+                    </div>
+                  </button>
+
+                  <div
+                    id={`service-content-${service.id}`}
+                    className={`home-service-acc-content-wrapper ${isOpen ? "is-expanded" : ""}`}
+                  >
+                    <div className="home-service-acc-content-inner">
+                      <div className="home-service-acc-tagline">{service.shortTagline}</div>
+                      <p className="home-service-acc-desc">{service.description}</p>
+
+                      <div className="home-service-acc-features-list">
+                        {service.features.map((feature, idx) => (
+                          <div key={idx} className="home-service-feature-row">
+                            <CheckCircle2 size={15} className="home-service-feature-check" />
+                            <span>{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="home-service-tech-pills">
+                        {service.techStack.map((tech, idx) => (
+                          <span key={idx} className="home-service-tech-pill">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="home-service-acc-footer">
+                        <Link to={service.linkTo} className="home-service-acc-cta">
+                          <span>{service.linkText}</span>
+                          <ArrowUpRight size={15} />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

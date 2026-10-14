@@ -1,4 +1,4 @@
-import ssLogo from "@/assets/sslogo.png";
+import ssLogo from "@/assets/logo-reference.png";
 import bookDesignImage from "@/assets/book-design.jpg";
 import boxDesignServiceImg from "@/assets/boxdesign.png";
 import catalogueDesignServiceImg from "@/assets/cateloguedeisgn.png";

@@ -62,7 +62,16 @@ export function SiteHeader() {
       
       {/* Brand Logo & Small-Screen Pendant Lamp Group */}
       <div className="nav-brand-group">
-        <Link to="/" className="wordmark brand-logo-wrap" aria-label={`${portfolio.name} home`}>
+        <Link
+          to="/"
+          className="wordmark brand-logo-wrap"
+          aria-label={`${portfolio.name} home`}
+          onClick={() => {
+            if (typeof window !== "undefined") {
+              window.dispatchEvent(new CustomEvent("ss_replay_logo_intro"));
+            }
+          }}
+        >
           <img src={portfolio.logo} alt={portfolio.name} className="site-logo-img" />
         </Link>
 
