@@ -2,8 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUp, ArrowUpRight, Mail, MapPin, MessageCircle, Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portfolio } from "@/lib/portfolioData";
+import { DottedSquare8x8 } from "@/components/DottedSquare8x8";
 
-export function SiteFooter() {
+export function SiteFooter({ showDottedSquares = false }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -11,8 +12,37 @@ export function SiteFooter() {
   const disciplines = portfolio.nav.find((n) => n.id === "works")?.dropdown || [];
 
   return (
-    <footer className="site-footer-expanded" aria-label="Site Footer">
-      {/* Top Banner Callout */}
+    <footer className={`site-footer-expanded ${showDottedSquares ? "has-dotted-squares" : ""}`} aria-label="Site Footer">
+      {/* 5 x 8X8 Dotted Squares at random positions in footer */}
+      {showDottedSquares && (
+        <div className="footer-dotted-squares-container" aria-hidden="true">
+          <DottedSquare8x8
+            className="footer-dot-square footer-dot-1"
+            size={76}
+            style={{ top: "12%", left: "4%", transform: "rotate(-6deg)" }}
+          />
+          <DottedSquare8x8
+            className="footer-dot-square footer-dot-2"
+            size={84}
+            style={{ top: "22%", right: "6%", transform: "rotate(8deg)" }}
+          />
+          <DottedSquare8x8
+            className="footer-dot-square footer-dot-3"
+            size={68}
+            style={{ bottom: "28%", left: "16%", transform: "rotate(4deg)" }}
+          />
+          <DottedSquare8x8
+            className="footer-dot-square footer-dot-4"
+            size={72}
+            style={{ bottom: "16%", right: "12%", transform: "rotate(-12deg)" }}
+          />
+          <DottedSquare8x8
+            className="footer-dot-square footer-dot-5"
+            size={80}
+            style={{ top: "54%", left: "44%", transform: "rotate(3deg)" }}
+          />
+        </div>
+      )}
 
 
       {/* Main 4-Column Grid */}

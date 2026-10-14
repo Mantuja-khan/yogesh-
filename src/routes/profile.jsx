@@ -7,6 +7,7 @@ import { Page3DBackdrop } from "@/components/ClientCanvas";
 import { StudioMascot } from "@/components/StudioMascot";
 import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
+import { DottedSquare8x8 } from "@/components/DottedSquare8x8";
 import missionBg from "@/assets/mission-bg.jpg";
 import visionBg from "@/assets/vision-bg.jpg";
 
@@ -39,10 +40,40 @@ function ProfilePage() {
 
       <main className="page-main">
         {/* Page Hero Header */}
-        <section className="page-header-section page-header-3d">
+        <section className="page-header-section page-header-3d profile-header-hero">
           <div className="page-header-3d-stage" aria-hidden="true">
             <Page3DBackdrop />
           </div>
+
+          {/* 5 x 8X8 Dotted Squares at random positions in Hero Section */}
+          <div className="profile-hero-dotted-squares" aria-hidden="true">
+            <DottedSquare8x8
+              className="about-hero-dot about-hero-dot-1"
+              size={76}
+              style={{ top: "12%", left: "4%", transform: "rotate(-6deg)" }}
+            />
+            <DottedSquare8x8
+              className="about-hero-dot about-hero-dot-2"
+              size={82}
+              style={{ top: "16%", right: "7%", transform: "rotate(8deg)" }}
+            />
+            <DottedSquare8x8
+              className="about-hero-dot about-hero-dot-3"
+              size={68}
+              style={{ top: "68%", left: "8%", transform: "rotate(4deg)" }}
+            />
+            <DottedSquare8x8
+              className="about-hero-dot about-hero-dot-4"
+              size={74}
+              style={{ bottom: "10%", right: "14%", transform: "rotate(-10deg)" }}
+            />
+            <DottedSquare8x8
+              className="about-hero-dot about-hero-dot-5"
+              size={80}
+              style={{ top: "32%", left: "50%", transform: "rotate(3deg)" }}
+            />
+          </div>
+
           <div className="page-header-inner page-header-with-mascot">
             <div className="page-header-text">
               <p className="section-index">
@@ -199,7 +230,7 @@ function ProfilePage() {
         {/* CTA Banner */}
       </main>
 
-      <SiteFooter />
+      <SiteFooter showDottedSquares={true} />
     </div>
   );
 }

@@ -44,20 +44,23 @@ export function SiteHeader() {
     setMobileWorksOpen(false);
   }, [currentPath]);
 
-  // Prevent background scroll when mobile menu is open
+  // Prevent background scroll and suppress floating elements when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
+      document.body.classList.add("mobile-menu-is-open");
     } else {
       document.body.style.overflow = "";
+      document.body.classList.remove("mobile-menu-is-open");
     }
     return () => {
       document.body.style.overflow = "";
+      document.body.classList.remove("mobile-menu-is-open");
     };
   }, [menuOpen]);
 
   return (
-    <header className={`editorial-nav ${isScrolled || menuOpen ? "is-scrolled" : ""}`}>
+    <header className={`editorial-nav ${isScrolled || menuOpen ? "is-scrolled" : ""} ${menuOpen ? "is-menu-open" : ""}`}>
       <div className="scroll-progress-bar" aria-hidden="true" />
       
       {/* Brand Logo & Small-Screen Pendant Lamp Group */}
