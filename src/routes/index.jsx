@@ -201,14 +201,17 @@ function HomePage() {
             </svg>
 
             {/* Hanging Pendant Ceiling Lamp with Golden Cap & Warm Downward Glow */}
-            <div className="hero-pendant-lamp-wrapper">
-              <div className="hero-lamp-glow-cone" />
-              <img
-                src={pendantLampImg}
-                alt=""
-                className="hero-pendant-lamp-img"
-                draggable={false}
-              />
+            <div className="hero-pendant-lamp-wrapper" aria-hidden="true">
+              <div className="hero-pendant-lamp-swing">
+                <div className="hero-pendant-lamp-cord" />
+                <img
+                  src={pendantLampImg}
+                  alt="Pendant Ceiling Lamp"
+                  className="hero-pendant-lamp-img"
+                  draggable={false}
+                />
+                <div className="hero-lamp-glow-cone" />
+              </div>
             </div>
           </div>
 
@@ -443,20 +446,6 @@ function HomePage() {
 
       <SiteFooter />
       <FloatingWhatsApp />
-
-      {/* Floating Action Trigger: Replay Logo Preloader Animation Anytime */}
-      <button
-        type="button"
-        className="site-logo-reveal-trigger"
-        onClick={() => setShowPreloader(true)}
-        title="Replay Preloader Animation"
-        aria-label="Replay Logo Preloader Animation"
-      >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-          <polygon points="5 3 19 12 5 21 5 3" />
-        </svg>
-        <span>Logo Preloader</span>
-      </button>
     </div>
   );
 }
@@ -1331,14 +1320,8 @@ function BrandPerformanceSection() {
           </p>
 
           <h2 className="brands-performance-title">
-            <TextReveal delay={0.16} stagger={0.05}>
-              We Build Brands That Performs –
-            </TextReveal>{" "}
-            <span className="brands-guaranteed-text">
-              <TextReveal delay={0.35} stagger={0.05}>
-                Guaranteed.
-              </TextReveal>
-            </span>
+            <span>We Build Brands That Performs – </span>
+            <span className="brands-guaranteed-text">Guaranteed.</span>
           </h2>
         </div>
 
