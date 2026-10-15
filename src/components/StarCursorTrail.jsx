@@ -187,7 +187,7 @@ export function StarCursorTrail({ className = "", countMultiplier = 1, colors })
             currentSize * 0.25,
             p.rotation,
             p.color,
-            alpha
+            alpha,
           );
         } else {
           ctx.save();

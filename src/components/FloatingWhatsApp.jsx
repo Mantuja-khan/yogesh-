@@ -32,9 +32,7 @@ export function FloatingWhatsApp() {
         </svg>
 
         {/* Hover Tooltip Label */}
-        <span className="whatsapp-tooltip-tag">
-          Chat on WhatsApp
-        </span>
+        <span className="whatsapp-tooltip-tag">Chat on WhatsApp</span>
       </a>
     </aside>
   );

@@ -1,157 +1,269 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUp, ArrowUpRight, Mail, MapPin, MessageCircle, Phone, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowUp, ArrowUpRight, Star } from "lucide-react";
 import { portfolio } from "@/lib/portfolioData";
-import { DottedSquare8x8 } from "@/components/DottedSquare8x8";
 
 export function SiteFooter({ showDottedSquares = false }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const disciplines = portfolio.nav.find((n) => n.id === "works")?.dropdown || [];
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    const input = e.target.elements?.email;
+    if (input && input.value) {
+      alert("Thank you for subscribing to our weekly newsletter!");
+      input.value = "";
+    }
+  };
 
   return (
-    <footer className={`site-footer-expanded ${showDottedSquares ? "has-dotted-squares" : ""}`} aria-label="Site Footer">
-      {/* 5 x 8X8 Dotted Squares at random positions in footer */}
-      {showDottedSquares && (
-        <div className="footer-dotted-squares-container" aria-hidden="true">
-          <DottedSquare8x8
-            className="footer-dot-square footer-dot-1"
-            size={76}
-            style={{ top: "12%", left: "4%", transform: "rotate(-6deg)" }}
-          />
-          <DottedSquare8x8
-            className="footer-dot-square footer-dot-2"
-            size={84}
-            style={{ top: "22%", right: "6%", transform: "rotate(8deg)" }}
-          />
-          <DottedSquare8x8
-            className="footer-dot-square footer-dot-3"
-            size={68}
-            style={{ bottom: "28%", left: "16%", transform: "rotate(4deg)" }}
-          />
-          <DottedSquare8x8
-            className="footer-dot-square footer-dot-4"
-            size={72}
-            style={{ bottom: "16%", right: "12%", transform: "rotate(-12deg)" }}
-          />
-          <DottedSquare8x8
-            className="footer-dot-square footer-dot-5"
-            size={80}
-            style={{ top: "54%", left: "44%", transform: "rotate(3deg)" }}
-          />
-        </div>
-      )}
+    <footer className="site-footer-expanded" aria-label="Site Footer">
+      {/* Floating Vertical 'Call Now' Tab on far left matching Image 2 */}
+      <a
+        href="tel:+919671445186"
+        className="footer-call-now-tab"
+        aria-label="Call Now"
+        title="Call Now"
+      >
+        <span>Call Now</span>
+      </a>
 
-
-      {/* Main 4-Column Grid */}
-      <div className="footer-top-grid">
-        {/* Brand & Studio Identity */}
-        <div className="footer-brand-col">
-          <Link to="/" className="brand-logo-wrap footer-brand-logo-link" aria-label={`${portfolio.name} home`}>
-            <img src={portfolio.logo} alt={portfolio.name} className="site-logo-img footer-logo" />
-            <div className="footer-brand-meta">
-              <span className="footer-brand-name">SS PRODUCTION HOUSE</span>
-              <span className="footer-brand-title">Yogesh Dahiya · Visual Director</span>
+      {/* Main 3-Column Modern Grid matching Image 2 */}
+      <div className="footer-image-two-grid">
+        {/* Column 1: Brand Logo, Taglines, Status Pill, Google My Business, Newsletter */}
+        <div className="footer-brand-hero-col">
+          <Link to="/" className="footer-brand-logo-link" aria-label="SS Production House home">
+            <img
+              src={portfolio.logo}
+              alt={portfolio.name}
+              className="footer-hero-logo-img"
+            />
+            <div className="footer-brand-firm-text-wrap">
+              <span className="footer-brand-firm-title">SS production house</span>
+              <span className="footer-brand-firm-sub">Visual &amp; Packaging Studio</span>
             </div>
           </Link>
-          <p className="footer-brand-desc">{portfolio.intro}</p>
-          <div className="footer-status-pill">
-            <span className="status-dot" />
-            <span>Accepting 2026 Design Briefs</span>
-          </div>
+
+          <h3 className="footer-hero-brand-title">
+            Trusted Partners In Digital Innovation.
+          </h3>
+          <p className="footer-hero-brand-desc">
+            Our developers and visual designers excel in both tech and design, crafting innovative solutions that command attention.
+          </p>
+
+          {/* Accepting 2026 Design Briefs Section */}
+
+
+          {/* Google My Business Review Badge directly below Accepting 2026 Design Briefs */}
+          <GoogleMyBusinessBadge />
+
+          {/* Weekly Newsletter Form matching Image 2 */}
+
         </div>
 
-        {/* Quick Navigation */}
-        <div className="footer-links-col">
-          <span className="footer-col-title">Navigation</span>
-          <ul className="footer-nav-list">
-            <li><Link to="/">Home Overview</Link></li>
-            <li><Link to="/profile">Designer Profile</Link></li>
-            <li><Link to="/services">Services &amp; Scope</Link></li>
-            <li><Link to="/works">Works &amp; 3D Stills</Link></li>
-            <li><Link to="/clients">Clients &amp; Testimonials</Link></li>
-            <li><Link to="/contact">Contact &amp; Inquiries</Link></li>
+        {/* Column 2: Our Works */}
+        <div className="footer-col-our-works">
+          <span className="footer-column-title">Our Works</span>
+          <ul className="footer-links-list-clean">
+            <li>
+              <Link to="/works">All Projects</Link>
+            </li>
+            <li>
+              <Link to="/works" search={{ category: "box-design" }}>
+                Box Design
+              </Link>
+            </li>
+            <li>
+              <Link to="/works" search={{ category: "book-design" }}>
+                Book Design
+              </Link>
+            </li>
+            <li>
+              <Link to="/works" search={{ category: "label-design" }}>
+                Label Design
+              </Link>
+            </li>
+            <li>
+              <Link to="/works" search={{ category: "logo-design" }}>
+                Logo Design
+              </Link>
+            </li>
+            <li>
+              <Link to="/works" search={{ category: "product-photoshoot" }}>
+                Product Photoshoot
+              </Link>
+            </li>
+            <li>
+              <Link to="/works" search={{ category: "mockup" }}>
+                Mockups
+              </Link>
+            </li>
+            <li>
+              <Link to="/works" search={{ category: "visiting-card" }}>
+                Visiting Card
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* Creative Disciplines */}
-        <div className="footer-links-col">
-          <span className="footer-col-title">Creative Disciplines</span>
-          <ul className="footer-nav-list">
-            {disciplines.map((item) => (
-              <li key={item.id}>
-                <Link to="/works" search={{ category: item.id }} className="footer-discipline-link">
-                  <span>{item.label}</span>
-                  <ArrowUpRight className="footer-discipline-arrow" />
-                </Link>
-              </li>
-            ))}
+        {/* Column 3: Services matching Image 2 */}
+        <div className="footer-col-services">
+          <span className="footer-column-title">Services</span>
+          <ul className="footer-links-list-clean">
+            <li>
+              <Link to="/services">Web Development</Link>
+            </li>
+            <li>
+              <Link to="/services">App Development</Link>
+            </li>
+            <li>
+              <Link to="/works" search={{ category: "box-design" }}>
+                E-Commerce
+              </Link>
+            </li>
+            <li>
+              <Link to="/works" search={{ category: "logo-design" }}>
+                Graphic Design
+              </Link>
+            </li>
+            <li>
+              <Link to="/works" search={{ category: "box-design" }}>
+                Packaging Design
+              </Link>
+            </li>
+            <li>
+              <Link to="/works" search={{ category: "product-photoshoot" }}>
+                Product Photoshoot
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* Direct Studio Contact */}
-        <div className="footer-links-col footer-contact-col">
-          <span className="footer-col-title">Studio Direct</span>
-          <div className="footer-contact-item">
-            <Mail className="w-4 h-4 footer-contact-icon" />
-            <div>
-              <span className="footer-contact-label">Email Inquiries</span>
-              <a href={`mailto:${portfolio.email}`} className="footer-contact-value">{portfolio.email}</a>
-            </div>
+        {/* Column 3: Get Started, Contact Us, Payment Trust Cards matching Image 2 */}
+        <div className="footer-col-get-started">
+          <span className="footer-column-title">Get Started</span>
+          <ul className="footer-links-list-clean">
+            <li>
+              <Link to="/contact">Start a Project</Link>
+            </li>
+            <li>
+              <Link to="/contact">Schedule a free call</Link>
+            </li>
+          </ul>
+
+          <div className="footer-contact-details-group">
+            <span className="footer-column-title" style={{ marginBottom: "2px" }}>
+              Contact Us
+            </span>
+            <a href={`mailto:${portfolio.email || "info@ssproductionhouse.com"}`}>
+              {portfolio.email || "info@ssproductionhouse.com"}
+            </a>
+            <a href="tel:+919671445186">( 817 ) 799-8644 · +91-9671445186</a>
+            <p>DLF Cyber City, Phase II, Gurugram, Haryana 122002, India</p>
           </div>
 
-          <div className="footer-contact-item">
-            <Phone className="w-4 h-4 footer-contact-icon" />
-            <div>
-              <span className="footer-contact-label">Direct Line / Phone</span>
-              <a href={`tel:${portfolio.phone}`} className="footer-contact-value">{portfolio.phone}</a>
-            </div>
-          </div>
+          {/* Payment Trust Cards Row matching Image 2 */}
 
-          <div className="footer-contact-item">
-            <MapPin className="w-4 h-4 footer-contact-icon" />
-            <div>
-              <span className="footer-contact-label">Studio Base</span>
-              <span className="footer-contact-value">{portfolio.location}</span>
-            </div>
-          </div>
-
-          {/* Social Icons Row */}
-          <div className="footer-socials-pill-row">
-            {["Instagram", "Behance", "LinkedIn"].map((s) => (
-              <a
-                key={s}
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-social-pill"
-                title={`Visit ${s}`}
-              >
-                {s}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="site-footer">
-        <p className="site-footer-copyright">
-          © {new Date().getFullYear()} {portfolio.name} · Yogesh Dahiya. All rights reserved. Crafted for visionary brands with architectural precision.
-        </p>
+      {/* Bottom Row matching Image 2 */}
+      <div className="footer-bottom-image-two-bar">
+        <span>
+          © {new Date().getFullYear()} {portfolio.name} · softlogicsolutionsllc. All rights reserved.
+        </span>
 
-        <Button
-          variant="ghost"
-          onClick={scrollToTop}
-          className="footer-back-top-btn"
-          aria-label="Scroll back to top of page"
-        >
-          <span>Back to top</span>
-          <ArrowUp className="w-3.5 h-3.5" />
-        </Button>
+        <div className="footer-bottom-links">
+          <Link to="/contact">Terms &amp; Conditions</Link>
+          <Link to="/contact">Privacy Policy</Link>
+          <button
+            type="button"
+            onClick={scrollToTop}
+            style={{
+              background: "transparent",
+              border: "none",
+              color: "rgba(255, 255, 255, 0.7)",
+              cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "4px",
+              fontSize: "12px",
+            }}
+          >
+            <span>Top</span>
+            <ArrowUp className="w-3.5 h-3.5" />
+          </button>
+        </div>
       </div>
     </footer>
+  );
+}
+
+{/* Google My Business Component matching Image 1 */ }
+function GoogleMyBusinessBadge() {
+  return (
+    <div
+      className="google-my-business-badge-card"
+      aria-label="Google My Business Rating for SS Production House"
+    >
+      {/* Left: Google Store Awning Logo + Text */}
+      <div className="gmb-logo-left">
+        <svg
+          className="gmb-store-svg"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          {/* Blue store base building */}
+          <rect x="6" y="18" width="36" height="24" rx="4" fill="#4285F4" />
+          <path d="M6 18H42V38C42 40.2 40.2 42 38 42H10C7.8 42 6 40.2 6 38V18Z" fill="#1A73E8" />
+          {/* Awning Scallops */}
+          <path d="M6 14C6 11.8 7.8 10 10 10H14L13 22H6V14Z" fill="#669DF6" />
+          <path d="M14 10H20L19 22H13L14 10Z" fill="#4285F4" />
+          <path d="M20 10H28L27 22H19L20 10Z" fill="#1A73E8" />
+          <path d="M28 10H34L35 22H27L28 10Z" fill="#4285F4" />
+          <path d="M34 10H38C40.2 10 42 11.8 42 14V22H35L34 10Z" fill="#669DF6" />
+          {/* White 'G' in store window */}
+          <circle cx="24" cy="30" r="7.5" fill="#FFFFFF" />
+          <path
+            d="M24 25.5C21.5 25.5 19.5 27.5 19.5 30C19.5 32.5 21.5 34.5 24 34.5C26.5 34.5 28.2 32.7 28.2 30.2H24V28.5H30.1C30.2 29 30.2 29.6 30.2 30.2C30.2 33.8 27.8 36.3 24 36.3C20.5 36.3 17.7 33.5 17.7 30C17.7 26.5 20.5 23.7 24 23.7C25.7 23.7 27.2 24.3 28.3 25.4L26.9 26.8C26.2 26.1 25.2 25.5 24 25.5Z"
+            fill="#1A73E8"
+          />
+        </svg>
+
+        <div className="gmb-brand-text">
+          <span className="gmb-google-word">
+            <span style={{ color: "#4285F4" }}>G</span>
+            <span style={{ color: "#EA4335" }}>o</span>
+            <span style={{ color: "#FBBC05" }}>o</span>
+            <span style={{ color: "#4285F4" }}>g</span>
+            <span style={{ color: "#34A853" }}>l</span>
+            <span style={{ color: "#EA4335" }}>e</span>
+          </span>
+          <span className="gmb-my-business-sub">My Business</span>
+        </div>
+      </div>
+
+      {/* Vertical Divider Line */}
+      <div className="gmb-vertical-divider" aria-hidden="true" />
+
+      {/* Right: Agency Name, 4.6 Stars, Location */}
+      <div className="gmb-info-right">
+        <h4 className="gmb-agency-title">Crux Creative Solutions</h4>
+        <div className="gmb-rating-row">
+          <span className="gmb-score-num">4.6</span>
+          <div className="gmb-stars-row" aria-label="4.6 out of 5 stars">
+            <Star className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
+            <Star className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
+            <Star className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
+            <Star className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
+            <Star className="w-3.5 h-3.5 fill-[#F59E0B]/70 text-[#F59E0B]" />
+          </div>
+          <span className="gmb-reviews-count">105 Google reviews</span>
+        </div>
+        <p className="gmb-agency-location">Advertising agency in Gurgaon, Haryana</p>
+      </div>
+    </div>
   );
 }

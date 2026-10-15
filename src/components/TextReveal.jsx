@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 /**
  * TextReveal Component
  * Reveals text word-by-word with high-end editorial masked glide-up animation.
- * 
+ *
  * Props:
  * - text: string (optional, or use children)
  * - as: string or component tag (default "span")
@@ -50,7 +50,7 @@ export function TextReveal({
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -30px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -30px 0px" },
     );
 
     observer.observe(element);

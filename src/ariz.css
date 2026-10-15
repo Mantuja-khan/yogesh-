@@ -2,23 +2,23 @@
    ARIZ PORTFOLIO EDITORIAL DESIGN SYSTEM (Matches Reference Mockup)
    ========================================================================== */
 .ariz-page {
-  background-color: #FAF8F5;
-  color: #1A1A1A;
-  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  background-color: #faf8f5;
+  color: #1a1a1a;
+  font-family: "Plus Jakarta Sans", "Poppins", sans-serif;
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
 }
 
 .ariz-serif-italic {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
   font-weight: 600;
-  color: #B88E3E;
+  color: #b88e3e;
 }
 
 .ariz-gold-accent {
-  color: #B88E3E;
+  color: #b88e3e;
 }
 
 .ariz-kicker {
@@ -27,7 +27,7 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #B88E3E;
+  color: #b88e3e;
   margin-bottom: 0.5rem;
 }
 
@@ -73,11 +73,11 @@
 }
 
 .ariz-brand-mark {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
   font-weight: 700;
   font-size: 1.5rem;
-  color: #B88E3E;
+  color: #b88e3e;
   letter-spacing: -0.04em;
   line-height: 1;
 }
@@ -104,14 +104,14 @@
 .ariz-nav-link {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #4A4A4A;
+  color: #4a4a4a;
   transition: color 0.2s ease;
   text-decoration: none;
 }
 
 .ariz-nav-link:hover,
 .ariz-nav-link.active {
-  color: #B88E3E;
+  color: #b88e3e;
 }
 
 .ariz-btn-talk {
@@ -119,7 +119,7 @@
   align-items: center;
   gap: 0.35rem;
   background-color: #141414;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 0.55rem 1.25rem;
   border-radius: 9999px;
   font-size: 0.84rem;
@@ -172,7 +172,7 @@
   border-radius: 9999px;
   background-color: rgba(235, 222, 198, 0.55);
   border: 1px solid rgba(184, 142, 62, 0.35);
-  color: #8C6621;
+  color: #8c6621;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -222,7 +222,7 @@
   align-items: center;
   gap: 0.45rem;
   background-color: #141414;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 0.8rem 1.65rem;
   border-radius: 9999px;
   font-size: 0.9rem;
@@ -233,7 +233,7 @@
 }
 
 .ariz-btn-primary:hover {
-  background-color: #2B2B2B;
+  background-color: #2b2b2b;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
 }
@@ -243,8 +243,8 @@
   align-items: center;
   gap: 0.45rem;
   background-color: transparent;
-  color: #2D271D;
-  border: 1.5px solid #D5C7B2;
+  color: #2d271d;
+  border: 1.5px solid #d5c7b2;
   padding: 0.78rem 1.65rem;
   border-radius: 9999px;
   font-size: 0.9rem;
@@ -255,7 +255,7 @@
 
 .ariz-btn-outline:hover {
   background-color: rgba(235, 222, 198, 0.35);
-  border-color: #B88E3E;
+  border-color: #b88e3e;
   color: #161616;
   transform: translateY(-2px);
 }
@@ -271,7 +271,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #8A8175;
+  color: #8a8175;
 }
 
 .ariz-social-icon {
@@ -282,16 +282,16 @@
   height: 34px;
   border-radius: 50%;
   border: 1px solid rgba(138, 129, 117, 0.3);
-  color: #38342E;
+  color: #38342e;
   transition: all 0.2s ease;
   text-decoration: none;
 }
 
 .ariz-social-icon:hover {
-  border-color: #B88E3E;
-  color: #B88E3E;
+  border-color: #b88e3e;
+  color: #b88e3e;
   transform: translateY(-2px);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 /* Hero Portrait & Concentric Circles */
@@ -307,7 +307,12 @@
   width: 440px;
   height: 440px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(238, 227, 207, 0.8) 0%, rgba(246, 240, 228, 0.35) 60%, transparent 75%);
+  background: radial-gradient(
+    circle,
+    rgba(238, 227, 207, 0.8) 0%,
+    rgba(246, 240, 228, 0.35) 60%,
+    transparent 75%
+  );
   pointer-events: none;
   z-index: 1;
 }
@@ -339,7 +344,9 @@
   max-width: 420px;
   border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 20px 45px -12px rgba(138, 112, 60, 0.15), 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 20px 45px -12px rgba(138, 112, 60, 0.15),
+    0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .ariz-portrait-img {
@@ -355,7 +362,7 @@
   top: 15%;
   left: -20px;
   z-index: 3;
-  background: #FFFFFF;
+  background: #ffffff;
   border: 1px solid rgba(220, 208, 188, 0.7);
   padding: 0.75rem 1rem;
   border-radius: 16px;
@@ -382,7 +389,7 @@
 /* About Me Section */
 .ariz-about-section {
   padding: 5rem 1.5rem;
-  background-color: #FAF8F5;
+  background-color: #faf8f5;
   position: relative;
 }
 
@@ -425,15 +432,15 @@
   position: absolute;
   bottom: -15px;
   left: 20px;
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 0.6rem 1.5rem;
   border-radius: 14px;
   border: 1px solid rgba(220, 208, 188, 0.8);
   box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
   font-size: 1.5rem;
-  color: #B88E3E;
+  color: #b88e3e;
   font-weight: 700;
 }
 
@@ -470,7 +477,7 @@
 }
 
 .ariz-stat-icon {
-  color: #B88E3E;
+  color: #b88e3e;
   margin-bottom: 0.35rem;
 }
 
@@ -483,14 +490,14 @@
 
 .ariz-stat-lbl {
   font-size: 0.78rem;
-  color: #6C665D;
+  color: #6c665d;
   line-height: 1.3;
 }
 
 /* Services Section */
 .ariz-services-section {
   padding: 5rem 1.5rem;
-  background-color: #FAF8F5;
+  background-color: #faf8f5;
   text-align: center;
 }
 
@@ -520,8 +527,8 @@
 }
 
 .ariz-service-card {
-  background: #FFFFFF;
-  border: 1px solid #ECE4D7;
+  background: #ffffff;
+  border: 1px solid #ece4d7;
   border-radius: 20px;
   padding: 2.25rem 1.5rem;
   display: flex;
@@ -533,7 +540,7 @@
 
 .ariz-service-card:hover {
   transform: translateY(-5px);
-  border-color: #B88E3E;
+  border-color: #b88e3e;
   box-shadow: 0 14px 30px -8px rgba(184, 142, 62, 0.12);
 }
 
@@ -545,14 +552,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #B88E3E;
+  color: #b88e3e;
   margin-bottom: 1.25rem;
   transition: all 0.25s ease;
 }
 
 .ariz-service-card:hover .ariz-service-icon-wrap {
-  background-color: #B88E3E;
-  color: #FFFFFF;
+  background-color: #b88e3e;
+  color: #ffffff;
 }
 
 .ariz-service-name {
@@ -565,13 +572,13 @@
 .ariz-service-desc {
   font-size: 0.85rem;
   line-height: 1.55;
-  color: #6C665D;
+  color: #6c665d;
 }
 
 /* Skills & Tools Section */
 .ariz-skills-section {
   padding: 5rem 1.5rem;
-  background-color: #FAF8F5;
+  background-color: #faf8f5;
 }
 
 .ariz-skills-container {
@@ -605,20 +612,20 @@
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #2D271D;
+  color: #2d271d;
 }
 
 .ariz-skill-bar-bg {
   width: 100%;
   height: 7px;
   border-radius: 9999px;
-  background-color: #EAE3D6;
+  background-color: #eae3d6;
   overflow: hidden;
 }
 
 .ariz-skill-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #D4AF37, #B88E3E);
+  background: linear-gradient(90deg, #d4af37, #b88e3e);
   border-radius: 9999px;
   transition: width 1s ease-in-out;
 }
@@ -636,8 +643,8 @@
 }
 
 .ariz-tech-card {
-  background: #FFFFFF;
-  border: 1px solid #ECE4D7;
+  background: #ffffff;
+  border: 1px solid #ece4d7;
   border-radius: 16px;
   padding: 1.15rem 0.6rem;
   display: flex;
@@ -651,7 +658,7 @@
 
 .ariz-tech-card:hover {
   transform: translateY(-4px);
-  border-color: #B88E3E;
+  border-color: #b88e3e;
   box-shadow: 0 10px 22px -6px rgba(184, 142, 62, 0.12);
 }
 
@@ -669,14 +676,14 @@
 .ariz-tech-name {
   font-size: 0.76rem;
   font-weight: 600;
-  color: #38342E;
+  color: #38342e;
   text-align: center;
 }
 
 /* Featured Projects Section */
 .ariz-projects-section {
   padding: 5rem 1.5rem;
-  background-color: #FAF8F5;
+  background-color: #faf8f5;
 }
 
 .ariz-projects-container {
@@ -719,8 +726,8 @@
 }
 
 .ariz-project-card {
-  background: #FFFFFF;
-  border: 1px solid #ECE4D7;
+  background: #ffffff;
+  border: 1px solid #ece4d7;
   border-radius: 20px;
   overflow: hidden;
   display: flex;
@@ -732,7 +739,7 @@
 
 .ariz-project-card:hover {
   transform: translateY(-5px);
-  border-color: #B88E3E;
+  border-color: #b88e3e;
   box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.08);
 }
 
@@ -772,7 +779,7 @@
   align-items: center;
   justify-content: space-between;
   font-size: 0.8rem;
-  color: #8C8274;
+  color: #8c8274;
 }
 
 .ariz-project-meta svg {
@@ -781,13 +788,13 @@
 
 .ariz-project-card:hover .ariz-project-meta svg {
   transform: translate(2px, -2px);
-  color: #B88E3E;
+  color: #b88e3e;
 }
 
 /* Testimonials Section */
 .ariz-testimonials-section {
   padding: 5rem 1.5rem;
-  background-color: #FAF8F5;
+  background-color: #faf8f5;
   text-align: center;
 }
 
@@ -811,8 +818,8 @@
 }
 
 .ariz-testimonial-card {
-  background: #FFFFFF;
-  border: 1px solid #ECE4D7;
+  background: #ffffff;
+  border: 1px solid #ece4d7;
   border-radius: 20px;
   padding: 2.25rem 1.75rem;
   display: flex;
@@ -822,17 +829,17 @@
 }
 
 .ariz-quote-mark {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 2.5rem;
   line-height: 1;
-  color: #B88E3E;
+  color: #b88e3e;
   margin-bottom: 0.75rem;
 }
 
 .ariz-quote-text {
   font-size: 0.9rem;
   line-height: 1.65;
-  color: #4A4A4A;
+  color: #4a4a4a;
   margin-bottom: 1.75rem;
 }
 
@@ -847,15 +854,15 @@
   height: 44px;
   border-radius: 50%;
   object-fit: cover;
-  background-color: #E7DECE;
+  background-color: #e7dece;
 }
 
 .ariz-client-initials {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: #EFE8DC;
-  color: #8C6621;
+  background-color: #efe8dc;
+  color: #8c6621;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -871,7 +878,7 @@
 
 .ariz-client-role {
   font-size: 0.76rem;
-  color: #8A8175;
+  color: #8a8175;
 }
 
 .ariz-dots-row {
@@ -886,11 +893,11 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #DDD4C4;
+  background-color: #ddd4c4;
 }
 
 .ariz-dot.active {
-  background-color: #B88E3E;
+  background-color: #b88e3e;
   width: 20px;
   border-radius: 9999px;
 }
@@ -898,7 +905,7 @@
 /* Get In Touch Section */
 .ariz-contact-section {
   padding: 5rem 1.5rem 6.5rem;
-  background-color: #FAF8F5;
+  background-color: #faf8f5;
   position: relative;
   overflow: hidden;
 }
@@ -929,8 +936,8 @@
 }
 
 .ariz-contact-info-card {
-  background: #FFFFFF;
-  border: 1px solid #ECE4D7;
+  background: #ffffff;
+  border: 1px solid #ece4d7;
   border-radius: 16px;
   padding: 1rem 1.25rem;
   display: flex;
@@ -947,7 +954,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #B88E3E;
+  color: #b88e3e;
   flex-shrink: 0;
 }
 
@@ -956,7 +963,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #8C8274;
+  color: #8c8274;
 }
 
 .ariz-contact-card-value {
@@ -986,8 +993,8 @@
 .ariz-input,
 .ariz-textarea {
   width: 100%;
-  background: #FFFFFF;
-  border: 1px solid #ECE4D7;
+  background: #ffffff;
+  border: 1px solid #ece4d7;
   border-radius: 12px;
   padding: 0.9rem 1.25rem;
   font-size: 0.9rem;
@@ -999,12 +1006,12 @@
 
 .ariz-input::placeholder,
 .ariz-textarea::placeholder {
-  color: #A39B8F;
+  color: #a39b8f;
 }
 
 .ariz-input:focus,
 .ariz-textarea:focus {
-  border-color: #B88E3E;
+  border-color: #b88e3e;
   box-shadow: 0 0 0 3px rgba(184, 142, 62, 0.15);
 }
 
@@ -1018,8 +1025,8 @@
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  background: linear-gradient(135deg, #C5A059, #B88E3E);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #c5a059, #b88e3e);
+  color: #ffffff;
   padding: 0.85rem 1.85rem;
   border-radius: 9999px;
   font-size: 0.92rem;
@@ -1039,8 +1046,8 @@
 
 /* Footer Section */
 .ariz-footer {
-  background-color: #0E0E0E;
-  color: #EAEAEA;
+  background-color: #0e0e0e;
+  color: #eaeaea;
   padding: 4.5rem 1.5rem 2rem;
 }
 
@@ -1079,7 +1086,7 @@
 .ariz-footer-desc {
   font-size: 0.84rem;
   line-height: 1.6;
-  color: #8E8E8E;
+  color: #8e8e8e;
   margin-bottom: 1.5rem;
 }
 
@@ -1097,21 +1104,21 @@
   height: 32px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #AAAAAA;
+  color: #aaaaaa;
   transition: all 0.2s ease;
   text-decoration: none;
 }
 
 .ariz-footer-social a:hover {
-  border-color: #B88E3E;
-  color: #B88E3E;
+  border-color: #b88e3e;
+  color: #b88e3e;
   background-color: rgba(255, 255, 255, 0.05);
 }
 
 .ariz-footer-col-title {
   font-size: 0.88rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 1.25rem;
 }
 
@@ -1126,13 +1133,13 @@
 
 .ariz-footer-links a {
   font-size: 0.82rem;
-  color: #8E8E8E;
+  color: #8e8e8e;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .ariz-footer-links a:hover {
-  color: #B88E3E;
+  color: #b88e3e;
 }
 
 .ariz-footer-cta-card {
@@ -1148,7 +1155,7 @@
 .ariz-footer-cta-text {
   font-size: 0.82rem;
   line-height: 1.5;
-  color: #8E8E8E;
+  color: #8e8e8e;
 }
 
 .ariz-btn-cta-gold {
@@ -1156,8 +1163,8 @@
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  background: linear-gradient(135deg, #C5A059, #B88E3E);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #c5a059, #b88e3e);
+  color: #ffffff;
   padding: 0.65rem 1.25rem;
   border-radius: 9999px;
   font-size: 0.82rem;
@@ -1179,7 +1186,7 @@
   justify-content: space-between;
   gap: 1rem;
   font-size: 0.78rem;
-  color: #6E6E6E;
+  color: #6e6e6e;
 }
 
 @media (min-width: 640px) {

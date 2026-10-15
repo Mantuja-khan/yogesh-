@@ -25,7 +25,7 @@ export function DottedSquare8x8({
           cy={offset + row * spacing}
           r={dotRadius}
           fill={dotColor}
-        />
+        />,
       );
     }
   }

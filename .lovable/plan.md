@@ -1,6 +1,7 @@
 # Premium Graphic Designer Portfolio
 
 ## What I’ll build
+
 - Replace the blank homepage with a complete, single-page portfolio for Mannu Khan.
 - Add a sticky transparent navigation with active-section tracking and mobile navigation.
 - Build the hero, selected work, about, services, process, testimonials, contact, and footer sections.
@@ -10,11 +11,13 @@
 - Make interactions keyboard-friendly, touch-friendly, responsive, and respectful of reduced-motion settings.
 
 ## Visual direction
+
 - Near-black studio canvas with warm off-white type, electric cyan, coral, lime, and violet accents.
 - Large editorial typography paired with clean body text.
 - Layered depth without a heavy 3D library: CSS transforms, gradients, shadows, masks, and restrained motion.
 
 ## Technical details
+
 - Implement page code in JavaScript/JSX only.
 - Extend the global Tailwind v4 design tokens and reusable animation utilities in the central stylesheet.
 - Add route-specific title, description, Open Graph, and social metadata.

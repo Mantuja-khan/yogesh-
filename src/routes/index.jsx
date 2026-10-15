@@ -23,6 +23,11 @@ import serviceGraphicDesignImg from "@/assets/service_graphic_design.jpg";
 import serviceUiUxImg from "@/assets/service_ui_ux_design.jpg";
 import serviceAppDevImg from "@/assets/service_app_dev.jpg";
 import { LogoPreloader } from "@/components/LogoPreloader";
+import { DottedSquare8x8 } from "@/components/DottedSquare8x8";
+import { PlaybookWorksSection } from "@/components/PlaybookWorksSection";
+import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
+import { HomeOurClientsSection } from "@/components/HomeOurClientsSection";
+import { HomeMarketingStatsShowcase } from "@/components/HomeMarketingStatsShowcase";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,6 +48,7 @@ function HomePage() {
   const [showPreloader, setShowPreloader] = useState(true);
   const cursorRef = useRef(null);
   const reelController = useRef(null);
+
 
   const handleHeroPointerMove = (e) => {
     const hero = document.getElementById("top");
@@ -151,7 +157,22 @@ function HomePage() {
       <main>
         {/* Responsive Custom Hero with Clean Borderless Visual */}
         <section className="editorial-hero custom-designer-hero" id="top">
-          {/* Studio Backdrop: Curved Sky-Blue Curves, Perspective Line & Hanging Pendant Lamp */}
+          {/* 5 x 8x8 Dotted Squares at random positions in Hero Section */}
+          <div className="profile-hero-dotted-squares" aria-hidden="true">
+
+            <DottedSquare8x8
+              className="about-hero-dot about-hero-dot-2"
+              size={82}
+              style={{ top: "18%", right: "8%", transform: "rotate(8deg)" }}
+            />
+            <DottedSquare8x8
+              className="about-hero-dot about-hero-dot-5"
+              size={80}
+              style={{ top: "34%", left: "48%", transform: "rotate(3deg)" }}
+            />
+          </div>
+
+          {/* Clean Studio Ambient Floor Backdrop (No sky blue circles) */}
           <div className="hero-studio-backdrop-scene" aria-hidden="true">
             <svg
               className="hero-backdrop-curves-svg"
@@ -161,90 +182,49 @@ function HomePage() {
               preserveAspectRatio="xMidYMid slice"
             >
               <defs>
-                <linearGradient id="skyWaveGradLeft" x1="0%" y1="0%" x2="50%" y2="100%">
-                  <stop offset="0%" stopColor="#67AFFB" />
-                  <stop offset="60%" stopColor="#89C4FD" />
-                  <stop offset="100%" stopColor="#A8D6FD" />
-                </linearGradient>
-                <linearGradient id="skyCircleGradCenter" x1="25%" y1="0%" x2="75%" y2="100%">
-                  <stop offset="0%" stopColor="#60ABFA" />
-                  <stop offset="50%" stopColor="#80C0FD" />
-                  <stop offset="100%" stopColor="#B3DAFE" />
-                </linearGradient>
                 <linearGradient id="studioAmbientFloor" x1="0%" y1="50%" x2="100%" y2="50%">
-                  <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
-                  <stop offset="42%" stopColor="#FFFFFF" stopOpacity="0" />
-                  <stop offset="70%" stopColor="#E6F2FE" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#D9ECFE" stopOpacity="0.95" />
+                  <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+                  <stop offset="100%" stopColor="#FFFFFF" stopOpacity="1" />
                 </linearGradient>
               </defs>
 
-              {/* Ambient Studio Floor Wash on Right */}
-              <rect x="0" y="0" width="1440" height="680" fill="url(#studioAmbientFloor)" />
-
-              {/* Continuous Organic Sky-Blue Wave flowing from Top-Left into the Circular Lamp Arch */}
-              <path
-                d="M -20 -20 L 0 90 C 80 65 160 60 240 68 C 320 76 390 105 450 140 C 495 170 525 220 575 220 C 640 215 700 125 740 -20 Z"
-                fill="url(#skyCircleGradCenter)"
-              />
-
-              {/* Architectural Perspective Line */}
-              <line
-                x1="575"
-                y1="220"
-                x2="1440"
-                y2="50"
-                stroke="#87BEFC"
-                strokeWidth="1.6"
-                strokeOpacity="0.85"
-              />
+              {/* Seamless Pure White Floor Wash */}
+              <rect x="0" y="0" width="1440" height="680" fill="#FFFFFF" />
             </svg>
-
-            {/* Hanging Pendant Ceiling Lamp with Golden Cap & Warm Downward Glow */}
-            <div className="hero-pendant-lamp-wrapper" aria-hidden="true">
-              <div className="hero-pendant-lamp-swing">
-                <div className="hero-pendant-lamp-cord" />
-                <img
-                  src={pendantLampImg}
-                  alt="Pendant Ceiling Lamp"
-                  className="hero-pendant-lamp-img"
-                  draggable={false}
-                />
-                <div className="hero-lamp-glow-cone" />
-              </div>
-            </div>
           </div>
 
           <div className="hero-banner-inner-grid">
             {/* Left Content Column */}
             <div className="hero-banner-content-col">
-              {/* Studio Brand Name at the Top of 'I AM, YOGESH DAHIYA' */}
-              <h2 className="hero-studio-top-brand">
-                <TextReveal triggerOnMount delay={0.06} stagger={0.05}>
-                  SS PRODUCTION HOUSE
+              {/* Studio Eyebrow Tag */}
+              <p className="hero-studio-top-brand">
+                <TextReveal triggerOnMount delay={0.06} stagger={0.04}>
+                  CREATIVE PACKAGING &amp; 3D VISUAL STUDIO
                 </TextReveal>
-              </h2>
+              </p>
 
-              <h1 className="hero-custom-h1" aria-label="I AM, YOGESH DAHIYA">
+              <h1 className="hero-custom-h1" aria-label="SS PRODUCTION HOUSE">
                 <span className="hero-custom-line-1">
+                  {/* Small Pendant Lamp: Positioned directly above the SS word */}
+
                   <TextReveal triggerOnMount delay={0.16} stagger={0.06}>
-                    I AM,
+                    SS
                   </TextReveal>
                 </span>
                 <span className="hero-custom-line-2">
                   <LetterCascade
-                    text="YOGESH DAHIYA"
+                    text="PRODUCTION HOUSE"
                     stiffness={350}
                     damping={8}
-                    staggerDuration={0.06}
-                    letterClassName={(i) => (i < 6 ? "hero-gold-text" : "hero-dark-text")}
+                    staggerDuration={0.05}
+                    letterClassName={(i) => (i < 10 ? "hero-blue-text" : "hero-dark-text")}
                   />
                 </span>
               </h1>
 
               <p className="hero-designer-role-tag">
                 <TextReveal triggerOnMount delay={0.52} stagger={0.035}>
-                  Graphic Designer &amp; Visual Director
+                  Graphic Designer &amp; Professional Director
                 </TextReveal>
               </p>
 
@@ -287,16 +267,25 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Right Visual Column (Borderless Clean Visual) */}
+            {/* Right Visual Column (Borderless Clean Visual with Designer Name Badge) */}
             <div className="hero-banner-visual-col">
               <div className="hero-clean-visual-wrap">
                 <img
                   src={heroSectionVideo}
-                  alt="Yogesh Dahiya - Graphic Designer & Visual Director"
+                  alt="Yogesh Dahiya - A Visual Designer"
                   className="hero-scene-character-image"
                   loading="eager"
                   draggable={false}
                 />
+                {/* Designer Identification Badge at bottom of hero section image */}
+                <div className="hero-designer-badge-card" aria-label="Yogesh Dahiya, A Visual Designer">
+                  <div className="hero-designer-badge-dot" aria-hidden="true" />
+                  <div className="hero-designer-badge-info">
+                    <span className="hero-designer-badge-name">Yogesh Dahiya</span>
+                    <span className="hero-designer-badge-sep" aria-hidden="true">|</span>
+                    <span className="hero-designer-badge-title">A Visual Designer</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -325,18 +314,15 @@ function HomePage() {
         {/* Client Logos Stepped Reel — Emerging from Right Side One by One with Pause & Drag */}
         <DraggableSteppedLogoReel clients={portfolio.clientLogos || []} />
 
-        {/* Selected Works Section */}
+        {/* Selected Works Draggable Reel Section (Drag Part on Homepage) */}
         <section className="portfolio-section work" id="work">
-          <div className="work-ambient-circle-left" aria-hidden="true" />
-          <div className="work-ambient-circle-right" aria-hidden="true" />
           <div className="section-intro">
             <p className="section-index">
               <span>01</span> <TextReveal delay={0.05}>Selected designs</TextReveal>
             </p>
-            <h2 className="work-section-compact-title">
-              <TextReveal delay={0.12} stagger={0.05}>
-                OUR GENUINE GRAPHIC WORKS.
-              </TextReveal>
+            <h2 className="two-tone-pill-heading" style={{ marginTop: "6px" }}>
+              <span className="pill-prefix">Our</span>
+              <span className="pill-suffix">Portfolio</span>
             </h2>
           </div>
 
@@ -388,7 +374,7 @@ function HomePage() {
           {/* Prominent View More Button below the single line reel */}
           <div className="section-cta-wrap scroll-reveal" style={{ marginTop: "24px", textAlign: "center" }}>
             <Link to="/works" className="start-link home-view-more-action" style={{ margin: "0 auto" }}>
-              <span>View More — Our Works Page</span>
+              <span>View All Products &amp; Works Page</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
@@ -402,16 +388,18 @@ function HomePage() {
         {/* Brand Performance & Packaging Agency Showcase Section (We Build Brands That Performs - Guaranteed) */}
         <BrandPerformanceSection />
 
+        {/* Our Clients Section matching User Reference Image (Dark Navy with Chamfer Cards) */}
+        <HomeOurClientsSection />
+
+        {/* Marketing Next Level & Statistics Showcase Section (Pure White Background) */}
+        <HomeMarketingStatsShowcase />
         {/* Studio Tools & Software Stack Draggable Ticker — Drifting Right to Left */}
         <section className="studio-stack-ticker-section" aria-label="Studio Creative Software Stack">
-          <div className="studio-stack-ambient-circle-left" aria-hidden="true" />
-          <div className="studio-stack-ambient-circle-right" aria-hidden="true" />
           <div className="studio-stack-ticker-header">
-            <h3 className="studio-stack-title">
-              <TextReveal delay={0.06} stagger={0.035}>
-                Studio Creative Software &amp; Tools
-              </TextReveal>
-            </h3>
+            <h2 className="two-tone-pill-heading" style={{ marginBottom: "14px" }}>
+              <span className="pill-prefix">Creative</span>
+              <span className="pill-suffix">Software &amp; Tools</span>
+            </h2>
             <p className="studio-stack-desc">
               <TextReveal delay={0.18} stagger={0.015}>
                 Industry-standard design applications powering high-precision dielines, editorial typography, photo retouching, and 3D spatial staging.
@@ -441,6 +429,9 @@ function HomePage() {
             />
           </div>
         </section>
+
+        {/* Meaningful Discussion Contact Section matching Image 2 */}
+        <MeaningfulContactSection />
 
       </main>
 
@@ -1031,7 +1022,7 @@ function OurServicesAccordionSection() {
         "Transformative brand identities, high-precision packaging dielines, luxury label systems, and bespoke marketing collateral crafted to command attention on retail shelves and digital screens.",
       features: [
       ],
-      techStack: ["Illustrator", "Photoshop", "InDesign", "3D Staging", "Print CMYK"],
+      techStack: ["Corel Draw", "Adobe Photoshop", "Adobe Illustrator", "Adobe After Effect", "Adobe Premium Pro", "Adobe CAD", "Adobe CAD", "Figma"],
       linkTo: "/services",
     },
     {
@@ -1074,16 +1065,13 @@ function OurServicesAccordionSection() {
 
   return (
     <section className="home-services-accordion-section" id="services" aria-label="Our Services">
-      {/* Light sky blue ambient circular glow */}
-      <div className="home-services-ambient-circle-left" aria-hidden="true" />
-      <div className="home-services-ambient-circle-right" aria-hidden="true" />
-
       <div className="home-services-container">
         {/* Header pill badge and subtitle matching screenshot */}
         <div className="home-services-header">
-          <div className="home-services-pill-badge">
-            <h2>Our Services</h2>
-          </div>
+          <h2 className="two-tone-pill-heading" style={{ marginBottom: "14px" }}>
+            <span className="pill-prefix">OUR </span>
+            <span className="pill-suffix">SERVICES </span>
+          </h2>
           <p className="home-services-subtitle">
             From strategy to execution , our winning combination of innovative thinking, scentific design, sophisticated development , and ongoing analysis ensure we're delivering value to help you grow.
           </p>
@@ -1093,15 +1081,6 @@ function OurServicesAccordionSection() {
         <div className="home-services-body-grid">
           {/* Left Column: Changes image dynamically based on selected service */}
           <div className="home-services-visual-col">
-            <a
-              href="tel:+919876543210"
-              className="home-services-call-now-vertical"
-              aria-label="Call Now for Inquiries"
-              title="Call Now"
-            >
-              <span>Call Now</span>
-            </a>
-
             <div className="home-services-image-frame">
               <img
                 key={activeService.id}
@@ -1313,18 +1292,16 @@ function BrandPerformanceSection() {
       <div className="brands-performance-container">
         {/* Header Content */}
         <div className="brands-performance-header scroll-reveal">
-          <p className="brands-performance-eyebrow">
-            <TextReveal delay={0.06} stagger={0.035}>
-              PACKAGING DESIGN COMPANY AND BRANDING AGENCY INDIA
-            </TextReveal>
-          </p>
-
-          <h2 className="brands-performance-title">
-            <span>We Build Brands That Performs – </span>
-            <span className="brands-guaranteed-text">Guaranteed.</span>
+          <h2 className="two-tone-pill-heading" style={{ marginBottom: "12px" }}>
+            <span className="pill-prefix">BRAND </span>
+            <span className="pill-suffix">PERFORMANCE</span>
           </h2>
-        </div>
 
+          <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: 0 }}>
+            <span>We Build Brands That Performs – </span>
+            <span className="brands-guaranteed-text" style={{ color: "#1E4DFF", fontWeight: "700" }}>Guaranteed.</span>
+          </p>
+        </div>
         {/* Packaging Showcase Stage - Interactive Drag & 5s Slides */}
         <div className="brands-performance-stage scroll-reveal scroll-reveal-delay-1">
           <div

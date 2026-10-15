@@ -43,8 +43,14 @@ export default function StudioBackdrop() {
       <pointLight position={[0, 2, 1]} intensity={16} color="#f2c14e" distance={10} />
 
       {/* Atmospheric depth particles without any circular rings or orb sculptures */}
-      <Sparkles count={90} scale={[12, 5, 6]} size={2.4} speed={0.45} color="#fff5d9" opacity={0.65} />
+      <Sparkles
+        count={90}
+        scale={[12, 5, 6]}
+        size={2.4}
+        speed={0.45}
+        color="#fff5d9"
+        opacity={0.65}
+      />
     </Canvas>
   );
 }
-

@@ -3,6 +3,7 @@
 Create a premium 3D portfolio website for a Graphic Designer. Use React + Tailwind and JavaScript/JSX only; do NOT use TypeScript. The site should feel like a high-end creative studio portfolio, visually impressive and production-ready.
 
 Design direction:
+
 - Dark near-black background with tasteful off-white typography and vivid electric accent gradients.
 - Strong 3D visual language: floating abstract 3D geometric forms, glassmorphism cards, subtle depth/parallax, perspective grids, soft glow, layered shadows, and scroll-based motion. Prefer CSS 3D/transforms and lightweight animation; avoid heavy 3D dependencies unless truly needed.
 - Typography should be modern/editorial with very large display headlines and clean readable body text.
@@ -11,6 +12,7 @@ Design direction:
 - Make accessibility and performance good: semantic HTML, readable contrast, reduced-motion support, optimized lazy-loaded project imagery/placeholders.
 
 Pages/sections:
+
 1. Hero: designer name placeholder "Mannu Khan", title "Graphic Designer & Visual Creative", short punchy intro, primary CTA "View My Work", secondary CTA "Let's Work Together". Include an impressive animated 3D centerpiece on the right/behind the hero.
 2. Selected Work: 6 project cards with large visual mockups/placeholders and categories such as Brand Identity, Packaging, Social Media, Poster Design, UI Visuals, 3D Product Art. Each card should have hover depth and a visible case-study affordance.
 3. About: concise designer bio, skill tags, tools (Adobe Photoshop, Illustrator, After Effects, Figma, Blender), and a stats row such as 5+ Years Experience, 100+ Projects, 40+ Happy Clients (editable placeholder content).

@@ -7,6 +7,7 @@ import { Page3DBackdrop } from "@/components/ClientCanvas";
 import { StudioMascot } from "@/components/StudioMascot";
 import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
+import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 
 export const Route = createFileRoute("/clients")({
   head: () => ({
@@ -187,10 +188,8 @@ function ClientsPage() {
               <Link to="/contact" className="start-link">
                 <span>Start a Project Today</span>
                 <ArrowUpRight />
-              </Link>
-            </div>
-          </div>
-        </section> */}
+        {/* Meaningful Contact Form Section */}
+        <MeaningfulContactSection />
       </main>
 
       <SiteFooter />

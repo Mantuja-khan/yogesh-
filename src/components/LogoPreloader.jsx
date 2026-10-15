@@ -105,12 +105,18 @@ export function LogoPreloader({ onComplete, isStandalone = false }) {
               />
             </div>
 
-            {/* Pure CSS/HTML Typography: Exact Font, Colors, Tapered Rules, and Proportions from reference image */}
+            {/* Pure CSS/HTML Typography: Exact Font, Colors, and Proportions matching reference image */}
             <div className="preloader-brand-typography" aria-label="SS Production House">
-              <div className="preloader-text-wrapper">
-                <span className="preloader-rule-left" aria-hidden="true" />
-                <span className="preloader-brand-text">SS PRODUCTION HOUSE</span>
-                <span className="preloader-rule-right" aria-hidden="true" />
+              <div className="preloader-brand-main-title">
+                <span className="preloader-brand-ss">SS</span>
+                <span className="preloader-brand-prod-house">PRODUCTION HOUSE</span>
+              </div>
+              <div className="preloader-brand-sub-tags">
+                <span className="preloader-tag-word">DESIGN</span>
+                <span className="preloader-tag-bar">|</span>
+                <span className="preloader-tag-word">PACKAGING</span>
+                <span className="preloader-tag-bar">|</span>
+                <span className="preloader-tag-word">TRANSPORT</span>
               </div>
             </div>
           </div>
@@ -125,7 +131,16 @@ export function LogoPreloader({ onComplete, isStandalone = false }) {
               onClick={handleReplay}
               aria-label="Replay Preloader Animation"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
                 <path d="M3 3v5h5" />
               </svg>

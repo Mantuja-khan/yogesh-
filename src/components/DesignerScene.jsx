@@ -25,7 +25,11 @@ function CameraRig({ pointer }) {
 
   useFrame(() => {
     camera.position.x = THREE.MathUtils.lerp(camera.position.x, pointer.current.x * 1.5, 0.045);
-    camera.position.y = THREE.MathUtils.lerp(camera.position.y, 0.35 + pointer.current.y * 0.6, 0.045);
+    camera.position.y = THREE.MathUtils.lerp(
+      camera.position.y,
+      0.35 + pointer.current.y * 0.6,
+      0.045,
+    );
     look.current.set(pointer.current.x * 0.4, 0.15 + pointer.current.y * 0.2, 0);
     camera.lookAt(look.current);
   });
@@ -69,8 +73,10 @@ function WorkFrame({ project, slot, index, pointer }) {
     mesh.current.position.z = slot.z + pointer.current.y * 0.22;
 
     // Interactive 3D tilt with mouse parallax
-    mesh.current.rotation.y = slot.rotY + Math.sin(t * 0.25 + index) * 0.08 + pointer.current.x * 0.26;
-    mesh.current.rotation.x = slot.rotX + Math.cos(t * 0.2 + index) * 0.06 - pointer.current.y * 0.2;
+    mesh.current.rotation.y =
+      slot.rotY + Math.sin(t * 0.25 + index) * 0.08 + pointer.current.x * 0.26;
+    mesh.current.rotation.x =
+      slot.rotX + Math.cos(t * 0.2 + index) * 0.06 - pointer.current.y * 0.2;
     mesh.current.rotation.z = slot.rotZ;
   });
 
@@ -122,7 +128,14 @@ function DesignerWorld({ pointer }) {
   return (
     <group ref={group}>
       <SceneLights />
-      <Sparkles count={120} scale={[12, 7, 8]} size={2.6} speed={0.5} color="#fff6d6" opacity={0.7} />
+      <Sparkles
+        count={120}
+        scale={[12, 7, 8]}
+        size={2.6}
+        speed={0.5}
+        color="#fff6d6"
+        opacity={0.7}
+      />
 
       {/* Side project cards only (No center card, no circular rings) */}
       {SIDE_SLOTS.map((slot, index) => {

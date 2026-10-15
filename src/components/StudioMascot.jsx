@@ -20,7 +20,7 @@ export function StudioMascot({ size = 120, className = "", label = "SS Studio Ma
         new PointerEvent("pointermove", {
           clientX: window.innerWidth * 0.5,
           clientY: simulatedY,
-        })
+        }),
       );
     };
 
