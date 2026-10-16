@@ -122,8 +122,62 @@ export default function PackagingDesignPage() {
           </div>
         </section>
 
-        {/* Capabilities Grid */}
-        <section className="page-content-section">
+        {/* Unified Single-Page Flow */}
+        <div className="subpage-content-wrap" style={{ maxWidth: "1400px", margin: "0 auto", padding: "40px clamp(20px, 4vw, 60px)" }}>
+          {/* Split Section: Packaging Sketch on Left, Content on Right */}
+          <section className="subpage-split-hero">
+            <div className="subpage-split-left">
+              <div className="subpage-split-img-card" style={{ background: "#05070B", borderRadius: "16px", overflow: "hidden", boxShadow: "0 20px 45px rgba(28, 39, 82, 0.2)" }}>
+                <img
+                  src="/packaging-design-sketch.jpg"
+                  alt="Packaging Design Dieline Engineering & Box Drafting by Yogesh Dahiya"
+                  className="subpage-split-img"
+                  style={{ objectFit: "contain", width: "100%", maxHeight: "520px", display: "block" }}
+                  loading="eager"
+                />
+              </div>
+            </div>
+
+            <div className="subpage-split-right">
+              <span className="subpage-split-kicker">PRECISION DIELINE &amp; STRUCTURAL PACKAGING</span>
+              <h2 className="subpage-split-title">From Technical Dielines to Luxury Unboxing Experiences</h2>
+              <p className="subpage-split-desc">
+                Every memorable package begins with pencil on grid. We engineer precision dielines, folding cartons, rigid luxury gift boxes, and eco-certified packaging structures that protect your product while commanding irresistible retail shelf dominance. From tactile embossing to calibrated Pantone foils, we turn structural cardboard and paper into high-converting brand touchpoints.
+              </p>
+
+              <div className="subpage-split-features">
+                <div className="subpage-split-feature-item">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Custom CAD Dielines &amp; Folding Carton Engineering</span>
+                </div>
+                <div className="subpage-split-feature-item">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Embossing, Foil Stamping &amp; Spot UV Finishing Specs</span>
+                </div>
+                <div className="subpage-split-feature-item">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Rigid Luxury Boxes, Sleeves &amp; Corrugated Displays</span>
+                </div>
+                <div className="subpage-split-feature-item">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Print-Ready Production Files &amp; Full Press Check Support</span>
+                </div>
+              </div>
+
+              <div className="subpage-split-cta-row">
+                <a href="#contact-form" className="subpage-btn-primary">
+                  <span>Start Packaging Project</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+                <Link to="/works" search={{ category: "box-design" }} className="subpage-btn-secondary">
+                  <span>View Packaging Catalog</span>
+                </Link>
+              </div>
+            </div>
+          </section>
+
+          {/* Capabilities Grid */}
+          <section className="page-content-section" style={{ padding: "20px 0 50px 0" }}>
           <div className="page-subhead-wrap" style={{ marginBottom: "36px" }}>
             <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
               TECHNICAL EXPERTISE
@@ -184,6 +238,7 @@ export default function PackagingDesignPage() {
             </div>
           </section>
         )}
+        </div>
 
         {/* Meaningful Discussion Contact Section */}
         <MeaningfulContactSection />

@@ -46,8 +46,38 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   const [heroMounted, setHeroMounted] = useState(true);
   const [showPreloader, setShowPreloader] = useState(true);
+  const [heroActiveTab, setHeroActiveTab] = useState("packaging");
   const cursorRef = useRef(null);
   const reelController = useRef(null);
+
+  const heroTabs = [
+    {
+      id: "packaging",
+      label: "Packaging Dielines",
+      image: "/packaging-design-sketch.jpg",
+      spec: "100% CAD Dieline Precision",
+      link: "/packaging-design",
+      alt: "Packaging Design Dieline Craft by Yogesh Dahiya",
+    },
+    {
+      id: "brand",
+      label: "Brand Development",
+      image: "/brand-development-sketch.jpg",
+      spec: "Identity Sketch & Typographic Manuals",
+      link: "/brand-development",
+      alt: "Brand Development Manual Sketch by Yogesh Dahiya",
+    },
+    {
+      id: "shape",
+      label: "Product Shape",
+      image: "/product-shape-sketch.png",
+      spec: "3D Industrial Bottle Blueprints",
+      link: "/product-shape-design",
+      alt: "Product Shape & Bottle Industrial Blueprints by Yogesh Dahiya",
+    },
+  ];
+
+  const currentHeroCraft = heroTabs.find((t) => t.id === heroActiveTab) || heroTabs[0];
 
 
   const handleHeroPointerMove = (e) => {
@@ -155,24 +185,9 @@ function HomePage() {
       <SiteHeader />
 
       <main>
-        {/* Responsive Custom Hero with Clean Borderless Visual */}
+        {/* Responsive Custom Hero with Master Studio Craft Workbench */}
         <section className="editorial-hero custom-designer-hero" id="top">
-          {/* 5 x 8x8 Dotted Squares at random positions in Hero Section */}
-          <div className="profile-hero-dotted-squares" aria-hidden="true">
-
-            <DottedSquare8x8
-              className="about-hero-dot about-hero-dot-2"
-              size={82}
-              style={{ top: "18%", right: "8%", transform: "rotate(8deg)" }}
-            />
-            <DottedSquare8x8
-              className="about-hero-dot about-hero-dot-5"
-              size={80}
-              style={{ top: "34%", left: "48%", transform: "rotate(3deg)" }}
-            />
-          </div>
-
-          {/* Clean Studio Ambient Floor Backdrop (No sky blue circles) */}
+          {/* Clean Studio Ambient Floor Backdrop */}
           <div className="hero-studio-backdrop-scene" aria-hidden="true">
             <svg
               className="hero-backdrop-curves-svg"
@@ -196,17 +211,17 @@ function HomePage() {
           <div className="hero-banner-inner-grid">
             {/* Left Content Column */}
             <div className="hero-banner-content-col">
-              {/* Studio Eyebrow Tag */}
-              <p className="hero-studio-top-brand">
-                <TextReveal triggerOnMount delay={0.06} stagger={0.04}>
-                  CREATIVE PACKAGING &amp; 3D VISUAL STUDIO
-                </TextReveal>
-              </p>
+              {/* Studio Eyebrow Tag Row */}
+              <div className="hero-studio-tag-row">
+                <span className="hero-studio-badge-pill">
+                  <span className="hero-badge-gold-dot" aria-hidden="true" />
+                  PACKAGING ARCHITECTURE &amp; BRAND DESIGN
+                </span>
+                <span className="hero-studio-year">EST. 2016</span>
+              </div>
 
               <h1 className="hero-custom-h1" aria-label="SS PRODUCTION HOUSE">
                 <span className="hero-custom-line-1">
-                  {/* Small Pendant Lamp: Positioned directly above the SS word */}
-
                   <TextReveal triggerOnMount delay={0.16} stagger={0.06}>
                     SS
                   </TextReveal>
@@ -224,7 +239,7 @@ function HomePage() {
 
               <p className="hero-designer-role-tag">
                 <TextReveal triggerOnMount delay={0.52} stagger={0.035}>
-                  Graphic Designer &amp; Professional Director
+                  Graphic Designer &amp; Creative Director · New Delhi
                 </TextReveal>
               </p>
 
@@ -265,25 +280,74 @@ function HomePage() {
                   </span>
                 </Link>
               </div>
+
+              {/* Studio Metrics Highlights */}
+              <div className="hero-quick-stats-strip">
+                <div className="hero-quick-stat-item">
+                  <strong>8+</strong> <span>Years Craft</span>
+                </div>
+                <span className="hero-stat-sep" aria-hidden="true">/</span>
+                <div className="hero-quick-stat-item">
+                  <strong>150+</strong> <span>Packaging Works</span>
+                </div>
+                <span className="hero-stat-sep" aria-hidden="true">/</span>
+                <div className="hero-quick-stat-item">
+                  <strong>99.4%</strong> <span>Client Rating</span>
+                </div>
+              </div>
             </div>
 
-            {/* Right Visual Column (Borderless Clean Visual with Designer Name Badge) */}
+            {/* Right Visual Column: Master Craft Interactive Workbench (100% Authentic, Non-AI) */}
             <div className="hero-banner-visual-col">
-              <div className="hero-clean-visual-wrap">
-                <img
-                  src={heroSectionVideo}
-                  alt="Yogesh Dahiya - A Visual Designer"
-                  className="hero-scene-character-image"
-                  loading="eager"
-                  draggable={false}
-                />
-                {/* Designer Identification Badge at bottom of hero section image */}
-                <div className="hero-designer-badge-card" aria-label="Yogesh Dahiya, A Visual Designer">
-                  <div className="hero-designer-badge-dot" aria-hidden="true" />
-                  <div className="hero-designer-badge-info">
-                    <span className="hero-designer-badge-name">Yogesh Dahiya</span>
-                    <span className="hero-designer-badge-sep" aria-hidden="true">|</span>
-                    <span className="hero-designer-badge-title">A Visual Designer</span>
+              <div className="hero-craft-showcase-stage">
+                {/* Interactive Disciplines Switcher */}
+                <div className="hero-craft-tabs-bar" role="tablist" aria-label="Studio Design Disciplines">
+                  {heroTabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={heroActiveTab === tab.id}
+                      className={`hero-craft-tab-btn ${heroActiveTab === tab.id ? "active" : ""}`}
+                      onClick={() => setHeroActiveTab(tab.id)}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Craft Frame Card */}
+                <div className="hero-craft-card">
+                  {/* Floating Top Specification Badge */}
+                  <div className="hero-craft-spec-badge">
+                    <span className="hero-badge-gold-dot" aria-hidden="true" />
+                    <span>{currentHeroCraft.spec}</span>
+                  </div>
+
+                  {/* Main Visual: Technical Sketch / Industrial Blueprint */}
+                  <div className="hero-craft-viewport">
+                    <img
+                      key={currentHeroCraft.id}
+                      src={currentHeroCraft.image}
+                      alt={currentHeroCraft.alt}
+                      loading="eager"
+                      draggable={false}
+                    />
+                  </div>
+
+                  {/* Floating Bottom Card: Creative Director Verification & Quick Link */}
+                  <div className="hero-craft-footer-card">
+                    <div className="hero-craft-footer-left">
+                      <div className="hero-craft-footer-dot" aria-hidden="true" />
+                      <div>
+                        <div className="hero-craft-footer-name">Yogesh Dahiya</div>
+                        <div className="hero-craft-footer-role">Founder &amp; Creative Director</div>
+                      </div>
+                    </div>
+                    <Link to={currentHeroCraft.link} className="hero-craft-footer-link" title={`Explore ${currentHeroCraft.label}`}>
+                      <span>Explore</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -1015,6 +1079,7 @@ function OurServicesAccordionSection() {
       linkTo: "/website-design",
     },
     {
+
       id: "graphic-design",
       number: "2.",
       title: "Graphic Design",

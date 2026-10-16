@@ -9,7 +9,7 @@ import { StudioMascot } from "@/components/StudioMascot";
 import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
-import brandDevImg from "@/assets/service_graphic_design.jpg";
+import brandDevImg from "/brand-development-sketch.jpg";
 
 export const Route = createFileRoute("/brand-development")({
   head: () => ({
@@ -128,11 +128,12 @@ export default function BrandDevelopmentPage() {
           {/* Split Section: Graphic on Left, Content on Right */}
           <section className="subpage-split-hero">
             <div className="subpage-split-left">
-              <div className="subpage-split-img-card">
+              <div className="subpage-split-img-card" style={{ background: "#05070B", borderRadius: "16px", overflow: "hidden", boxShadow: "0 20px 45px rgba(28, 39, 82, 0.2)" }}>
                 <img
                   src={brandDevImg}
-                  alt="Brand Development Studio Workshop"
+                  alt="Brand Development Technical Sketch & Identity Craft by Yogesh Dahiya"
                   className="subpage-split-img"
+                  style={{ objectFit: "contain", width: "100%", maxHeight: "520px", display: "block" }}
                   loading="eager"
                 />
               </div>

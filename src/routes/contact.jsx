@@ -49,6 +49,10 @@ function ContactPage() {
           </div>
           <div className="page-header-inner page-header-with-mascot">
             <div className="page-header-text">
+              <h2 className="two-tone-pill-heading" style={{ marginBottom: "16px", justifyContent: "flex-start" }}>
+                <span className="pill-prefix">CONTACT</span>
+                <span className="pill-suffix">US</span>
+              </h2>
               <p className="section-index">
                 <span>01</span> <TextReveal triggerOnMount delay={0.06}>Production Inquiries</TextReveal>
               </p>

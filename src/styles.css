@@ -1591,6 +1591,254 @@ body.mobile-menu-is-open .editorial-nav {
   width: 100%;
 }
 
+/* Studio Eyebrow Tag Row & Badges */
+.hero-studio-tag-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.hero-studio-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(28, 39, 82, 0.05);
+  border: 1px solid rgba(28, 39, 82, 0.12);
+  color: #1C2752;
+  font: 700 clamp(10px, 0.9vw, 11.5px)/1 var(--font-sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 9999px;
+}
+
+.hero-badge-gold-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #E29828;
+  box-shadow: 0 0 8px rgba(226, 152, 40, 0.8);
+}
+
+.hero-studio-year {
+  font: 700 11px/1 var(--font-mono, monospace);
+  color: #64748B;
+  letter-spacing: 0.12em;
+}
+
+.hero-quick-stats-strip {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 2vw, 20px);
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(28, 39, 82, 0.08);
+  flex-wrap: wrap;
+}
+
+.hero-quick-stat-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: var(--font-sans);
+}
+
+.hero-quick-stat-item strong {
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 800;
+  color: #1C2752;
+  letter-spacing: -0.02em;
+}
+
+.hero-quick-stat-item span {
+  font-size: clamp(12px, 1vw, 13px);
+  font-weight: 500;
+  color: #64748B;
+}
+
+.hero-stat-sep {
+  color: rgba(28, 39, 82, 0.2);
+  font-size: 14px;
+}
+
+/* Master Craft Showcase Stage on Right (100% Authentic, No AI Look) */
+.hero-craft-showcase-stage {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Interactive Tabs Bar */
+.hero-craft-tabs-bar {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(28, 39, 82, 0.12);
+  border-radius: 9999px;
+  padding: 4px;
+  gap: 4px;
+  box-shadow: 0 4px 18px rgba(28, 39, 82, 0.06);
+  margin: 0 auto;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.hero-craft-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  padding: 7px 16px;
+  font: 700 clamp(11px, 0.95vw, 12px)/1 var(--font-sans);
+  letter-spacing: 0.03em;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.hero-craft-tab-btn:hover {
+  color: #1C2752;
+}
+
+.hero-craft-tab-btn.active {
+  background: #1C2752;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(28, 39, 82, 0.25);
+}
+
+/* Craft Main Frame Card */
+.hero-craft-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(28, 39, 82, 0.14), 0 4px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(28, 39, 82, 0.1);
+  background: #090B10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.hero-craft-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 32px 75px rgba(28, 39, 82, 0.18), 0 6px 22px rgba(0, 0, 0, 0.06);
+}
+
+.hero-craft-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-craft-viewport img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.35s ease, transform 0.4s ease;
+}
+
+/* Floating Precision Badge on Top Left */
+.hero-craft-spec-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 14, 24, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+  font: 700 11px/1 var(--font-sans);
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  z-index: 5;
+}
+
+/* Floating Director / Verified Card on Bottom */
+.hero-craft-footer-card {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(28, 39, 82, 0.12);
+  border-radius: 14px;
+  padding: 10px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+}
+
+.hero-craft-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-craft-footer-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+  flex-shrink: 0;
+  animation: badgeDotPulse 2s ease-in-out infinite alternate;
+}
+
+.hero-craft-footer-name {
+  font: 800 clamp(13px, 1.1vw, 15px)/1.2 var(--font-display, "Cinzel", serif);
+  color: #1C2752;
+  letter-spacing: 0.02em;
+}
+
+.hero-craft-footer-role {
+  font: 500 11.5px/1.2 var(--font-sans);
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.hero-craft-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: 700 11.5px/1 var(--font-sans);
+  color: #1C2752;
+  text-decoration: none;
+  background: rgba(28, 39, 82, 0.07);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.hero-craft-footer-link:hover {
+  background: #1C2752;
+  color: #FFFFFF;
+}
+
 .hero-clean-visual-wrap {
   position: relative;
   width: 100%;
@@ -1598,11 +1846,6 @@ body.mobile-menu-is-open .editorial-nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  outline: none !important;
 }
 
 .hero-scene-character-image {
@@ -1611,15 +1854,8 @@ body.mobile-menu-is-open .editorial-nav {
   max-height: clamp(380px, 42vw, 520px);
   object-fit: contain;
   display: block;
-  user-select: none;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  outline: none !important;
 }
 
-/* Designer Identification Badge at bottom of Hero Character Image */
 .hero-designer-badge-card {
   position: absolute;
   bottom: 18px;
