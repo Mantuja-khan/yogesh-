@@ -1012,7 +1012,7 @@ function OurServicesAccordionSection() {
 
       ],
       techStack: [],
-      linkTo: "/services",
+      linkTo: "/website-design",
     },
     {
       id: "graphic-design",
@@ -1026,7 +1026,7 @@ function OurServicesAccordionSection() {
       features: [
       ],
       techStack: ["Corel Draw", "Adobe Photoshop", "Adobe Illustrator", "Adobe After Effect", "Adobe Premium Pro", "Adobe CAD", "Adobe CAD", "Figma"],
-      linkTo: "/services",
+      linkTo: "/brand-development",
     },
     {
       id: "ui-ux-design",
@@ -1040,7 +1040,7 @@ function OurServicesAccordionSection() {
       features: [
       ],
       techStack: ["Figma", "Design Systems", "Prototyping", "User Research", "Micro-Interactions"],
-      linkTo: "/services",
+      linkTo: "/ui-ux-design",
     },
     {
       id: "app-dev",
@@ -1055,7 +1055,7 @@ function OurServicesAccordionSection() {
 
       ],
       techStack: ["React Native", "Flutter", "iOS & Android", "Firebase", "Node.js API"],
-      linkTo: "/services",
+      linkTo: "/social-media-marketing",
     },
   ];
 

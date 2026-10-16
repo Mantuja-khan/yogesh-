@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Megaphone, Target, BarChart2, Share2, Palette, CheckCircle2 } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { ArrowUpRight, Megaphone, Target, BarChart2, Share2, Palette, CheckCircle2, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
@@ -26,6 +26,7 @@ export const Route = createFileRoute("/ads-design")({
 
 export default function AdsDesignPage() {
   const cursorRef = useRef(null);
+  const [selectedWork, setSelectedWork] = useState(null);
 
   useEffect(() => {
     const move = (event) => {
@@ -82,7 +83,7 @@ export default function AdsDesignPage() {
       <div className="cursor-wash" aria-hidden="true" />
       <SiteHeader />
 
-      <main className="page-main">
+      <main className="page-main" style={{ background: "#FFFFFF" }}>
         {/* Page Hero Header */}
         <section className="page-header-section page-header-3d">
           <div className="page-header-3d-stage" aria-hidden="true">
@@ -148,7 +149,7 @@ export default function AdsDesignPage() {
 
         {/* Featured Showcase */}
         {featuredWorks.length > 0 && (
-          <section className="page-content-section" style={{ background: "#F8FAFC", borderRadius: "16px", padding: "48px 32px" }}>
+          <section className="page-content-section" style={{ background: "#FFFFFF", padding: "48px 0" }}>
             <div className="page-subhead-wrap" style={{ marginBottom: "28px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "16px" }}>
               <div>
                 <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
@@ -164,16 +165,18 @@ export default function AdsDesignPage() {
               </Link>
             </div>
 
-            <div className="subpage-projects-grid">
+            {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}
+            <div className="subpage-works-pure-grid">
               {featuredWorks.map((proj) => (
-                <div key={proj.id} className="subpage-project-card">
-                  <div className="subpage-proj-img-wrap">
-                    <img src={proj.image} alt={proj.title} loading="lazy" />
-                  </div>
-                  <div className="subpage-proj-meta">
-                    <span className="subpage-proj-cat">{proj.category}</span>
-                    <h4 className="subpage-proj-title">{proj.title}</h4>
-                  </div>
+                <div
+                  key={proj.id}
+                  className="subpage-pure-image-card"
+                  onClick={() => setSelectedWork(proj)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View ${proj.title || "Ad Campaign"}`}
+                >
+                  <img src={proj.image} alt={proj.title || "Ad Design Work"} loading="lazy" />
                 </div>
               ))}
             </div>
@@ -183,6 +186,25 @@ export default function AdsDesignPage() {
         {/* Meaningful Discussion Contact Section */}
         <MeaningfulContactSection />
       </main>
+
+      {/* Lightbox Modal for Full View */}
+      {selectedWork && (
+        <div className="playbook-modal-backdrop" onClick={() => setSelectedWork(null)}>
+          <div className="playbook-modal-box playbook-modal-image-only" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="playbook-modal-close"
+              onClick={() => setSelectedWork(null)}
+              aria-label="Close preview"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="playbook-modal-img-only-wrap">
+              <img src={selectedWork.image} alt={selectedWork.title || "Ad Preview"} className="playbook-modal-pure-img" />
+            </div>
+          </div>
+        </div>
+      )}
 
       <SiteFooter />
       <FloatingWhatsApp />

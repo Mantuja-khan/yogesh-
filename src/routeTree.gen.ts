@@ -11,13 +11,18 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdsDesignRouteImport } from './routes/ads-design'
+import { Route as BrandDevelopmentRouteImport } from './routes/brand-development'
+import { Route as BrandStrategyRouteImport } from './routes/brand-strategy'
 import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PackagingDesignRouteImport } from './routes/packaging-design'
+import { Route as PaidMarketingRouteImport } from './routes/paid-marketing'
 import { Route as PhotographyRouteImport } from './routes/photography'
 import { Route as ProductShapeDesignRouteImport } from './routes/product-shape-design'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as SearchEngineOptimizationRouteImport } from './routes/search-engine-optimization'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SocialMediaMarketingRouteImport } from './routes/social-media-marketing'
 import { Route as UiUxDesignRouteImport } from './routes/ui-ux-design'
 import { Route as WebsiteDesignRouteImport } from './routes/website-design'
 import { Route as WorksRouteImport } from './routes/works'
@@ -30,6 +35,16 @@ const IndexRoute = IndexRouteImport.update({
 const AdsDesignRoute = AdsDesignRouteImport.update({
   id: '/ads-design',
   path: '/ads-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandDevelopmentRoute = BrandDevelopmentRouteImport.update({
+  id: '/brand-development',
+  path: '/brand-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandStrategyRoute = BrandStrategyRouteImport.update({
+  id: '/brand-strategy',
+  path: '/brand-strategy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ClientsRoute = ClientsRouteImport.update({
@@ -47,6 +62,11 @@ const PackagingDesignRoute = PackagingDesignRouteImport.update({
   path: '/packaging-design',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaidMarketingRoute = PaidMarketingRouteImport.update({
+  id: '/paid-marketing',
+  path: '/paid-marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PhotographyRoute = PhotographyRouteImport.update({
   id: '/photography',
   path: '/photography',
@@ -62,9 +82,20 @@ const ProfileRoute = ProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SearchEngineOptimizationRoute =
+  SearchEngineOptimizationRouteImport.update({
+    id: '/search-engine-optimization',
+    path: '/search-engine-optimization',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocialMediaMarketingRoute = SocialMediaMarketingRouteImport.update({
+  id: '/social-media-marketing',
+  path: '/social-media-marketing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UiUxDesignRoute = UiUxDesignRouteImport.update({
@@ -86,13 +117,18 @@ const WorksRoute = WorksRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ads-design': typeof AdsDesignRoute
+  '/brand-development': typeof BrandDevelopmentRoute
+  '/brand-strategy': typeof BrandStrategyRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/packaging-design': typeof PackagingDesignRoute
+  '/paid-marketing': typeof PaidMarketingRoute
   '/photography': typeof PhotographyRoute
   '/product-shape-design': typeof ProductShapeDesignRoute
   '/profile': typeof ProfileRoute
+  '/search-engine-optimization': typeof SearchEngineOptimizationRoute
   '/services': typeof ServicesRoute
+  '/social-media-marketing': typeof SocialMediaMarketingRoute
   '/ui-ux-design': typeof UiUxDesignRoute
   '/website-design': typeof WebsiteDesignRoute
   '/works': typeof WorksRoute
@@ -100,13 +136,18 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ads-design': typeof AdsDesignRoute
+  '/brand-development': typeof BrandDevelopmentRoute
+  '/brand-strategy': typeof BrandStrategyRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/packaging-design': typeof PackagingDesignRoute
+  '/paid-marketing': typeof PaidMarketingRoute
   '/photography': typeof PhotographyRoute
   '/product-shape-design': typeof ProductShapeDesignRoute
   '/profile': typeof ProfileRoute
+  '/search-engine-optimization': typeof SearchEngineOptimizationRoute
   '/services': typeof ServicesRoute
+  '/social-media-marketing': typeof SocialMediaMarketingRoute
   '/ui-ux-design': typeof UiUxDesignRoute
   '/website-design': typeof WebsiteDesignRoute
   '/works': typeof WorksRoute
@@ -115,13 +156,18 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/ads-design': typeof AdsDesignRoute
+  '/brand-development': typeof BrandDevelopmentRoute
+  '/brand-strategy': typeof BrandStrategyRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/packaging-design': typeof PackagingDesignRoute
+  '/paid-marketing': typeof PaidMarketingRoute
   '/photography': typeof PhotographyRoute
   '/product-shape-design': typeof ProductShapeDesignRoute
   '/profile': typeof ProfileRoute
+  '/search-engine-optimization': typeof SearchEngineOptimizationRoute
   '/services': typeof ServicesRoute
+  '/social-media-marketing': typeof SocialMediaMarketingRoute
   '/ui-ux-design': typeof UiUxDesignRoute
   '/website-design': typeof WebsiteDesignRoute
   '/works': typeof WorksRoute
@@ -131,13 +177,18 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/ads-design'
+    | '/brand-development'
+    | '/brand-strategy'
     | '/clients'
     | '/contact'
     | '/packaging-design'
+    | '/paid-marketing'
     | '/photography'
     | '/product-shape-design'
     | '/profile'
+    | '/search-engine-optimization'
     | '/services'
+    | '/social-media-marketing'
     | '/ui-ux-design'
     | '/website-design'
     | '/works'
@@ -145,13 +196,18 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/ads-design'
+    | '/brand-development'
+    | '/brand-strategy'
     | '/clients'
     | '/contact'
     | '/packaging-design'
+    | '/paid-marketing'
     | '/photography'
     | '/product-shape-design'
     | '/profile'
+    | '/search-engine-optimization'
     | '/services'
+    | '/social-media-marketing'
     | '/ui-ux-design'
     | '/website-design'
     | '/works'
@@ -159,13 +215,18 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/ads-design'
+    | '/brand-development'
+    | '/brand-strategy'
     | '/clients'
     | '/contact'
     | '/packaging-design'
+    | '/paid-marketing'
     | '/photography'
     | '/product-shape-design'
     | '/profile'
+    | '/search-engine-optimization'
     | '/services'
+    | '/social-media-marketing'
     | '/ui-ux-design'
     | '/website-design'
     | '/works'
@@ -174,13 +235,18 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdsDesignRoute: typeof AdsDesignRoute
+  BrandDevelopmentRoute: typeof BrandDevelopmentRoute
+  BrandStrategyRoute: typeof BrandStrategyRoute
   ClientsRoute: typeof ClientsRoute
   ContactRoute: typeof ContactRoute
   PackagingDesignRoute: typeof PackagingDesignRoute
+  PaidMarketingRoute: typeof PaidMarketingRoute
   PhotographyRoute: typeof PhotographyRoute
   ProductShapeDesignRoute: typeof ProductShapeDesignRoute
   ProfileRoute: typeof ProfileRoute
+  SearchEngineOptimizationRoute: typeof SearchEngineOptimizationRoute
   ServicesRoute: typeof ServicesRoute
+  SocialMediaMarketingRoute: typeof SocialMediaMarketingRoute
   UiUxDesignRoute: typeof UiUxDesignRoute
   WebsiteDesignRoute: typeof WebsiteDesignRoute
   WorksRoute: typeof WorksRoute
@@ -200,6 +266,20 @@ declare module '@tanstack/react-router' {
       path: '/ads-design'
       fullPath: '/ads-design'
       preLoaderRoute: typeof AdsDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brand-development': {
+      id: '/brand-development'
+      path: '/brand-development'
+      fullPath: '/brand-development'
+      preLoaderRoute: typeof BrandDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brand-strategy': {
+      id: '/brand-strategy'
+      path: '/brand-strategy'
+      fullPath: '/brand-strategy'
+      preLoaderRoute: typeof BrandStrategyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/clients': {
@@ -223,6 +303,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PackagingDesignRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/paid-marketing': {
+      id: '/paid-marketing'
+      path: '/paid-marketing'
+      fullPath: '/paid-marketing'
+      preLoaderRoute: typeof PaidMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/photography': {
       id: '/photography'
       path: '/photography'
@@ -244,11 +331,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/search-engine-optimization': {
+      id: '/search-engine-optimization'
+      path: '/search-engine-optimization'
+      fullPath: '/search-engine-optimization'
+      preLoaderRoute: typeof SearchEngineOptimizationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social-media-marketing': {
+      id: '/social-media-marketing'
+      path: '/social-media-marketing'
+      fullPath: '/social-media-marketing'
+      preLoaderRoute: typeof SocialMediaMarketingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ui-ux-design': {
@@ -278,13 +379,18 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdsDesignRoute: AdsDesignRoute,
+  BrandDevelopmentRoute: BrandDevelopmentRoute,
+  BrandStrategyRoute: BrandStrategyRoute,
   ClientsRoute: ClientsRoute,
   ContactRoute: ContactRoute,
   PackagingDesignRoute: PackagingDesignRoute,
+  PaidMarketingRoute: PaidMarketingRoute,
   PhotographyRoute: PhotographyRoute,
   ProductShapeDesignRoute: ProductShapeDesignRoute,
   ProfileRoute: ProfileRoute,
+  SearchEngineOptimizationRoute: SearchEngineOptimizationRoute,
   ServicesRoute: ServicesRoute,
+  SocialMediaMarketingRoute: SocialMediaMarketingRoute,
   UiUxDesignRoute: UiUxDesignRoute,
   WebsiteDesignRoute: WebsiteDesignRoute,
   WorksRoute: WorksRoute,

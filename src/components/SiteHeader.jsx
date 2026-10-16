@@ -55,21 +55,20 @@ export function SiteHeader() {
       {
         id: "brand-strategy",
         title: "Brand Strategy",
-        link: "/services",
+        link: "/brand-strategy",
         items: [
-          { label: "Brand Development", link: "/services" },
-          { label: "Brand Story", link: "/services" },
+          { label: "Brand Development", link: "/brand-development" },
+          { label: "Brand Strategy", link: "/brand-strategy" },
         ],
       },
       {
         id: "digital-marketing",
         title: "Digital Marketing",
-        link: "/services",
+        link: "/social-media-marketing",
         items: [
-          { label: "Search Engine Optimization", link: "/services" },
-          { label: "Social Media Marketing", link: "/services" },
-          { label: "Paid Marketing", link: "/services" },
-          { label: "Influencer Marketing", link: "/services" },
+          { label: "Search Engine Optimization", link: "/search-engine-optimization" },
+          { label: "Social Media Marketing", link: "/social-media-marketing" },
+          { label: "Paid Marketing", link: "/paid-marketing" },
         ],
       },
     ],

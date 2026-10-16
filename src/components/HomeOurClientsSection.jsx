@@ -232,7 +232,10 @@ export function HomeOurClientsSection() {
         {/* Header matching reference image: centered on small screens */}
         <div className="home-clients-header">
           <span className="home-clients-eyebrow">CLIENTS</span>
-          <h2 className="home-clients-title">OUR CLIENTS</h2>
+          <h2 className="two-tone-pill-heading" style={{ marginBottom: "14px", justifyContent: "center" }}>
+            <span className="pill-prefix">OUR</span>
+            <span className="pill-suffix">CLIENTS</span>
+          </h2>
           <p className="home-clients-sub">
             Brands that trust us with their creative, packaging and marketing work.
           </p>

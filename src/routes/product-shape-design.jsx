@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Compass, Cylinder, Maximize2, Cpu, Sparkles, CheckCircle2 } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { ArrowUpRight, Compass, Cylinder, Maximize2, Cpu, Sparkles, CheckCircle2, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
@@ -26,6 +26,7 @@ export const Route = createFileRoute("/product-shape-design")({
 
 export default function ProductShapeDesignPage() {
   const cursorRef = useRef(null);
+  const [selectedWork, setSelectedWork] = useState(null);
 
   useEffect(() => {
     const move = (event) => {
@@ -74,15 +75,19 @@ export default function ProductShapeDesignPage() {
       p.categoryKey === "box-design" ||
       p.categoryKey === "mockup" ||
       p.category?.toLowerCase().includes("meter") ||
-      p.title?.toLowerCase().includes("serum")
-  ).slice(0, 6);
+      p.category?.toLowerCase().includes("mockup") ||
+      p.category?.toLowerCase().includes("shape") ||
+      p.title?.toLowerCase().includes("serum") ||
+      p.title?.toLowerCase().includes("bottle") ||
+      p.title?.toLowerCase().includes("box")
+  ).slice(0, 12);
 
   return (
     <div className="portfolio-shell page-shell" ref={cursorRef}>
       <div className="cursor-wash" aria-hidden="true" />
       <SiteHeader />
 
-      <main className="page-main">
+      <main className="page-main" style={{ background: "#FFFFFF" }}>
         {/* Page Hero Header */}
         <section className="page-header-section page-header-3d">
           <div className="page-header-3d-stage" aria-hidden="true">
@@ -146,9 +151,9 @@ export default function ProductShapeDesignPage() {
           </div>
         </section>
 
-        {/* Featured Showcase */}
+        {/* Featured Showcase (Pure White Background, Interactive Clean Cards) */}
         {featuredWorks.length > 0 && (
-          <section className="page-content-section" style={{ background: "#F8FAFC", borderRadius: "16px", padding: "48px 32px" }}>
+          <section className="page-content-section" style={{ background: "#FFFFFF", padding: "48px 0" }}>
             <div className="page-subhead-wrap" style={{ marginBottom: "28px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "16px" }}>
               <div>
                 <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
@@ -164,16 +169,18 @@ export default function ProductShapeDesignPage() {
               </Link>
             </div>
 
-            <div className="subpage-projects-grid">
+            {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}
+            <div className="subpage-works-pure-grid">
               {featuredWorks.map((proj) => (
-                <div key={proj.id} className="subpage-project-card">
-                  <div className="subpage-proj-img-wrap">
-                    <img src={proj.image} alt={proj.title} loading="lazy" />
-                  </div>
-                  <div className="subpage-proj-meta">
-                    <span className="subpage-proj-cat">{proj.category}</span>
-                    <h4 className="subpage-proj-title">{proj.title}</h4>
-                  </div>
+                <div
+                  key={proj.id}
+                  className="subpage-pure-image-card"
+                  onClick={() => setSelectedWork(proj)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View ${proj.title || "Product Form"}`}
+                >
+                  <img src={proj.image} alt={proj.title || "Product Shape Design"} loading="lazy" />
                 </div>
               ))}
             </div>
@@ -183,6 +190,25 @@ export default function ProductShapeDesignPage() {
         {/* Meaningful Discussion Contact Section */}
         <MeaningfulContactSection />
       </main>
+
+      {/* Lightbox Modal for Full View */}
+      {selectedWork && (
+        <div className="playbook-modal-backdrop" onClick={() => setSelectedWork(null)}>
+          <div className="playbook-modal-box playbook-modal-image-only" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="playbook-modal-close"
+              onClick={() => setSelectedWork(null)}
+              aria-label="Close preview"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="playbook-modal-img-only-wrap">
+              <img src={selectedWork.image} alt={selectedWork.title || "Product Preview"} className="playbook-modal-pure-img" />
+            </div>
+          </div>
+        </div>
+      )}
 
       <SiteFooter />
       <FloatingWhatsApp />
