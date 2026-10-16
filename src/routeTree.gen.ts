@@ -10,15 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdsDesignRouteImport } from './routes/ads-design'
 import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as PackagingDesignRouteImport } from './routes/packaging-design'
+import { Route as PhotographyRouteImport } from './routes/photography'
+import { Route as ProductShapeDesignRouteImport } from './routes/product-shape-design'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as UiUxDesignRouteImport } from './routes/ui-ux-design'
+import { Route as WebsiteDesignRouteImport } from './routes/website-design'
 import { Route as WorksRouteImport } from './routes/works'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdsDesignRoute = AdsDesignRouteImport.update({
+  id: '/ads-design',
+  path: '/ads-design',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ClientsRoute = ClientsRouteImport.update({
@@ -31,6 +42,21 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PackagingDesignRoute = PackagingDesignRouteImport.update({
+  id: '/packaging-design',
+  path: '/packaging-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhotographyRoute = PhotographyRouteImport.update({
+  id: '/photography',
+  path: '/photography',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductShapeDesignRoute = ProductShapeDesignRouteImport.update({
+  id: '/product-shape-design',
+  path: '/product-shape-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -41,6 +67,16 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UiUxDesignRoute = UiUxDesignRouteImport.update({
+  id: '/ui-ux-design',
+  path: '/ui-ux-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebsiteDesignRoute = WebsiteDesignRouteImport.update({
+  id: '/website-design',
+  path: '/website-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorksRoute = WorksRouteImport.update({
   id: '/works',
   path: '/works',
@@ -49,50 +85,104 @@ const WorksRoute = WorksRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ads-design': typeof AdsDesignRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
+  '/packaging-design': typeof PackagingDesignRoute
+  '/photography': typeof PhotographyRoute
+  '/product-shape-design': typeof ProductShapeDesignRoute
   '/profile': typeof ProfileRoute
   '/services': typeof ServicesRoute
+  '/ui-ux-design': typeof UiUxDesignRoute
+  '/website-design': typeof WebsiteDesignRoute
   '/works': typeof WorksRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ads-design': typeof AdsDesignRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
+  '/packaging-design': typeof PackagingDesignRoute
+  '/photography': typeof PhotographyRoute
+  '/product-shape-design': typeof ProductShapeDesignRoute
   '/profile': typeof ProfileRoute
   '/services': typeof ServicesRoute
+  '/ui-ux-design': typeof UiUxDesignRoute
+  '/website-design': typeof WebsiteDesignRoute
   '/works': typeof WorksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ads-design': typeof AdsDesignRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
+  '/packaging-design': typeof PackagingDesignRoute
+  '/photography': typeof PhotographyRoute
+  '/product-shape-design': typeof ProductShapeDesignRoute
   '/profile': typeof ProfileRoute
   '/services': typeof ServicesRoute
+  '/ui-ux-design': typeof UiUxDesignRoute
+  '/website-design': typeof WebsiteDesignRoute
   '/works': typeof WorksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/clients' | '/contact' | '/profile' | '/services' | '/works'
+  fullPaths:
+    | '/'
+    | '/ads-design'
+    | '/clients'
+    | '/contact'
+    | '/packaging-design'
+    | '/photography'
+    | '/product-shape-design'
+    | '/profile'
+    | '/services'
+    | '/ui-ux-design'
+    | '/website-design'
+    | '/works'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/clients' | '/contact' | '/profile' | '/services' | '/works'
+  to:
+    | '/'
+    | '/ads-design'
+    | '/clients'
+    | '/contact'
+    | '/packaging-design'
+    | '/photography'
+    | '/product-shape-design'
+    | '/profile'
+    | '/services'
+    | '/ui-ux-design'
+    | '/website-design'
+    | '/works'
   id:
     | '__root__'
     | '/'
+    | '/ads-design'
     | '/clients'
     | '/contact'
+    | '/packaging-design'
+    | '/photography'
+    | '/product-shape-design'
     | '/profile'
     | '/services'
+    | '/ui-ux-design'
+    | '/website-design'
     | '/works'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdsDesignRoute: typeof AdsDesignRoute
   ClientsRoute: typeof ClientsRoute
   ContactRoute: typeof ContactRoute
+  PackagingDesignRoute: typeof PackagingDesignRoute
+  PhotographyRoute: typeof PhotographyRoute
+  ProductShapeDesignRoute: typeof ProductShapeDesignRoute
   ProfileRoute: typeof ProfileRoute
   ServicesRoute: typeof ServicesRoute
+  UiUxDesignRoute: typeof UiUxDesignRoute
+  WebsiteDesignRoute: typeof WebsiteDesignRoute
   WorksRoute: typeof WorksRoute
 }
 
@@ -103,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ads-design': {
+      id: '/ads-design'
+      path: '/ads-design'
+      fullPath: '/ads-design'
+      preLoaderRoute: typeof AdsDesignRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/clients': {
@@ -119,6 +216,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/packaging-design': {
+      id: '/packaging-design'
+      path: '/packaging-design'
+      fullPath: '/packaging-design'
+      preLoaderRoute: typeof PackagingDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/photography': {
+      id: '/photography'
+      path: '/photography'
+      fullPath: '/photography'
+      preLoaderRoute: typeof PhotographyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product-shape-design': {
+      id: '/product-shape-design'
+      path: '/product-shape-design'
+      fullPath: '/product-shape-design'
+      preLoaderRoute: typeof ProductShapeDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
@@ -133,6 +251,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ui-ux-design': {
+      id: '/ui-ux-design'
+      path: '/ui-ux-design'
+      fullPath: '/ui-ux-design'
+      preLoaderRoute: typeof UiUxDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/website-design': {
+      id: '/website-design'
+      path: '/website-design'
+      fullPath: '/website-design'
+      preLoaderRoute: typeof WebsiteDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/works': {
       id: '/works'
       path: '/works'
@@ -145,10 +277,16 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdsDesignRoute: AdsDesignRoute,
   ClientsRoute: ClientsRoute,
   ContactRoute: ContactRoute,
+  PackagingDesignRoute: PackagingDesignRoute,
+  PhotographyRoute: PhotographyRoute,
+  ProductShapeDesignRoute: ProductShapeDesignRoute,
   ProfileRoute: ProfileRoute,
   ServicesRoute: ServicesRoute,
+  UiUxDesignRoute: UiUxDesignRoute,
+  WebsiteDesignRoute: WebsiteDesignRoute,
   WorksRoute: WorksRoute,
 }
 export const routeTree = rootRouteImport

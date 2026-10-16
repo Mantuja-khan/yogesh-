@@ -80,16 +80,16 @@ function ContactPage() {
           <div className="contact-detail-items" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
             <div className="contact-detail-box">
               <span className="contact-box-label">
-                <Mail className="w-4 h-4 text-[#1E4DFF] inline mr-2" /> Direct Email
+                <Mail className="w-4 h-4 text-[#1C2752] inline mr-2" /> Direct Email
               </span>
-              <a href={`mailto:${portfolio.email}`} className="contact-box-val highlight" style={{ color: "#1E4DFF" }}>
+              <a href={`mailto:${portfolio.email}`} className="contact-box-val highlight" style={{ color: "#1C2752" }}>
                 {portfolio.email}
               </a>
             </div>
 
             <div className="contact-detail-box">
               <span className="contact-box-label">
-                <Phone className="w-4 h-4 text-[#1E4DFF] inline mr-2" /> Studio Telephone
+                <Phone className="w-4 h-4 text-[#1C2752] inline mr-2" /> Studio Telephone
               </span>
               <a href={`tel:${portfolio.phone}`} className="contact-box-val">
                 {portfolio.phone}
@@ -98,14 +98,14 @@ function ContactPage() {
 
             <div className="contact-detail-box">
               <span className="contact-box-label">
-                <MapPin className="w-4 h-4 text-[#1E4DFF] inline mr-2" /> Studio Headquarters
+                <MapPin className="w-4 h-4 text-[#1C2752] inline mr-2" /> Studio Headquarters
               </span>
               <p className="contact-box-val">{portfolio.location}</p>
             </div>
 
             <div className="contact-detail-box">
               <span className="contact-box-label">
-                <Clock className="w-4 h-4 text-[#1E4DFF] inline mr-2" /> Working Hours &amp; Response
+                <Clock className="w-4 h-4 text-[#1C2752] inline mr-2" /> Working Hours &amp; Response
               </span>
               <p className="contact-box-val">Mon — Fri: 09:00 - 19:00 IST · Typical response in &lt; 24h</p>
             </div>

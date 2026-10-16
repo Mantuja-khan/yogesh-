@@ -40,11 +40,10 @@ export function HomeMarketingStatsShowcase() {
               {/* Heading matching user reference */}
               <div className="stats-header-group">
                 <h3 className="stats-eyebrow-heading">
-                  Are You Ready To Take Your Marketing
+                  ARE YOU READY TO ELEVATE YOUR BRAND?
                 </h3>
                 <h2 className="stats-main-heading">
-                  TO THE NEXT LEVEL WITH US?
-                </h2>
+                  TO THE NEXT LEVEL WITH CREATIVE DESIGN.</h2>
               </div>
 
               {/* 7 Key Metrics Grid */}
@@ -53,47 +52,47 @@ export function HomeMarketingStatsShowcase() {
                 <div className="stats-row-top">
                   <div className="stat-metric-cell">
                     <span className="stat-big-number">200+</span>
-                    <span className="stat-sub-label">Happy Clients</span>
+                    <span className="stat-sub-label">Design Projects</span>
                   </div>
 
                   <div className="stat-metric-cell">
-                    <span className="stat-big-number">1M</span>
-                    <span className="stat-sub-label">Paid Media</span>
+                    <span className="stat-big-number">100%</span>
+                    <span className="stat-sub-label">Satisfaction</span>
                   </div>
 
                   <div className="stat-metric-cell">
-                    <span className="stat-big-number">50K</span>
-                    <span className="stat-sub-label">Key Word's Optimised</span>
+                    <span className="stat-big-number">100+</span>
+                    <span className="stat-sub-label">Packaging Designs</span>
                   </div>
 
                   <div className="stat-metric-cell">
-                    <span className="stat-big-number">200+</span>
-                    <span className="stat-sub-label">Website Revamped</span>
+                    <span className="stat-big-number">50+</span>
+                    <span className="stat-sub-label">Brand Identities</span>
                   </div>
                 </div>
 
                 {/* Row 2: 3 wide metrics */}
                 <div className="stats-row-bottom">
                   <div className="stat-metric-cell stat-cell-expanded">
-                    <span className="stat-big-number">Top 10</span>
+                    <span className="stat-big-number">20+</span>
                     <span className="stat-sub-label">
-                      Creative agencies in Gurgaon — industry listings
+                      Industries Served
                     </span>
                   </div>
 
                   <div className="stat-metric-cell stat-cell-expanded">
                     <span className="stat-big-number">
-                      4.6<span className="stat-star-glyph">★</span>
+                      100%<span className="stat-star-glyph">★</span>
                     </span>
                     <span className="stat-sub-label">
-                      Google Business rating from client reviews
+                      Creative Focus
                     </span>
                   </div>
 
                   <div className="stat-metric-cell stat-cell-expanded">
-                    <span className="stat-big-number">11+ yrs</span>
+                    <span className="stat-big-number">2+ yrs</span>
                     <span className="stat-sub-label">
-                      Of branding &amp; creative design experience
+                      creative design experience
                     </span>
                   </div>
                 </div>
@@ -105,21 +104,21 @@ export function HomeMarketingStatsShowcase() {
           <div className="stats-right-stacked-col">
             {/* Top Card: Black Award Winning Card */}
             <div className="stats-dark-award-card">
-              <span className="dark-award-eyebrow">We are</span>
-              <h4 className="dark-award-title">Award Winning</h4>
-              <p className="dark-award-subtitle">Social Media Marketing Agency</p>
+              <span className="dark-award-eyebrow">We create </span>
+              <h4 className="dark-award-title">AWESOME SOCIAL MEDIA CONTENT &</h4>
+              <p className="dark-award-subtitle">Packaging & Graphic Design Studio</p>
               <Link to="/contact" className="dark-award-btn-outline">
-                Know More
+                Packaging & Branding
               </Link>
             </div>
 
             {/* Bottom Card: White Every Industry Covered Card */}
             <div className="stats-light-industry-card">
               <h4 className="light-industry-title">
-                Every Industry<br />Covered
+                Creative Graphic <br />Design
               </h4>
               <Link to="/works" className="light-industry-btn-solid">
-                Know More
+                Explore Designs
               </Link>
             </div>
           </div>

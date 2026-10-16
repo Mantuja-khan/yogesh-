@@ -573,18 +573,18 @@ function WhoWeAreImageOneSection() {
               aria-label="SS Production House Emblem"
             >
               {/* Outer Circular Ring */}
-              <circle cx="100" cy="100" r="88" stroke="#2563EB" strokeWidth="15" />
+              <circle cx="100" cy="100" r="88" stroke="#1C2752" strokeWidth="15" />
               {/* Stylized S geometry matching Image 1 */}
               <path
                 d="M58 74C58 52 74 40 96 40C100 40 102 42 102 46V76C102 82 98 86 92 90L74 100C64 106 60 114 60 124C60 144 76 158 98 158C108 158 118 154 126 146L114 134C110 138 104 142 98 142C88 142 80 136 80 126C80 118 84 114 92 108L108 98C118 92 124 82 124 70C124 48 106 34 84 34C60 34 40 52 40 74H58Z"
-                fill="#2563EB"
+                fill="#1C2752"
               />
               <path
                 d="M142 126C142 148 126 160 104 160C100 160 98 158 98 154V124C98 118 102 114 108 110L126 100C136 94 140 86 140 76C140 56 124 42 102 42C92 42 82 46 74 54L86 66C90 62 96 58 102 58C112 58 120 64 120 74C120 82 116 86 108 92L92 102C82 108 76 118 76 130C76 152 94 166 116 166C140 166 160 148 160 126H142Z"
-                fill="#2563EB"
+                fill="#1C2752"
               />
               {/* Center Pen Nib detail */}
-              <path d="M100 36L108 58H92L100 36Z" fill="#2563EB" />
+              <path d="M100 36L108 58H92L100 36Z" fill="#1C2752" />
               <circle cx="100" cy="50" r="2.5" fill="#FFFFFF" />
               <line x1="100" y1="52" x2="100" y2="72" stroke="#FFFFFF" strokeWidth="2" />
             </svg>

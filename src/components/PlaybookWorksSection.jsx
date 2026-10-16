@@ -30,6 +30,20 @@ export function PlaybookWorksSection({ initialCategory = "all", onCategoryChange
     }
   }, [initialCategory]);
 
+  // Close modal on Escape key press and lock background scroll
+  useEffect(() => {
+    if (!selectedProject) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setSelectedProject(null);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedProject]);
+
   // Listen for category selection events from the navbar mega menu
   useEffect(() => {
     const handleCategoryEvent = (e) => {
@@ -186,7 +200,7 @@ export function PlaybookWorksSection({ initialCategory = "all", onCategoryChange
       <div className="playbook-container">
         {/* Section Headline matching Image 2 */}
         <div className="playbook-header-wrap">
-          <p className="playbook-eyebrow-tag" style={{ font: "700 12px/1 var(--font-sans)", letterSpacing: "0.22em", color: "#2563EB", textTransform: "uppercase", marginBottom: "10px" }}>
+          <p className="playbook-eyebrow-tag" style={{ font: "700 12px/1 var(--font-sans)", letterSpacing: "0.22em", color: "#1C2752", textTransform: "uppercase", marginBottom: "10px" }}>
             PRINT &amp; PACKAGING
           </p>
           <h2 className="playbook-main-title" style={{ font: "900 italic clamp(30px, 4.2vw, 56px)/1.08 var(--font-display)", textTransform: "uppercase", color: "#0F172A", margin: "0 0 12px 0", letterSpacing: "-0.01em" }}>

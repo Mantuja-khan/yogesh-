@@ -45,7 +45,7 @@ export function SiteHeader() {
       {
         id: "about",
         title: "About",
-        titleColor: "#1E4DFF", // Blue accent replacing pink
+        titleColor: "#1C2752", // Blue accent replacing pink
         link: "/profile",
         items: [
           { label: "Who we are", link: "/profile" },
@@ -77,34 +77,32 @@ export function SiteHeader() {
       {
         id: "packaging",
         title: "Packaging",
-        link: "/works",
-        categoryKey: "box-design",
+        link: "/packaging-design",
         items: [
-          { label: "Packaging Design", link: "/works", categoryKey: "box-design" },
-          { label: "Product Shape Design", link: "/works", categoryKey: "box-design" },
+          { label: "Packaging Design", link: "/packaging-design" },
+          { label: "Product Shape Design", link: "/product-shape-design" },
         ],
       },
       {
         id: "advertising",
         title: "Advertising",
-        link: "/works",
-        categoryKey: "product-photoshoot",
+        link: "/photography",
         items: [
-          { label: "Photography", link: "/works", categoryKey: "product-photoshoot" },
-          { label: "Film Making, TVCs", link: "/works", categoryKey: "product-photoshoot" },
+          { label: "Photography", link: "/photography" },
+          { label: "Film Making, TVCs", link: "/photography" },
           { label: "Wayfinding Signage", link: "/works", categoryKey: "indoor" },
-          { label: "3D Modeling & Animation", link: "/works", categoryKey: "box-design" },
-          { label: "Billboards & Airport Branding", link: "/works", categoryKey: "outdoor" },
-          { label: "Ads Design", link: "/works", categoryKey: "post-design" },
+          { label: "3D Modeling & Animation", link: "/product-shape-design" },
+          { label: "Billboards & Airport Branding", link: "/ads-design" },
+          { label: "Ads Design", link: "/ads-design" },
         ],
       },
       {
         id: "web",
         title: "Web",
-        link: "/services",
+        link: "/website-design",
         items: [
-          { label: "UI/UX", link: "/services" },
-          { label: "Web Design & Development", link: "/services" },
+          { label: "UI/UX", link: "/ui-ux-design" },
+          { label: "Web Design & Development", link: "/website-design" },
         ],
       },
     ],
@@ -130,7 +128,7 @@ export function SiteHeader() {
       {
         id: "contact-direct",
         title: "Contact",
-        titleColor: "#1E4DFF",
+        titleColor: "#1C2752",
         link: "/contact",
         email: portfolio.email || "hello@ssproductionhouse.com",
         phones: ["+91-9671445186", "+91-9899977006"],
@@ -364,7 +362,7 @@ export function SiteHeader() {
                         </span>
                         <span
                           className="creamy-title-text"
-                          style={{ color: sec.titleColor || "#1E4DFF" }}
+                          style={{ color: sec.titleColor || "#1C2752" }}
                         >
                           {sec.title}
                         </span>

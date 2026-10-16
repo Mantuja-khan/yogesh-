@@ -1299,7 +1299,7 @@ function BrandPerformanceSection() {
 
           <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: 0 }}>
             <span>We Build Brands That Performs – </span>
-            <span className="brands-guaranteed-text" style={{ color: "#1E4DFF", fontWeight: "700" }}>Guaranteed.</span>
+            <span className="brands-guaranteed-text" style={{ color: "#1C2752", fontWeight: "700" }}>Guaranteed.</span>
           </p>
         </div>
         {/* Packaging Showcase Stage - Interactive Drag & 5s Slides */}

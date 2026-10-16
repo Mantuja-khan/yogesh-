@@ -43,22 +43,22 @@ export function MeaningfulContactSection() {
       <div className="meaningful-contact-container">
         {/* Exact Architectural Box with broken top line & blue speech bubble matching reference image */}
         <div className="ref-contact-box">
-          {/* Top Border Row with Left line, Centered Title in Gap, Right line with Blue Speech Bubble */}
+          {/* Top Border Row with Left line, Centered Blue Bubble above Title in Gap, Right line */}
           <div className="ref-contact-top-row">
             <div className="ref-top-line-left" aria-hidden="true" />
-            <h2 className="ref-contact-title">
-              Great Brands start with Meaningful Discussion, Connect Us Now!
-            </h2>
-            <div className="ref-top-line-right-wrap">
-              <div className="ref-top-line-right" aria-hidden="true" />
-              {/* Blue Speech Bubble matching user request */}
+            <div className="ref-contact-title-wrap">
+              {/* Dark Blue Consultation Badge directly ABOVE the heading */}
               <div className="ref-speech-bubble-blue" aria-label="Direct Consultation Badge">
                 <span className="ref-bubble-text">
-                  Speak directly<br />with a Senior<br />Brand Consultant
+                  Speak directly with a Senior Brand Consultant
                 </span>
                 <div className="ref-bubble-tail" aria-hidden="true" />
               </div>
+              <h2 className="ref-contact-title">
+                Great Brands start with Meaningful Discussion, Connect Us Now!
+              </h2>
             </div>
+            <div className="ref-top-line-right" aria-hidden="true" />
           </div>
 
           {/* Inner Form Area */}
@@ -66,7 +66,7 @@ export function MeaningfulContactSection() {
             {isSubmitted ? (
               <div className="meaningful-success-state">
                 <div className="success-icon-wrap">
-                  <CheckCircle2 className="w-12 h-12 text-[#1E4DFF]" />
+                  <CheckCircle2 className="w-12 h-12 text-[#1C2752]" />
                 </div>
                 <h3 className="success-title">Message Sent Successfully!</h3>
                 <p className="success-subtitle">
