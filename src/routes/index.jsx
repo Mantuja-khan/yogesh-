@@ -316,14 +316,17 @@ function HomePage() {
 
         {/* Selected Works Draggable Reel Section (Drag Part on Homepage) */}
         <section className="portfolio-section work" id="work">
-          <div className="section-intro">
-            <p className="section-index">
+          <div className="section-intro" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+            <p className="section-index" style={{ justifyContent: "center" }}>
               <span>01</span> <TextReveal delay={0.05}>Selected designs</TextReveal>
             </p>
-            <h2 className="two-tone-pill-heading" style={{ marginTop: "6px" }}>
-              <span className="pill-prefix">Our</span>
-              <span className="pill-suffix">Portfolio</span>
+            <h2 className="two-tone-pill-heading" style={{ marginTop: "6px", marginBottom: "12px", justifyContent: "center" }}>
+              <span className="pill-prefix">OUR</span>
+              <span className="pill-suffix">PORTFOLIO</span>
             </h2>
+            <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: "0 auto 12px", textAlign: "center", maxWidth: "720px" }}>
+              Crafted with precision, delivered with passion.
+            </p>
           </div>
 
           {/* Single-Line Infinite Draggable Works Reel (Right to Left) */}
@@ -397,8 +400,8 @@ function HomePage() {
         <section className="studio-stack-ticker-section" aria-label="Studio Creative Software Stack">
           <div className="studio-stack-ticker-header">
             <h2 className="two-tone-pill-heading" style={{ marginBottom: "14px" }}>
-              <span className="pill-prefix">Creative</span>
-              <span className="pill-suffix">Software &amp; Tools</span>
+              <span className="pill-prefix">CREATIVE</span>
+              <span className="pill-suffix">SOFTWARE &amp; TOOLS</span>
             </h2>
             <p className="studio-stack-desc">
               <TextReveal delay={0.18} stagger={0.015}>

@@ -89,9 +89,6 @@ export function SiteHeader() {
         link: "/photography",
         items: [
           { label: "Photography", link: "/photography" },
-          { label: "Film Making, TVCs", link: "/photography" },
-          { label: "Wayfinding Signage", link: "/works", categoryKey: "indoor" },
-          { label: "3D Modeling & Animation", link: "/product-shape-design" },
           { label: "Billboards & Airport Branding", link: "/ads-design" },
           { label: "Ads Design", link: "/ads-design" },
         ],
@@ -112,10 +109,10 @@ export function SiteHeader() {
         title: "Brand Design",
         link: "/works",
         categoryKey: "logo-design",
-        // The 9 buttons requested by the user
         items: [
           { label: "Book Design", link: "/works", categoryKey: "book-design" },
           { label: "Box Design", link: "/works", categoryKey: "box-design" },
+          { label: "Catalogue", link: "/works", categoryKey: "publication" },
           { label: "Lable", link: "/works", categoryKey: "label-design" },
           { label: "Logo", link: "/works", categoryKey: "logo-design" },
           { label: "Meter Design", link: "/works", categoryKey: "meter-design" },

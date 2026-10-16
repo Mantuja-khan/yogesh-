@@ -174,7 +174,7 @@ export function HomeOurClientsSection() {
     stopTimer();
     try {
       e.currentTarget.setPointerCapture(e.pointerId);
-    } catch {}
+    } catch { }
   };
 
   const handlePointerMove = (e) => {
@@ -206,7 +206,7 @@ export function HomeOurClientsSection() {
     startTimer();
     try {
       e.currentTarget.releasePointerCapture(e.pointerId);
-    } catch {}
+    } catch { }
   };
 
   const handlePointerCancel = () => {
