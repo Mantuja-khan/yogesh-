@@ -253,12 +253,6 @@ export function PlaybookWorksSection({ initialCategory = "all", onCategoryChange
                   className="playbook-card-img"
                   loading="lazy"
                 />
-                <div className="playbook-card-overlay">
-                  <span className="playbook-view-zoom-pill">
-                    <ZoomIn className="w-4 h-4" />
-                    <span>View Detail</span>
-                  </span>
-                </div>
               </div>
             </div>
           ))}

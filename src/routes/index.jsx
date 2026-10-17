@@ -1381,9 +1381,6 @@ function BrandPerformanceSection() {
             ))}
           </div>
 
-          {/* Drag Hint */}
-
-
           {/* Down Chevrons */}
           <div className="brands-performance-chevrons" aria-hidden="true">
             <ChevronDown className="brands-chevron brands-chevron-1" />

@@ -1196,7 +1196,7 @@ body.mobile-menu-is-open .editorial-nav {
   max-width: 100%;
   margin: 0;
   padding: clamp(65px, 6vw, 95px) clamp(24px, 4vw, 64px) clamp(60px, 6vw, 90px);
-  background: #FFFFFF !important;
+  background: #0F172A !important;
   border-bottom: none !important;
   overflow: hidden;
   box-sizing: border-box;
@@ -2293,14 +2293,14 @@ body.mobile-menu-is-open .editorial-nav {
 
                                 .hero-bg-video-scrim {
                                   background: linear-gradient(180deg,
-                                      rgba(255, 255, 255, 0.28) 0%,
-                                      rgba(255, 255, 255, 0.10) 42%,
-                                      rgba(255, 255, 255, 0.22) 100%) !important;
+                                      rgba(15, 23, 42, 0.45) 0%,
+                                      rgba(15, 23, 42, 0.15) 45%,
+                                      rgba(15, 23, 42, 0.55) 100%) !important;
                                   backdrop-filter: none !important;
                                   -webkit-backdrop-filter: none !important;
   }
 
-                                /* Content centered on small screen with enhanced legibility over clear video */
+                                /* Content centered on small screen with clean transparent background over video */
                                 .hero-banner-content-col.hero-banner-content-bg-mode {
                                   display: flex !important;
                                   flex-direction: column !important;
@@ -2310,13 +2310,13 @@ body.mobile-menu-is-open .editorial-nav {
                                   width: 100% !important;
                                   max-width: 580px !important;
                                   margin: 0 auto !important;
-                                  background: rgba(255, 255, 255, 0.90) !important;
-                                  backdrop-filter: blur(16px) !important;
-                                  -webkit-backdrop-filter: blur(16px) !important;
-                                  border: 1px solid rgba(255, 255, 255, 0.95) !important;
-                                  border-radius: 24px !important;
-                                  padding: 28px 20px !important;
-                                  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1) !important;
+                                  background: transparent !important;
+                                  backdrop-filter: none !important;
+                                  -webkit-backdrop-filter: none !important;
+                                  border: none !important;
+                                  border-radius: 0 !important;
+                                  padding: 0 !important;
+                                  box-shadow: none !important;
   }
 
                                 .hero-studio-tag-row {
@@ -2371,13 +2371,13 @@ body.mobile-menu-is-open .editorial-nav {
                   justify-content: center !important;
                   margin: 22px auto 0 !important;
                   width: 100% !important;
-                  background: rgba(255, 255, 255, 0.88) !important;
+                  background: rgba(15, 23, 42, 0.45) !important;
                   backdrop-filter: blur(8px) !important;
                   -webkit-backdrop-filter: blur(8px) !important;
                   border-radius: 12px !important;
                   padding: 10px 16px !important;
-                  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
-                  border: 1px solid rgba(28, 39, 82, 0.1) !important;
+                  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
+                  border: 1px solid rgba(255, 255, 255, 0.15) !important;
   }
 
   .hero-custom-scroll-cue {
@@ -3076,19 +3076,16 @@ h4.text-reveal-container {
 }
 
 .single-line-image-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, transparent 35%);
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 16px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 .works-single-line-card:hover .single-line-image-overlay {
-  opacity: 1;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 .single-line-inquire-badge {
@@ -12860,7 +12857,7 @@ body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
     background: transparent !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    border-bottom: none !important;
+    border-bottom: 1.5px solid rgba(15, 23, 42, 0.25) !important;
     box-shadow: none !important;
   z-index: 100;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -12874,13 +12871,14 @@ body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
   background: #FFFFFF !important;
   backdrop-filter: blur(14px) !important;
   -webkit-backdrop-filter: blur(14px) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+  border-bottom: 2px solid #0F172A !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
 }
   
-  .editorial-nav.minimalist-nav.is-menu-active {
-    background: #FFFFFF !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+.editorial-nav.minimalist-nav.is-menu-active {
+  background: #FFFFFF !important;
+  border-bottom: 2px solid #0F172A !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
 }
 
 .nav-container-minimal {
@@ -13680,19 +13678,16 @@ body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
 }
 
 .playbook-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.35);
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.25s ease;
-  border-radius: 8px;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 .playbook-work-card:hover .playbook-card-overlay {
-  opacity: 1;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 .playbook-view-zoom-pill {
@@ -13737,6 +13732,20 @@ body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* Ensure no names or content overlays show on hover for any portfolio product images */
+.playbook-work-card:hover .playbook-card-caption,
+.playbook-work-card:hover .playbook-card-overlay,
+.works-single-line-card:hover .single-line-image-overlay,
+.proper-product-card:hover .product-media-overlay,
+.work-v2-card:hover .work-v2-overlay,
+.work-v2-card:hover .work-v2-badge,
+.works-cat-card:hover .works-cat-overlay {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 .playbook-empty-state {
@@ -14401,6 +14410,14 @@ h2.two-tone-pill-heading .pill-suffix {
   object-fit: contain;
   filter: brightness(0) invert(1);
   flex-shrink: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  display: block;
+}
+
+.footer-brand-logo-link:hover .footer-hero-logo-img,
+.footer-hero-logo-img:hover {
+  animation: logoFlipOnce 0.75s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
 }
 
 .footer-hero-brand-title {
