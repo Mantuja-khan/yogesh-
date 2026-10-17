@@ -184,7 +184,7 @@ function ClientsPage() {
       : ALL_CLIENTS.filter((c) => c.category === selectedCategory);
 
   return (
-    <div className="portfolio-shell page-shell" ref={cursorRef}>
+    <div className="portfolio-shell page-shell clients-page-shell" ref={cursorRef}>
       <div className="cursor-wash" aria-hidden="true" />
       <SiteHeader />
 
@@ -195,11 +195,11 @@ function ClientsPage() {
             <Page3DBackdrop />
           </div>
           <div className="page-header-inner page-header-with-mascot">
-            <div className="page-header-text">
+            <div className="page-header-text clients-header-text">
               <p className="section-index">
                 <span>01</span> <TextReveal triggerOnMount delay={0.06}>Trusted Collaborations</TextReveal>
               </p>
-              <h1 className="page-hero-title">
+              <h1 className="page-hero-title clients-hero-title">
                 <TextReveal triggerOnMount delay={0.16} stagger={0.06}>
                   Built through trust
                 </TextReveal>
@@ -213,7 +213,7 @@ function ClientsPage() {
                   </TextReveal>
                 </em>
               </h1>
-              <p className="page-hero-lead">
+              <p className="page-hero-lead clients-hero-lead">
                 <TextReveal triggerOnMount delay={0.5} stagger={0.016}>
                   We partner with innovative startups, industrial pioneers, luxury maisons, and consumer brands across India and worldwide to build memorable packaging, commanding identities, and end-to-end production runs.
                 </TextReveal>
@@ -227,9 +227,9 @@ function ClientsPage() {
 
         {/* Client Partner Brands Grid */}
         <section className="page-content-section">
-          <div className="section-intro">
+          <div className="section-intro client-brands-intro">
             <p className="section-index"><span>02</span> Client Partnerships</p>
-            <h2>Trusted by Pioneering Brands &amp;<br /><em>Industry Leaders.</em></h2>
+            <h2 className="client-partnerships-title">Trusted by Pioneering Brands &amp;<br /><em>Industry Leaders.</em></h2>
             <p className="section-sub-lead" style={{ maxWidth: "640px", color: "var(--color-muted)", marginTop: "12px" }}>
               Explore the diverse roster of businesses that count on SS Production House for structural packaging, vector dielines, and enduring brand identity.
             </p>
@@ -294,10 +294,10 @@ function ClientsPage() {
         </section>
 
         {/* In-depth Testimonials Grid */}
-        <section className="page-content-section alt-bg">
-          <div className="section-intro">
+        <section className="page-content-section alt-bg client-endorsements-section">
+          <div className="section-intro client-endorsements-intro">
             <p className="section-index"><span>03</span> Words From Founders &amp; Directors</p>
-            <h2>Endorsements from<br /><em>Our Partners.</em></h2>
+            <h2 className="client-endorsements-title">Endorsements from<br /><em>Our Partners.</em></h2>
           </div>
 
           <div className="client-testimonials-detailed-grid">

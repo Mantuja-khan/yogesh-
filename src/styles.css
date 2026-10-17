@@ -6090,9 +6090,46 @@ h4.text-reveal-container {
 }
 
 .testimonial-quote {
-  margin: 0 0 30px;
-  font: 400 20px/1.5 var(--font-display);
+  margin: 0 0 20px;
+  font: 400 clamp(14px, 1.1vw, 16.5px)/1.55 var(--font-display);
   color: #000000;
+}
+
+/* ========================================================
+   CLIENTS PAGE HEADINGS & ENDORSEMENTS TUNING
+   ======================================================== */
+.clients-page-shell .clients-hero-title,
+.clients-page-shell .page-hero-title,
+.clients-page-shell .page-header-3d .page-hero-title {
+  font-size: clamp(22px, 2.5vw, 34px) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.015em !important;
+  margin-bottom: 12px !important;
+}
+
+.clients-page-shell .clients-hero-lead,
+.clients-page-shell .page-hero-lead,
+.clients-page-shell .page-header-3d .page-hero-lead {
+  font-size: clamp(12px, 0.9vw, 14px) !important;
+  line-height: 1.6 !important;
+  max-width: 640px !important;
+  margin-bottom: 14px !important;
+}
+
+.clients-page-shell .client-brands-intro h2,
+.clients-page-shell .client-partnerships-title {
+  font-size: clamp(20px, 2.2vw, 29px) !important;
+  line-height: 1.2 !important;
+}
+
+.clients-page-shell .client-endorsements-intro h2,
+.clients-page-shell .client-endorsements-title {
+  font-size: clamp(19px, 2.0vw, 26px) !important;
+  line-height: 1.22 !important;
+}
+
+.clients-page-shell .client-testimonial-card {
+  padding: clamp(24px, 2.2vw, 30px) clamp(20px, 1.8vw, 26px) !important;
 }
 
 .author-details strong {
@@ -11251,8 +11288,13 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
   justify-content: center;
   overflow: hidden;
   opacity: 1;
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, background-color;
+}
+
+.preloader-overlay.is-flying-active {
+  background-color: transparent !important;
+  pointer-events: none;
 }
 
 .preloader-overlay.preloader-fade-out {
@@ -11269,6 +11311,12 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.preloader-overlay.is-flying-active .preloader-screen {
+  background-color: transparent !important;
+  pointer-events: none;
 }
 
 .preloader-stage {
@@ -11278,6 +11326,10 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
   width: 100%;
   height: 100%;
   padding: 24px;
+}
+
+.preloader-stage.is-flying-stage {
+  pointer-events: none;
 }
 
 /* Entire brand lockup (emblem + typography) with snap, hold, and scale-down fade */
@@ -11292,6 +11344,40 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
   will-change: transform, opacity;
   animation: preloaderBrandLockupSnapHoldScale 3.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   -webkit-animation: preloaderBrandLockupSnapHoldScale 3.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.preloader-brand-lockup.is-flying-lockup {
+  animation: none !important;
+  -webkit-animation: none !important;
+}
+
+/* Flight box wrapper that moves cleanly into the header */
+.preloader-flight-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  -webkit-transform-origin: center center;
+  will-change: transform, filter;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s ease;
+  position: relative;
+  z-index: 1000000;
+}
+
+.preloader-flight-box.is-in-flight {
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.18));
+}
+
+.preloader-brand-typography.is-fading-out {
+  opacity: 0 !important;
+  transform: translate3d(0, 14px, 0) scale(0.95) !important;
+  transition: opacity 0.32s ease, transform 0.32s ease !important;
+  pointer-events: none;
+}
+
+body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 /* Emblem Container */
@@ -11598,14 +11684,10 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
     opacity: 1;
   }
 
-  88% {
+  88%,
+  100% {
     transform: scale(1.0);
     opacity: 1;
-  }
-
-  100% {
-    transform: scale(0.85);
-    opacity: 0;
   }
 }
 
@@ -11627,19 +11709,11 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
     opacity: 1;
   }
 
-  40% {
-    -webkit-transform: scale(1.0);
-    opacity: 1;
-  }
-
-  88% {
-    -webkit-transform: scale(1.0);
-    opacity: 1;
-  }
-
+  40%,
+  88%,
   100% {
-    -webkit-transform: scale(0.85);
-    opacity: 0;
+    -webkit-transform: scale(1.0);
+    opacity: 1;
   }
 }
 
@@ -12792,6 +12866,7 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   align-items: center;
+  overflow: visible !important;
 }
 
 .editorial-nav.minimalist-nav.is-scrolled {
@@ -12814,26 +12889,30 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
   margin: 0 auto;
   padding: 0 clamp(16px, 3.5vw, 40px);
   display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-  }
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  overflow: visible !important;
+}
   
-  .navbar-brand-text-col {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    cursor: pointer;
-    justify-self: start;
-  }
+.navbar-brand-text-col {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  justify-self: start;
+}
   
-  .navbar-center-logo-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    cursor: pointer;
-    justify-self: center;
-  }
+.navbar-center-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  justify-self: center;
+  position: relative;
+  z-index: 120;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
   
   .navbar-right-menu-col {
     display: inline-flex;
@@ -12863,19 +12942,28 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
 }
 
 .site-firm-logo-img {
-  width: clamp(64px, 5.8vw, 84px);
+  width: clamp(68px, 6vw, 86px);
   height: auto;
-  max-height: 70px;
+  max-height: 72px;
   object-fit: contain;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.16));
   transform-style: preserve-3d;
-  transition: transform 0.25s ease, filter 0.25s ease, width 0.25s ease, max-height 0.25s ease;
-    display: block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.35s ease,
+              width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+/* Scrolled state: shift logo 50% in navbar, 50% below navbar, and increase logo size */
+.editorial-nav.minimalist-nav.is-scrolled .navbar-center-logo-link {
+  transform: translateY(36px);
 }
 
 .editorial-nav.minimalist-nav.is-scrolled .site-firm-logo-img {
-  width: clamp(54px, 5vw, 70px);
-  max-height: 58px;
+  width: clamp(96px, 8.8vw, 122px);
+  max-height: 110px;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.22));
 }
 
 .navbar-center-logo-link:hover .site-firm-logo-img,
@@ -12996,8 +13084,18 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
   }
 
   .site-firm-logo-img {
-    width: clamp(50px, 12.5vw, 60px);
-    max-height: 52px;
+    width: clamp(54px, 13vw, 68px);
+    max-height: 60px;
+  }
+
+  .editorial-nav.minimalist-nav.is-scrolled .navbar-center-logo-link {
+    transform: translateY(33px);
+  }
+
+  .editorial-nav.minimalist-nav.is-scrolled .site-firm-logo-img {
+    width: clamp(76px, 17vw, 94px);
+    max-height: 84px;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.22));
   }
 
   .navbar-minimal-menu-btn {
