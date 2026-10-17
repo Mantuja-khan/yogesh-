@@ -42,14 +42,13 @@ export function MeaningfulContactSection() {
     <section className="meaningful-contact-section" id="contact-form" aria-label="Connect With Us">
       <div className="meaningful-contact-container">
         {/* Contact Us Section Header matching Brand Performance Pill Style */}
-        <div className="contact-pill-header-wrap" style={{ textAlign: "center", marginBottom: "32px", paddingTop: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div className="contact-pill-header-wrap" style={{ textAlign: "center", marginBottom: "18px", paddingTop: "0px", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <h2 className="two-tone-pill-heading" style={{ justifyContent: "center", marginBottom: "12px" }}>
             <span className="pill-prefix">CONTACT</span>
             <span className="pill-suffix">US</span>
           </h2>
           <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: 0, textAlign: "center" }}>
-            <span>Great Brands Start With A Discussion – </span>
-            <span style={{ color: "#1C2752", fontWeight: "700" }}>Connect With Us Now.</span>
+
           </p>
         </div>
 

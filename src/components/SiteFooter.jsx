@@ -170,7 +170,7 @@ export function SiteFooter({ showDottedSquares = false }) {
       {/* Bottom Row matching Image 2 */}
       <div className="footer-bottom-image-two-bar">
         <span>
-          © {new Date().getFullYear()} {portfolio.name} · softlogicsolutionsllc. All rights reserved.
+          © {new Date().getFullYear()} {portfolio.name} . All rights reserved.
         </span>
 
         <div className="footer-bottom-links">

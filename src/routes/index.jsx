@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { LetterCascade } from "@/components/ui/letter-cascade";
-import { ArrowDown, ArrowLeftRight, ArrowRight, ArrowUpRight, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Compass, Eye, Layers, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowLeftRight, ArrowRight, ArrowUpRight, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Compass, Eye, Layers, Pause, Play, ShieldCheck, Sparkles, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -28,6 +28,7 @@ import { PlaybookWorksSection } from "@/components/PlaybookWorksSection";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import { HomeOurClientsSection } from "@/components/HomeOurClientsSection";
 import { HomeMarketingStatsShowcase } from "@/components/HomeMarketingStatsShowcase";
+import { SeamlessHeroBackgroundVideo } from "@/components/SeamlessHeroBackgroundVideo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,38 +47,9 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   const [heroMounted, setHeroMounted] = useState(true);
   const [showPreloader, setShowPreloader] = useState(true);
-  const [heroActiveTab, setHeroActiveTab] = useState("packaging");
   const cursorRef = useRef(null);
   const reelController = useRef(null);
-
-  const heroTabs = [
-    {
-      id: "packaging",
-      label: "Packaging Dielines",
-      image: "/packaging-design-sketch.jpg",
-      spec: "100% CAD Dieline Precision",
-      link: "/packaging-design",
-      alt: "Packaging Design Dieline Craft by Yogesh Dahiya",
-    },
-    {
-      id: "brand",
-      label: "Brand Development",
-      image: "/brand-development-sketch.jpg",
-      spec: "Identity Sketch & Typographic Manuals",
-      link: "/brand-development",
-      alt: "Brand Development Manual Sketch by Yogesh Dahiya",
-    },
-    {
-      id: "shape",
-      label: "Product Shape",
-      image: "/product-shape-sketch.png",
-      spec: "3D Industrial Bottle Blueprints",
-      link: "/product-shape-design",
-      alt: "Product Shape & Bottle Industrial Blueprints by Yogesh Dahiya",
-    },
-  ];
-
-  const currentHeroCraft = heroTabs.find((t) => t.id === heroActiveTab) || heroTabs[0];
+  const heroVideoRef = useRef(null);
 
 
   const handleHeroPointerMove = (e) => {
@@ -100,6 +72,25 @@ function HomePage() {
     const handleReplayEvent = () => setShowPreloader(true);
     window.addEventListener("ss_replay_logo_intro", handleReplayEvent);
     return () => window.removeEventListener("ss_replay_logo_intro", handleReplayEvent);
+  }, []);
+
+  // Guarantee hero background video runs continuously with zero pause/freeze on loop
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.play().catch(() => { });
+
+    const handleLoop = () => {
+      // Loop smoothly right before video ends to avoid browser native gap
+      if (video.duration && video.currentTime >= video.duration - 0.08) {
+        video.currentTime = 0;
+        video.play().catch(() => { });
+      }
+    };
+
+    video.addEventListener("timeupdate", handleLoop);
+    return () => video.removeEventListener("timeupdate", handleLoop);
   }, []);
 
   useEffect(() => {
@@ -185,41 +176,21 @@ function HomePage() {
       <SiteHeader />
 
       <main>
-        {/* Responsive Custom Hero with Master Studio Craft Workbench */}
-        <section className="editorial-hero custom-designer-hero" id="top">
-          {/* Clean Studio Ambient Floor Backdrop */}
-          <div className="hero-studio-backdrop-scene" aria-hidden="true">
-            <svg
-              className="hero-backdrop-curves-svg"
-              viewBox="0 0 1440 680"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <defs>
-                <linearGradient id="studioAmbientFloor" x1="0%" y1="50%" x2="100%" y2="50%">
-                  <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
-                  <stop offset="100%" stopColor="#FFFFFF" stopOpacity="1" />
-                </linearGradient>
-              </defs>
+        {/* Responsive Custom Hero with Full Video Background */}
+        <section className="editorial-hero custom-designer-hero hero-with-bg-video" id="top">
+          {/* Hero Video Background Layer (Seamless Non-Stop Looping, Zero Pause, Sound Permanently Off) */}
+          <SeamlessHeroBackgroundVideo />
 
-              {/* Seamless Pure White Floor Wash */}
-              <rect x="0" y="0" width="1440" height="680" fill="#FFFFFF" />
-            </svg>
-          </div>
-
-          <div className="hero-banner-inner-grid">
-            {/* Left Content Column */}
-            <div className="hero-banner-content-col">
+          <div className="hero-banner-inner-grid hero-bg-video-grid">
+            {/* Left Content Column (Left-aligned on large screen, Centered on small screen) */}
+            <div className="hero-banner-content-col hero-banner-content-bg-mode">
               {/* Studio Eyebrow Tag Row */}
               <div className="hero-studio-tag-row">
                 <span className="hero-studio-badge-pill">
-                  <span className="hero-badge-gold-dot" aria-hidden="true" />
                   PACKAGING ARCHITECTURE &amp; BRAND DESIGN
                 </span>
-                <span className="hero-studio-year">EST. 2016</span>
+                <span className="hero-studio-year">EST. 2023</span>
               </div>
-
               <h1 className="hero-custom-h1" aria-label="SS PRODUCTION HOUSE">
                 <span className="hero-custom-line-1">
                   <TextReveal triggerOnMount delay={0.16} stagger={0.06}>
@@ -239,11 +210,11 @@ function HomePage() {
 
               <p className="hero-designer-role-tag">
                 <TextReveal triggerOnMount delay={0.52} stagger={0.035}>
-                  Graphic Designer &amp; Creative Director · New Delhi
+                  Graphic Designer &amp; Creative Director · Bhiwadi-Rajasthan
                 </TextReveal>
               </p>
 
-              {/* Decorative Accent Divider Bar (Clean Golden Rounded Bar matching reference image) */}
+              {/* Decorative Accent Divider Bar */}
               <div className="hero-custom-divider" aria-hidden="true" />
 
               {/* Paragraph Narrative */}
@@ -296,62 +267,6 @@ function HomePage() {
                 </div>
               </div>
             </div>
-
-            {/* Right Visual Column: Master Craft Interactive Workbench (100% Authentic, Non-AI) */}
-            <div className="hero-banner-visual-col">
-              <div className="hero-craft-showcase-stage">
-                {/* Interactive Disciplines Switcher */}
-                <div className="hero-craft-tabs-bar" role="tablist" aria-label="Studio Design Disciplines">
-                  {heroTabs.map((tab) => (
-                    <button
-                      key={tab.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={heroActiveTab === tab.id}
-                      className={`hero-craft-tab-btn ${heroActiveTab === tab.id ? "active" : ""}`}
-                      onClick={() => setHeroActiveTab(tab.id)}
-                    >
-                      {tab.label}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Craft Frame Card */}
-                <div className="hero-craft-card">
-                  {/* Floating Top Specification Badge */}
-                  <div className="hero-craft-spec-badge">
-                    <span className="hero-badge-gold-dot" aria-hidden="true" />
-                    <span>{currentHeroCraft.spec}</span>
-                  </div>
-
-                  {/* Main Visual: Technical Sketch / Industrial Blueprint */}
-                  <div className="hero-craft-viewport">
-                    <img
-                      key={currentHeroCraft.id}
-                      src={currentHeroCraft.image}
-                      alt={currentHeroCraft.alt}
-                      loading="eager"
-                      draggable={false}
-                    />
-                  </div>
-
-                  {/* Floating Bottom Card: Creative Director Verification & Quick Link */}
-                  <div className="hero-craft-footer-card">
-                    <div className="hero-craft-footer-left">
-                      <div className="hero-craft-footer-dot" aria-hidden="true" />
-                      <div>
-                        <div className="hero-craft-footer-name">Yogesh Dahiya</div>
-                        <div className="hero-craft-footer-role">Founder &amp; Creative Director</div>
-                      </div>
-                    </div>
-                    <Link to={currentHeroCraft.link} className="hero-craft-footer-link" title={`Explore ${currentHeroCraft.label}`}>
-                      <span>Explore</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Bottom Center: Scroll Down Indicator */}
@@ -388,9 +303,7 @@ function HomePage() {
               <span className="pill-prefix">OUR</span>
               <span className="pill-suffix">PORTFOLIO</span>
             </h2>
-            <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: "0 auto 12px", textAlign: "center", maxWidth: "720px" }}>
-              Crafted with precision, delivered with passion.
-            </p>
+
           </div>
 
           {/* Single-Line Infinite Draggable Works Reel (Right to Left) */}
@@ -1140,11 +1053,7 @@ function OurServicesAccordionSection() {
             <span className="pill-prefix">OUR </span>
             <span className="pill-suffix">SERVICES </span>
           </h2>
-          <p className="home-services-subtitle">
-            From strategy to execution , our winning combination of innovative thinking, scentific design, sophisticated development , and ongoing analysis ensure we're delivering value to help you grow.
-          </p>
         </div>
-
         {/* Two-column layout: Left image with vertical Call Now, Right exclusive accordion */}
         <div className="home-services-body-grid">
           {/* Left Column: Changes image dynamically based on selected service */}

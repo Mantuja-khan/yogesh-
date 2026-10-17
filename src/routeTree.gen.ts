@@ -10,11 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdsDesignRouteImport } from './routes/ads-design'
 import { Route as BrandDevelopmentRouteImport } from './routes/brand-development'
 import { Route as BrandStrategyRouteImport } from './routes/brand-strategy'
 import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as OurClientsRouteImport } from './routes/our-clients'
 import { Route as PackagingDesignRouteImport } from './routes/packaging-design'
 import { Route as PaidMarketingRouteImport } from './routes/paid-marketing'
 import { Route as PhotographyRouteImport } from './routes/photography'
@@ -30,6 +32,11 @@ import { Route as WorksRouteImport } from './routes/works'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdsDesignRoute = AdsDesignRouteImport.update({
@@ -55,6 +62,11 @@ const ClientsRoute = ClientsRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurClientsRoute = OurClientsRouteImport.update({
+  id: '/our-clients',
+  path: '/our-clients',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PackagingDesignRoute = PackagingDesignRouteImport.update({
@@ -116,11 +128,13 @@ const WorksRoute = WorksRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/ads-design': typeof AdsDesignRoute
   '/brand-development': typeof BrandDevelopmentRoute
   '/brand-strategy': typeof BrandStrategyRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
+  '/our-clients': typeof OurClientsRoute
   '/packaging-design': typeof PackagingDesignRoute
   '/paid-marketing': typeof PaidMarketingRoute
   '/photography': typeof PhotographyRoute
@@ -135,11 +149,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/ads-design': typeof AdsDesignRoute
   '/brand-development': typeof BrandDevelopmentRoute
   '/brand-strategy': typeof BrandStrategyRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
+  '/our-clients': typeof OurClientsRoute
   '/packaging-design': typeof PackagingDesignRoute
   '/paid-marketing': typeof PaidMarketingRoute
   '/photography': typeof PhotographyRoute
@@ -155,11 +171,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/ads-design': typeof AdsDesignRoute
   '/brand-development': typeof BrandDevelopmentRoute
   '/brand-strategy': typeof BrandStrategyRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
+  '/our-clients': typeof OurClientsRoute
   '/packaging-design': typeof PackagingDesignRoute
   '/paid-marketing': typeof PaidMarketingRoute
   '/photography': typeof PhotographyRoute
@@ -176,11 +194,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/ads-design'
     | '/brand-development'
     | '/brand-strategy'
     | '/clients'
     | '/contact'
+    | '/our-clients'
     | '/packaging-design'
     | '/paid-marketing'
     | '/photography'
@@ -195,11 +215,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/ads-design'
     | '/brand-development'
     | '/brand-strategy'
     | '/clients'
     | '/contact'
+    | '/our-clients'
     | '/packaging-design'
     | '/paid-marketing'
     | '/photography'
@@ -214,11 +236,13 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/ads-design'
     | '/brand-development'
     | '/brand-strategy'
     | '/clients'
     | '/contact'
+    | '/our-clients'
     | '/packaging-design'
     | '/paid-marketing'
     | '/photography'
@@ -234,11 +258,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AdsDesignRoute: typeof AdsDesignRoute
   BrandDevelopmentRoute: typeof BrandDevelopmentRoute
   BrandStrategyRoute: typeof BrandStrategyRoute
   ClientsRoute: typeof ClientsRoute
   ContactRoute: typeof ContactRoute
+  OurClientsRoute: typeof OurClientsRoute
   PackagingDesignRoute: typeof PackagingDesignRoute
   PaidMarketingRoute: typeof PaidMarketingRoute
   PhotographyRoute: typeof PhotographyRoute
@@ -259,6 +285,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ads-design': {
@@ -294,6 +327,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-clients': {
+      id: '/our-clients'
+      path: '/our-clients'
+      fullPath: '/our-clients'
+      preLoaderRoute: typeof OurClientsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packaging-design': {
@@ -378,11 +418,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AdsDesignRoute: AdsDesignRoute,
   BrandDevelopmentRoute: BrandDevelopmentRoute,
   BrandStrategyRoute: BrandStrategyRoute,
   ClientsRoute: ClientsRoute,
   ContactRoute: ContactRoute,
+  OurClientsRoute: OurClientsRoute,
   PackagingDesignRoute: PackagingDesignRoute,
   PaidMarketingRoute: PaidMarketingRoute,
   PhotographyRoute: PhotographyRoute,

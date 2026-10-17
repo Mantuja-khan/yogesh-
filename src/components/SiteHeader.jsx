@@ -12,7 +12,9 @@ export function SiteHeader() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 15);
+      // At hero section (top <= 40px): completely transparent / no color
+      // Scrolled down (> 40px): solid white background
+      setIsScrolled(window.scrollY > 40);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -50,6 +52,9 @@ export function SiteHeader() {
         items: [
           { label: "Who we are", link: "/profile" },
           { label: "How we work", link: "/profile" },
+          { label: "Our Services", link: "/services" },
+          { label: "Our Clients", link: "/clients" },
+          { label: "Contact Us", link: "/contact" },
         ],
       },
       {
@@ -151,10 +156,10 @@ export function SiteHeader() {
           }`}
       >
         <div className="nav-container-minimal">
-          {/* Left: Brand Logo & Firm Name Only */}
+          {/* Left: SS Production House Brand Text */}
           <Link
             to="/"
-            className="brand-logo-firm-wrap"
+            className="navbar-brand-text-col"
             aria-label={`${portfolio.name} Home`}
             onClick={() => {
               setMenuOpen(false);
@@ -163,32 +168,46 @@ export function SiteHeader() {
               }
             }}
           >
-            <img src={portfolio.logo} alt={portfolio.name} className="site-firm-logo-img" />
-            <div className="site-firm-name-wrap">
-              <div className="site-firm-ss-brand-row">
-                <span className="site-firm-ss-large">SS</span>
-                <span className="site-firm-vertical-divider" aria-hidden="true" />
-                <div className="site-firm-prod-col">
-                  <span className="site-firm-word-production">PRODUCTION</span>
-                  <span className="site-firm-word-house">HOUSE</span>
-                </div>
+            <div className="site-firm-ss-brand-row">
+              <span className="site-firm-ss-large">SS</span>
+              <span className="site-firm-vertical-divider" aria-hidden="true" />
+              <div className="site-firm-prod-col">
+                <span className="site-firm-word-production">PRODUCTION</span>
+                <span className="site-firm-word-house">HOUSE</span>
               </div>
             </div>
           </Link>
 
-          {/* Right: Menu Bar Button Only */}
-          <button
-            type="button"
-            className={`navbar-minimal-menu-btn ${menuOpen ? "is-active" : ""}`}
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
+          {/* Center: Brand Logo */}
+          <Link
+            to="/"
+            className="navbar-center-logo-link"
+            aria-label={`${portfolio.name} Logo`}
+            onClick={() => {
+              setMenuOpen(false);
+              if (typeof window !== "undefined") {
+                window.dispatchEvent(new CustomEvent("ss_replay_logo_intro"));
+              }
+            }}
           >
-            <span className="menu-btn-label">{menuOpen ? "CLOSE" : "MENU"}</span>
-            <div className="menu-icon-indicator">
-              {menuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-            </div>
-          </button>
+            <img src={portfolio.logo} alt={portfolio.name} className="site-firm-logo-img" />
+          </Link>
+
+          {/* Right: Minimalist Menu Button */}
+          <div className="navbar-right-menu-col">
+            <button
+              type="button"
+              className={`navbar-minimal-menu-btn ${menuOpen ? "is-active" : ""}`}
+              onClick={() => setMenuOpen((prev) => !prev)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+            >
+              <span className="menu-btn-label">{menuOpen ? "CLOSE" : "MENU"}</span>
+              <div className="menu-icon-indicator">
+                {menuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              </div>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -225,6 +244,7 @@ export function SiteHeader() {
                         {sec.title}
                       </span>
                     </Link>
+
                     {sec.items && (
                       <ul className="creamy-sublist">
                         {sec.items.map((sub, i) => (
@@ -304,7 +324,6 @@ export function SiteHeader() {
                   </div>
                 ))}
               </div>
-
               {/* Column 3: Brand Design (9 requested buttons) + Contact */}
               <div className="creamy-col">
                 {/* Brand Design */}

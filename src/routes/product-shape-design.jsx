@@ -129,12 +129,12 @@ export default function ProductShapeDesignPage() {
           {/* Split Section: Product Shape Sketch on Left, Content on Right */}
           <section className="subpage-split-hero">
             <div className="subpage-split-left">
-              <div className="subpage-split-img-card" style={{ background: "#FFFFFF", borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(28, 39, 82, 0.12)", boxShadow: "0 20px 45px rgba(28, 39, 82, 0.14)" }}>
+              <div className="subpage-split-img-card" style={{ background: "#FFFFFF", borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(28, 39, 82, 0.08)", boxShadow: "0 18px 45px rgba(28, 39, 82, 0.08)" }}>
                 <img
-                  src="/product-shape-sketch.png"
+                  src="/product-shape-sketch-clean.png"
                   alt="Product Shape Design Industrial Blueprint & Bottle Wireframe Modeling by Yogesh Dahiya"
                   className="subpage-split-img"
-                  style={{ objectFit: "contain", width: "100%", maxHeight: "520px", display: "block", padding: "16px" }}
+                  style={{ objectFit: "contain", width: "100%", maxHeight: "520px", display: "block", padding: "16px", background: "#FFFFFF" }}
                   loading="eager"
                 />
               </div>

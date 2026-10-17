@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { ChevronUp } from "lucide-react";
 import { portfolio } from "@/lib/portfolioData";
 
 export function FloatingWhatsApp() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (typeof window !== "undefined") {
+        setShowScrollTop(window.scrollY > 280);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
   // Format phone number for WhatsApp url: remove spaces, plus, hyphens
   const rawPhone = portfolio.phone || "+919671445186";
   const cleanPhone = rawPhone.replace(/[^\d]/g, "");
   const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent("Hello Yogesh, I would like to inquire about design and production services.")}`;
 
   return (
-    <aside aria-label="WhatsApp Contact">
+    <aside aria-label="Floating Actions Dock" className="floating-actions-dock">
+      {/* Top Item: WhatsApp Button */}
       <a
         href={whatsappUrl}
         target="_blank"
@@ -34,6 +59,18 @@ export function FloatingWhatsApp() {
         {/* Hover Tooltip Label */}
         <span className="whatsapp-tooltip-tag">Chat on WhatsApp</span>
       </a>
+
+      {/* Bottom Item: Scroll To Top Button (Below WhatsApp, Hidden When on Top) */}
+      <button
+        type="button"
+        onClick={scrollToTop}
+        className={`floating-scroll-top-btn ${showScrollTop ? "is-visible" : "is-hidden"}`}
+        aria-label="Scroll to top of page"
+        title="Back to Top"
+      >
+        <ChevronUp className="scroll-top-icon" />
+        <span className="scroll-top-tooltip">Back to Top</span>
+      </button>
     </aside>
   );
 }

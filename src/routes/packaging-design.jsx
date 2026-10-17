@@ -127,12 +127,12 @@ export default function PackagingDesignPage() {
           {/* Split Section: Packaging Sketch on Left, Content on Right */}
           <section className="subpage-split-hero">
             <div className="subpage-split-left">
-              <div className="subpage-split-img-card" style={{ background: "#05070B", borderRadius: "16px", overflow: "hidden", boxShadow: "0 20px 45px rgba(28, 39, 82, 0.2)" }}>
+              <div className="subpage-split-img-card" style={{ background: "#FFFFFF", borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(28, 39, 82, 0.08)", boxShadow: "0 18px 45px rgba(28, 39, 82, 0.08)" }}>
                 <img
-                  src="/packaging-design-sketch.jpg"
+                  src="/packaging-design-sketch-white.jpg"
                   alt="Packaging Design Dieline Engineering & Box Drafting by Yogesh Dahiya"
                   className="subpage-split-img"
-                  style={{ objectFit: "contain", width: "100%", maxHeight: "520px", display: "block" }}
+                  style={{ objectFit: "contain", width: "100%", maxHeight: "520px", display: "block", background: "#FFFFFF" }}
                   loading="eager"
                 />
               </div>
