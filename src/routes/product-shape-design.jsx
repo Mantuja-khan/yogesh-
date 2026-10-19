@@ -179,7 +179,7 @@ export default function ProductShapeDesignPage() {
           </section>
 
           {/* Capabilities Grid */}
-          <section className="page-content-section" style={{ padding: "20px 0 50px 0" }}>
+          {/* <section className="page-content-section" style={{ padding: "20px 0 50px 0" }}>
           <div className="page-subhead-wrap" style={{ marginBottom: "36px" }}>
             <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
               STRUCTURAL INNOVATION
@@ -203,7 +203,7 @@ export default function ProductShapeDesignPage() {
               );
             })}
           </div>
-        </section>
+        </section> */}
 
         {/* Featured Showcase (Pure White Background, Interactive Clean Cards) */}
         {featuredWorks.length > 0 && (

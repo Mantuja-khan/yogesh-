@@ -71,14 +71,10 @@ export default function PhotographyPage() {
     },
   ];
 
-  // Actual product photoshoot works from portfolio
+  // Actual product photoshoot works from portfolio - all images from photoshot folder
   const photoshootWorks = (portfolio.projects || []).filter(
-    (p) =>
-      p.categoryKey === "product-photoshoot" ||
-      p.category?.toLowerCase().includes("photoshoot") ||
-      p.category?.toLowerCase().includes("photo") ||
-      p.title?.toLowerCase().includes("shoot")
-  ).slice(0, 12);
+    (p) => p.categoryKey === "product-photoshoot" || p.id?.startsWith("ph-")
+  );
 
   return (
     <div className="portfolio-shell page-shell" ref={cursorRef} style={{ background: "#FFFFFF" }}>
@@ -177,7 +173,7 @@ export default function PhotographyPage() {
             </div>
           </section>
 
-          {/* Below: Photoshoot Works Grid (SHOW ONLY IMAGE PROPERLY - NO TEXT) */}
+          {/* Below: Photoshoot Works Grid (SHOW ALL IMAGES CLEAN & SIMPLE - NO BORDERS OR CARD BACKGROUND) */}
           <section style={{ marginBottom: "54px" }}>
             <div style={{ marginBottom: "28px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
               <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700", marginBottom: "8px" }}>
@@ -187,21 +183,14 @@ export default function PhotographyPage() {
                 <span className="pill-prefix">PHOTOSHOOT</span>
                 <span className="pill-suffix">WORKS</span>
               </h2>
-              <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: "0 auto 16px", textAlign: "center", maxWidth: "700px" }}>
-                Tactile captures, surgical lighting, and high-speed liquid motion.
-              </p>
-              <Link to="/works" search={{ category: "product-photoshoot" }} className="subpage-view-all-link">
-                <span>View Full Reel</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
             </div>
 
-            {/* Pure Image Grid: Only Image Displayed */}
-            <div className="subpage-works-pure-grid">
+            {/* Pure Clean Image Grid: Simple Images, No Card Background, No Borders */}
+            <div className="subpage-works-pure-grid photography-clean-grid">
               {photoshootWorks.map((proj) => (
                 <div
                   key={proj.id}
-                  className="subpage-pure-image-card"
+                  className="subpage-pure-image-card photography-clean-card"
                   onClick={() => setSelectedWork(proj)}
                   role="button"
                   tabIndex={0}
@@ -214,7 +203,7 @@ export default function PhotographyPage() {
           </section>
 
           {/* Studio Services: Simple and WITHOUT BORDER STYLING */}
-          <section style={{ marginBottom: "56px" }}>
+          {/* <section style={{ marginBottom: "56px" }}>
             <div style={{ marginBottom: "24px" }}>
               <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
                 STUDIO SERVICES
@@ -238,7 +227,7 @@ export default function PhotographyPage() {
                 );
               })}
             </div>
-          </section>
+          </section> */}
 
           {/* Meaningful Discussion Contact Section */}
           <div id="contact-form">
@@ -246,7 +235,9 @@ export default function PhotographyPage() {
           </div>
         </div>
       </main>
+      <div>
 
+      </div>
       {/* Lightbox Modal for Full View */}
       {selectedWork && (
         <div className="playbook-modal-backdrop" onClick={() => setSelectedWork(null)}>

@@ -51,7 +51,6 @@ export function MeaningfulContactSection() {
 
           </p>
         </div>
-
         {/* Exact Architectural Box with broken top line & blue speech bubble matching reference image */}
         <div className="ref-contact-box">
           {/* Top Border Row with Left line, Centered Blue Bubble above Title in Gap, Right line */}

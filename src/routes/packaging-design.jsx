@@ -177,7 +177,7 @@ export default function PackagingDesignPage() {
           </section>
 
           {/* Capabilities Grid */}
-          <section className="page-content-section" style={{ padding: "20px 0 50px 0" }}>
+          {/* <section className="page-content-section" style={{ padding: "20px 0 50px 0" }}>
           <div className="page-subhead-wrap" style={{ marginBottom: "36px" }}>
             <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
               TECHNICAL EXPERTISE
@@ -201,24 +201,17 @@ export default function PackagingDesignPage() {
               );
             })}
           </div>
-        </section>
+        </section> */}
 
         {/* Featured Packaging Works Showcase (Pure White Background, Interactive Clean Cards) */}
         {packagingProjects.length > 0 && (
           <section className="page-content-section" style={{ background: "#FFFFFF", padding: "48px 0" }}>
             <div className="page-subhead-wrap" style={{ marginBottom: "28px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "16px" }}>
               <div>
-                <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
-                  PORTFOLIO SHOWCASE
-                </span>
-                <h2 className="editorial-lead" style={{ margin: "6px 0 0 0" }}>
-                  Selected Packaging Projects
-                </h2>
+
+
               </div>
-              <Link to="/works" search={{ category: "box-design" }} className="subpage-view-all-link">
-                <span>View Full Packaging Catalog</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
+
             </div>
 
             {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}

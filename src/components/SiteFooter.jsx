@@ -172,7 +172,6 @@ export function SiteFooter({ showDottedSquares = false }) {
         <span>
           © {new Date().getFullYear()} {portfolio.name} . All rights reserved.
         </span>
-
         <div className="footer-bottom-links">
           <Link to="/contact">Terms &amp; Conditions</Link>
           <Link to="/contact">Privacy Policy</Link>
@@ -250,7 +249,7 @@ function GoogleMyBusinessBadge() {
 
       {/* Right: Agency Name, 4.6 Stars, Location */}
       <div className="gmb-info-right">
-        <h4 className="gmb-agency-title">Crux Creative Solutions</h4>
+        <h4 className="gmb-agency-title">SS PRODUCTION HOUSE</h4>
         <div className="gmb-rating-row">
           <span className="gmb-score-num">4.6</span>
           <div className="gmb-stars-row" aria-label="4.6 out of 5 stars">

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { LetterCascade } from "@/components/ui/letter-cascade";
-import { ArrowDown, ArrowLeftRight, ArrowRight, ArrowUpRight, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Compass, Eye, Layers, Pause, Play, ShieldCheck, Sparkles, Volume2, VolumeX } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowLeftRight, ArrowRight, ArrowUpRight, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Compass, Eye, Layers, Pause, Play, ShieldCheck, Sparkles, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -9,7 +9,6 @@ import { StudioMascot } from "@/components/StudioMascot";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
-import pdfIcon from "@/assets/pdf-icon.svg";
 import missionBg from "@/assets/mission-bg.jpg";
 import visionBg from "@/assets/vision-bg.jpg";
 import heroBannerImg from "@/assets/hero-banner.png";
@@ -165,7 +164,7 @@ function HomePage() {
 
   const displayProjects = portfolio.homeDraggingItems && portfolio.homeDraggingItems.length > 0
     ? portfolio.homeDraggingItems
-    : portfolio.projects.filter((p) => !p.isPdf && p.featuredOnHome !== false);
+    : portfolio.projects.filter((p) => p.featuredOnHome !== false);
 
   return (
     <div className="portfolio-shell" ref={cursorRef}>
@@ -318,7 +317,7 @@ function HomePage() {
                 return (
                   <article
                     key={project.id}
-                    className="works-single-line-card card-3d"
+                    className="works-single-line-card"
                     draggable={false}
                     onDragStart={(e) => e.preventDefault()}
                   >
@@ -333,8 +332,8 @@ function HomePage() {
                       <img
                         src={project.image}
                         alt={project.alt || project.title}
-                        width={300}
-                        height={375}
+                        width={360}
+                        height={450}
                         loading={index < 4 ? "eager" : "lazy"}
                         draggable={false}
                       />
@@ -1142,37 +1141,46 @@ function OurServicesAccordionSection() {
 }
 
 function BrandPerformanceSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [dragOffset, setDragOffset] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const isDraggingRef = useRef(false);
-  const dragStartXRef = useRef(0);
-  const dragDeltaRef = useRef(0);
-  const autoPlayTimerRef = useRef(null);
+  const slides = (portfolio.brandPerformanceSlides && portfolio.brandPerformanceSlides.length > 0)
+    ? portfolio.brandPerformanceSlides
+    : [
+      {
+        id: "slide-1",
+        img: brandsShowcaseImg,
+        title: "Dancing Octopus & Baofeng Industrial Line",
+        alt: "Packaging Design Company and Branding Agency India - Dancing Octopus, Baofeng, Hairtune, Xeona",
+        tag: "FLAGSHIP SHOWCASE",
+      },
+      {
+        id: "slide-2",
+        img: drag1,
+          title: "Tableware, Sunscreen & Precision Tech",
+          alt: "Commercial Tableware, Sunscreen & Baofeng Industrial Showcase",
+          tag: "PACKAGING & BRANDING",
+      },
+      {
+        id: "slide-3",
+        img: drag2,
+          title: "Editorial Publications & Luxury Skincare",
+          alt: "Editorial Publications & Luxury Skincare Systems",
+          tag: "EDITORIAL & 3D SYSTEMS",
+      },
+    ];
 
-  const slides = [
-    {
-      id: "slide-1",
-      img: brandsShowcaseImg,
-      alt: "Packaging Design Company and Branding Agency India - Dancing Octopus, Baofeng, Hairtune, Xeona",
-    },
-    {
-      id: "slide-2",
-      img: drag1,
-      alt: "Commercial Tableware, Sunscreen & Baofeng Industrial Showcase",
-    },
-    {
-      id: "slide-3",
-      img: drag2,
-      alt: "Editorial Publications & Luxury Skincare Systems",
-    },
-  ];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState("forward");
+  const [animKey, setAnimKey] = useState(0);
+  const autoPlayTimerRef = useRef(null);
+  const touchStartXRef = useRef(0);
+  const touchDeltaRef = useRef(0);
 
   const resetTimer = () => {
     if (autoPlayTimerRef.current) clearInterval(autoPlayTimerRef.current);
     autoPlayTimerRef.current = setInterval(() => {
+      setDirection("forward");
+      setAnimKey((k) => k + 1);
       setActiveIndex((prev) => (prev + 1) % slides.length);
-    }, 5000); // 5 seconds per image!
+    }, 4500); // 4.5 seconds per rotation
   };
 
   useEffect(() => {
@@ -1182,70 +1190,54 @@ function BrandPerformanceSection() {
     };
   }, [slides.length]);
 
-  const handlePointerDown = (e) => {
-    if (e.button !== undefined && e.button !== 0) return;
-    isDraggingRef.current = true;
-    dragStartXRef.current = e.clientX;
-    dragDeltaRef.current = 0;
-    setIsDragging(true);
-    setDragOffset(0);
-    // Pause auto timer during user drag interaction
-    if (autoPlayTimerRef.current) clearInterval(autoPlayTimerRef.current);
-    try {
-      e.currentTarget.setPointerCapture(e.pointerId);
-    } catch (_) { }
-  };
-
-  const handlePointerMove = (e) => {
-    if (!isDraggingRef.current) return;
-    const delta = e.clientX - dragStartXRef.current;
-    dragDeltaRef.current = delta;
-    setDragOffset(delta);
-  };
-
-  const handlePointerUp = (e) => {
-    if (!isDraggingRef.current) return;
-    isDraggingRef.current = false;
-    setIsDragging(false);
-    try {
-      if (e.currentTarget.hasPointerCapture(e.pointerId)) {
-        e.currentTarget.releasePointerCapture(e.pointerId);
-      }
-    } catch (_) { }
-
-    const delta = dragDeltaRef.current;
-    dragDeltaRef.current = 0;
-    setDragOffset(0);
-
-    // If dragged left by > 35px: next image (coming from right)
-    if (delta < -35) {
-      setActiveIndex((prev) => (prev + 1) % slides.length);
-    }
-    // If dragged right by > 35px: previous image
-    else if (delta > 35) {
-      setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
-    }
-    resetTimer();
-  };
-
   const nextSlide = () => {
+    setDirection("forward");
+    setAnimKey((k) => k + 1);
     setActiveIndex((prev) => (prev + 1) % slides.length);
     resetTimer();
   };
 
   const prevSlide = () => {
+    setDirection("backward");
+    setAnimKey((k) => k + 1);
     setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
     resetTimer();
   };
 
   const goToSlide = (idx) => {
+    if (idx === activeIndex) return;
+    setDirection(idx > activeIndex ? "forward" : "backward");
+    setAnimKey((k) => k + 1);
     setActiveIndex(idx);
     resetTimer();
   };
 
+  const handleTouchStart = (e) => {
+    touchStartXRef.current = e.touches[0].clientX;
+    touchDeltaRef.current = 0;
+    if (autoPlayTimerRef.current) clearInterval(autoPlayTimerRef.current);
+  };
+
+  const handleTouchMove = (e) => {
+    touchDeltaRef.current = e.touches[0].clientX - touchStartXRef.current;
+  };
+
+  const handleTouchEnd = () => {
+    const delta = touchDeltaRef.current;
+    if (delta < -35) {
+      nextSlide();
+    } else if (delta > 35) {
+      prevSlide();
+    } else {
+      resetTimer();
+    }
+  };
+
+  const total = slides.length;
+
   return (
     <section className="brands-performance-section" aria-label="Brand Performance & Packaging Agency Showcase">
-      {/* Decorative Pink Fluid Backdrop matching Reference Design */}
+      {/* Decorative Fluid Backdrop matching Reference Design */}
       <div className="brands-performance-backdrop" aria-hidden="true">
         <div className="brands-ribbon-left" />
         <div className="brands-ribbon-right" />
@@ -1279,19 +1271,18 @@ function BrandPerformanceSection() {
             <span className="brands-guaranteed-text" style={{ color: "#1C2752", fontWeight: "700" }}>Guaranteed.</span>
           </p>
         </div>
-        {/* Packaging Showcase Stage - Interactive Drag & 5s Slides */}
+
+        {/* Packaging Showcase Stage - 3 Simultaneous Images with Smooth Orbital Transitions */}
         <div className="brands-performance-stage scroll-reveal scroll-reveal-delay-1">
           <div
             className="brands-slider-stage-wrapper"
-            onPointerDown={handlePointerDown}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerUp}
-            onPointerCancel={handlePointerUp}
-            style={{
-              cursor: isDragging ? "grabbing" : "grab",
-              touchAction: "pan-y",
-              userSelect: "none",
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseEnter={() => {
+              if (autoPlayTimerRef.current) clearInterval(autoPlayTimerRef.current);
             }}
+            onMouseLeave={resetTimer}
           >
             {/* Navigation Arrows */}
             <button
@@ -1318,49 +1309,83 @@ function BrandPerformanceSection() {
               <ChevronRight className="w-5 h-5" />
             </button>
 
-            {/* Slides Viewport */}
+            {/* Slides Viewport: Displays Position 1 (Top-Right), Position 2 (Center), and Position 3 (Bottom-Left) */}
             <div className="brands-slider-viewport">
               {slides.map((slide, idx) => {
-                let diff = idx - activeIndex;
-                if (diff > 1) diff -= slides.length;
-                if (diff < -1) diff += slides.length;
+                const diff = (idx - activeIndex + total) % total;
+                const isCenter = diff === 0;
+                const isTopRight = diff === 1;
+                const isBottomLeft = diff === total - 1;
 
-                const translatePercent = diff * 100;
-                const isCurrent = diff === 0;
+                let slotClass = "is-hidden";
+                let animClass = "";
+                if (isCenter) {
+                  slotClass = "is-center";
+                  if (animKey > 0) {
+                    animClass = direction === "forward" ? "is-coming-to-center-from-top-right" : "is-coming-to-center-from-bottom-left";
+                  }
+                } else if (isTopRight) {
+                  slotClass = "is-top-right";
+                  if (animKey > 0) {
+                    animClass = direction === "forward" ? "is-looping-to-top-right" : "is-going-to-top-right-from-center";
+                  }
+                } else if (isBottomLeft) {
+                  slotClass = "is-bottom-left";
+                  if (animKey > 0) {
+                    animClass = direction === "forward" ? "is-going-to-bottom-left-from-center" : "is-looping-to-bottom-left";
+                  }
+                }
 
                 return (
                   <div
-                    key={slide.id}
-                    className={`brands-showcase-slide ${isCurrent ? "is-active" : diff > 0 ? "is-next" : "is-prev"}`}
-                    style={{
-                      transform: `translateX(calc(${translatePercent}% + ${dragOffset}px))`,
-                      transition: isDragging ? "none" : "transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.75s ease",
-                      opacity: Math.abs(diff) > 1 ? 0 : 1,
-                      visibility: Math.abs(diff) > 1 ? "hidden" : "visible",
+                    key={`${slide.id}-${animKey}`}
+                    className={`brands-showcase-slide ${slotClass} ${animClass}`}
+                    onClick={() => {
+                      if (isTopRight) nextSlide();
+                      if (isBottomLeft) prevSlide();
                     }}
-                    aria-hidden={!isCurrent}
+                    role={isCenter ? "region" : "button"}
+                    tabIndex={isCenter ? -1 : 0}
+                    aria-label={isCenter ? slide.title || slide.alt : isTopRight ? `Next: ${slide.title || "Showcase"}` : `Previous: ${slide.title || "Showcase"}`}
+                    title={isCenter ? "" : isTopRight ? "Click to feature this design in center" : "Click to feature this design in center"}
                   >
                     <div className="brands-slide-card">
+                      {/* Floating Indicator Pill for Corner Stages */}
+                      {isTopRight && (
+                        <span className="brands-slide-corner-pill pill-top-right">
+                          <span>NEXT</span>
+                          <ArrowUpRight className="w-3 h-3" />
+                        </span>
+                      )}
+                      {isBottomLeft && (
+                        <span className="brands-slide-corner-pill pill-bottom-left">
+                          <ArrowLeft className="w-3 h-3" />
+                          <span>PREV</span>
+                        </span>
+                      )}
+
                       <img
                         src={slide.img}
-                        alt={slide.alt}
+                        alt={slide.alt || slide.title}
                         className="brands-performance-img"
-                        loading={idx === 0 ? "eager" : "lazy"}
+                        loading={isCenter ? "eager" : "lazy"}
                         draggable={false}
                         onDragStart={(e) => e.preventDefault()}
                       />
 
-                      {/* Ground Reflection Floor Plane matching stone podium reflection */}
-                      <div className="brands-ground-reflection-wrap" aria-hidden="true">
-                        <img
-                          src={slide.img}
-                          alt=""
-                          className="brands-ground-reflection-img"
-                          draggable={false}
-                          onDragStart={(e) => e.preventDefault()}
-                        />
-                        <div className="brands-ground-reflection-mask" />
-                      </div>
+                      {/* Ground Reflection Floor Plane: Only active center card */}
+                      {isCenter && (
+                        <div className="brands-ground-reflection-wrap" aria-hidden="true">
+                          <img
+                            src={slide.img}
+                            alt=""
+                            className="brands-ground-reflection-img"
+                            draggable={false}
+                            onDragStart={(e) => e.preventDefault()}
+                          />
+                          <div className="brands-ground-reflection-mask" />
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
