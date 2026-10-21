@@ -37,15 +37,17 @@ export default function PackagingDesignPage() {
     return () => window.removeEventListener("pointermove", move);
   }, []);
 
-  // Filter packaging specific projects from portfolio
+  // Filter all packaging & box design projects from portfolio
   const packagingProjects = (portfolio.projects || []).filter(
     (p) =>
       p.categoryKey === "box-design" ||
       p.categoryKey === "packaging" ||
+      p.categoryKeys?.includes("box-design") ||
+      p.categoryKeys?.includes("packaging") ||
       p.category?.toLowerCase().includes("packaging") ||
       p.category?.toLowerCase().includes("box") ||
       p.title?.toLowerCase().includes("box")
-  ).slice(0, 12);
+  );
 
   const capabilities = [
     {
@@ -206,20 +208,29 @@ export default function PackagingDesignPage() {
         {/* Featured Packaging Works Showcase (Pure White Background, Interactive Clean Cards) */}
         {packagingProjects.length > 0 && (
           <section className="page-content-section" style={{ background: "#FFFFFF", padding: "48px 0" }}>
-            <div className="page-subhead-wrap" style={{ marginBottom: "28px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "16px" }}>
-              <div>
-
-
-              </div>
-
+            <div style={{ marginBottom: "28px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+              <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700", marginBottom: "8px" }}>
+                PACKAGING &amp; BOX SHOWCASE
+              </span>
+              <h2 className="two-tone-pill-heading" style={{ marginBottom: "12px", justifyContent: "center" }}>
+                <span className="pill-prefix">BOX</span>
+                <span className="pill-suffix">DESIGNS</span>
+              </h2>
+              <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: "0 auto 16px", textAlign: "center", maxWidth: "700px" }}>
+                Explore structural dielines, luxury rigid boxes, folding cartons, and retail packaging suites.
+              </p>
+              <Link to="/works" search={{ category: "box-design" }} className="subpage-view-all-link">
+                <span>View Full Packaging Catalog</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}
-            <div className="subpage-works-pure-grid">
+            <div className="subpage-works-pure-grid photography-clean-grid">
               {packagingProjects.map((proj) => (
                 <div
                   key={proj.id}
-                  className="subpage-pure-image-card"
+                  className="subpage-pure-image-card photography-clean-card"
                   onClick={() => setSelectedWork(proj)}
                   role="button"
                   tabIndex={0}

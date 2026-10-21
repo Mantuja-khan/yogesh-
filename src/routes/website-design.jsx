@@ -10,6 +10,10 @@ import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import webDeveloperIllustration from "@/assets/web_developer_illustration.png";
+import website1 from "@/assets/websites/website1.png";
+import website2 from "@/assets/websites/website2.png";
+import website3 from "@/assets/websites/website3.png";
+import website4 from "@/assets/websites/website4.png";
 
 export const Route = createFileRoute("/website-design")({
   head: () => ({
@@ -71,8 +75,29 @@ export default function WebsiteDesignPage() {
     },
   ];
 
-  // Selected works
-  const websiteWorks = (portfolio.projects || []).slice(0, 12);
+  // Curated website flagships (including remaining website 4 and all website designs with hover scroll)
+  const websiteWorks = [
+    {
+      id: "web-4",
+      image: website4,
+      title: "Global Technical Industrial Flagship",
+    },
+    {
+      id: "web-1",
+      image: website1,
+      title: "Luxury Sanitaryware & Living",
+    },
+    {
+      id: "web-2",
+      image: website2,
+      title: "Sun Star Packaging & Logistics",
+    },
+    {
+      id: "web-3",
+      image: website3,
+      title: "Precision CNC & Industrial Machinery",
+    },
+  ];
 
   return (
     <div className="portfolio-shell page-shell" ref={cursorRef} style={{ background: "#FFFFFF" }}>
@@ -190,18 +215,28 @@ export default function WebsiteDesignPage() {
               </Link>
             </div>
 
-            {/* Pure Image Grid: Only Image Displayed */}
-            <div className="subpage-works-pure-grid">
-              {websiteWorks.map((proj) => (
+            {/* Pure Image Grid: Same hover-scroll viewport style as home page */}
+            <div className="website-page-works-grid">
+              {websiteWorks.map((site) => (
                 <div
-                  key={proj.id}
-                  className="subpage-pure-image-card"
-                  onClick={() => setSelectedWork(proj)}
+                  key={site.id}
+                  className="website-showcase-window"
+                  onClick={() => setSelectedWork(site)}
                   role="button"
                   tabIndex={0}
-                  aria-label={`View ${proj.title || "Website Design Work"}`}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") setSelectedWork(site);
+                  }}
+                  aria-label="Website preview"
                 >
-                  <img src={proj.image} alt={proj.title || "Website Design Work"} loading="lazy" />
+                  <div className="website-scroll-viewport">
+                    <img
+                      src={site.image}
+                      alt={site.title || "Website design preview"}
+                      className="website-scroll-image"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               ))}
             </div>

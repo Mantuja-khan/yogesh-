@@ -197,11 +197,11 @@ export default function BrandDevelopmentPage() {
             </div>
 
             {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}
-            <div className="subpage-works-pure-grid">
+            <div className="subpage-works-pure-grid photography-clean-grid">
               {brandWorks.map((proj) => (
                 <div
                   key={proj.id}
-                  className="subpage-pure-image-card"
+                  className="subpage-pure-image-card photography-clean-card"
                   onClick={() => setSelectedWork(proj)}
                   role="button"
                   tabIndex={0}

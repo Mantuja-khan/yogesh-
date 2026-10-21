@@ -190,12 +190,12 @@ export default function UiUxDesignPage() {
               </Link>
             </div>
 
-            {/* Pure Image Grid: Only Image Displayed */}
-            <div className="subpage-works-pure-grid">
+            {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}
+            <div className="subpage-works-pure-grid photography-clean-grid">
               {uiuxWorks.map((proj) => (
                 <div
                   key={proj.id}
-                  className="subpage-pure-image-card"
+                  className="subpage-pure-image-card photography-clean-card"
                   onClick={() => setSelectedWork(proj)}
                   role="button"
                   tabIndex={0}
@@ -207,32 +207,6 @@ export default function UiUxDesignPage() {
             </div>
           </section>
 
-          {/* Disciplines Section: Simple and WITHOUT BORDER STYLING */}
-          <section style={{ marginBottom: "56px" }}>
-            <div style={{ marginBottom: "24px" }}>
-              <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
-                DISCIPLINES
-              </span>
-              <h2 className="editorial-lead" style={{ margin: "6px 0 0 0" }}>
-                Our UI/UX Production Spectrum
-              </h2>
-            </div>
-
-            <div className="service-capabilities-grid is-borderless">
-              {capabilities.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div key={idx} className="capability-card-simple">
-                    <div className="capability-simple-icon">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h3 className="capability-simple-title">{item.title}</h3>
-                    <p className="capability-simple-desc">{item.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
 
           {/* Meaningful Discussion Contact Section */}
           <div id="contact-form">

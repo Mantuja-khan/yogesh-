@@ -253,7 +253,7 @@ function ClientsPage() {
                   letterSpacing: "0.04em",
                   cursor: "pointer",
                   transition: "all 0.2s ease",
-                  boxShadow: selectedCategory === cat.key ? "0 4px 14px rgba(28,39,82,0.22)" : "none",
+                  boxShadow: selectedCategory === cat.key ? "0 4px 14px rgba(28, 39, 82,0.25)" : "none",
                 }}
               >
                 {cat.label}

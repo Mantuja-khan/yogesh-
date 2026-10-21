@@ -71,13 +71,14 @@ export default function SocialMediaMarketingPage() {
     },
   ];
 
-  // Social media post works showcase
+  // All social media post works showcase from portfolio
   const smmWorks = (portfolio.projects || []).filter(
     (p) =>
       p.categoryKey === "post-design" ||
+      p.categoryKeys?.includes("post-design") ||
       p.category?.toLowerCase().includes("post") ||
       p.category?.toLowerCase().includes("social")
-  ).slice(0, 12);
+  );
 
   return (
     <div className="portfolio-shell page-shell" ref={cursorRef} style={{ background: "#FFFFFF" }}>
@@ -194,11 +195,11 @@ export default function SocialMediaMarketingPage() {
             </div>
 
             {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}
-            <div className="subpage-works-pure-grid">
+            <div className="subpage-works-pure-grid photography-clean-grid">
               {smmWorks.map((proj) => (
                 <div
                   key={proj.id}
-                  className="subpage-pure-image-card"
+                  className="subpage-pure-image-card photography-clean-card"
                   onClick={() => setSelectedWork(proj)}
                   role="button"
                   tabIndex={0}

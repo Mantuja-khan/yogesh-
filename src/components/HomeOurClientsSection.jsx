@@ -310,7 +310,7 @@ export function HomeOurClientsSection() {
                         />
                       </div>
 
-                      {/* Hover/Active State: Dark Blue Background (#1C2752) with white descriptive text */}
+                      {/* Hover/Active State: Royal Blue Background (#1C2752) with white descriptive text */}
                       <div className="chamfer-card-face chamfer-card-back">
                         <p className="chamfer-hover-content">{client.hoverText}</p>
                       </div>

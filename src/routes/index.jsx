@@ -26,6 +26,7 @@ import { DottedSquare8x8 } from "@/components/DottedSquare8x8";
 import { PlaybookWorksSection } from "@/components/PlaybookWorksSection";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import { HomeOurClientsSection } from "@/components/HomeOurClientsSection";
+import { HomeCategoryShowcaseSection } from "@/components/HomeCategoryShowcaseSection";
 import { HomeMarketingStatsShowcase } from "@/components/HomeMarketingStatsShowcase";
 import { SeamlessHeroBackgroundVideo } from "@/components/SeamlessHeroBackgroundVideo";
 
@@ -313,6 +314,7 @@ function HomePage() {
               speedPixelsPerSecond={38}
               controllerRef={reelController}
               className="works-infinite-scroll-wrap"
+              pauseOnlyOnImage={true}
               renderItem={(project, index) => {
                 return (
                   <article
@@ -369,6 +371,9 @@ function HomePage() {
 
         {/* Our Clients Section matching User Reference Image (Dark Navy with Chamfer Cards) */}
         <HomeOurClientsSection />
+
+        {/* Specialized Categories Showcase Section with 4 Buttons: Catalogs, Websites, Label Design, Photo shot */}
+        <HomeCategoryShowcaseSection />
 
         {/* Marketing Next Level & Statistics Showcase Section (Pure White Background) */}
         <HomeMarketingStatsShowcase />
@@ -428,6 +433,7 @@ function AutoScrollRow({
   controllerRef = null,
   className = "",
   minItemsToScroll = 1,
+  pauseOnlyOnImage = false,
 }) {
   const containerRef = useRef(null);
   const trackRef = useRef(null);
@@ -607,7 +613,9 @@ function AutoScrollRow({
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
       onPointerEnter={() => {
-        isHoveredRef.current = true;
+        if (!pauseOnlyOnImage) {
+          isHoveredRef.current = true;
+        }
       }}
       onPointerLeave={() => {
         isHoveredRef.current = false;

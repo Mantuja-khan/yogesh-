@@ -47,7 +47,7 @@ export function SiteHeader() {
       {
         id: "about",
         title: "About",
-        titleColor: "#1C2752", // Blue accent replacing pink
+        titleColor: "#1C2752", // Dark blue accent
         link: "/profile",
         items: [
           { label: "Who we are", link: "/profile" },
