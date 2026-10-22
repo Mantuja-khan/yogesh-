@@ -138,12 +138,6 @@ export function HomeCategoryShowcaseSection() {
                 <div
                   key={site.id}
                   className="website-showcase-window"
-                  onClick={() => setSelectedItem(site)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") setSelectedItem(site);
-                  }}
                   aria-label="Website preview"
                 >
                   {/* Scrollable Viewport: shows ~20% height, scrolls down on hover, returns on leave */}

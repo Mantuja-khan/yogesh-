@@ -16534,16 +16534,21 @@ h2.two-tone-pill-heading .pill-suffix {
   box-shadow: none !important;
   border-radius: 0 !important;
   transform: translateY(0);
-  transition: transform 1.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform;
 }
 
-/* When hover on card, scroll down to reveal full height in exact A4 viewport */
+/* When hover on card, smoothly scroll down faster to reveal full height in exact A4 viewport */
 .website-showcase-window:hover .website-scroll-image,
 .website-scroll-viewport:hover .website-scroll-image {
   transform: translateY(calc(-100% + 580px)); /* fallback */
   transform: translateY(calc(-100% + (100cqw * 1.4142857))); /* dynamic exact A4 bottom */
-  transition: transform 7.5s cubic-bezier(0.2, 0, 0.2, 1);
+  transition: transform 3.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.home-website-showcase-grid .website-showcase-window,
+.home-website-showcase-grid .website-scroll-viewport {
+  cursor: default !important;
 }
 
 /* 4-Item Photography-Style Grid for Catalogs, Label Design, and Photo Shot */
