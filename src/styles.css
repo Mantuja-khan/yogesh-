@@ -10955,7 +10955,8 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
 }
 
 .brands-showcase-slide.is-top-right:hover .brands-performance-img {
-  filter: blur(0.5px) drop-shadow(0 24px 48px rgba(2, 132, 199, 0.45));
+  transform: scale(1.055);
+  filter: blur(0.5px) drop-shadow(0 26px 52px rgba(2, 132, 199, 0.48));
 }
 
 /* Position 3: Bottom Left Corner (Outgoing / Previous Showcase - Moved MORE LEFT & DOWN with BLUR & SHADOW) */
@@ -10976,11 +10977,12 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
 
 .brands-showcase-slide.is-bottom-left .brands-performance-img {
   filter: blur(2.5px) drop-shadow(0 20px 40px rgba(15, 23, 42, 0.30));
-  transition: filter 0.4s ease, transform 0.4s ease;
+  transition: filter 0.4s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .brands-showcase-slide.is-bottom-left:hover .brands-performance-img {
-  filter: blur(0.5px) drop-shadow(0 24px 48px rgba(15, 23, 42, 0.42));
+  transform: scale(1.055);
+  filter: blur(0.5px) drop-shadow(0 26px 52px rgba(15, 23, 42, 0.45));
 }
 
 /* Explicit Transition Animations */
@@ -11164,12 +11166,15 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
   max-height: 380px;
   object-fit: contain;
   filter: drop-shadow(0 16px 32px rgba(30, 10, 20, 0.14));
-  transition: transform 0.4s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
   user-select: none;
 }
 
-.brands-showcase-slide.is-active:hover .brands-performance-img {
-  transform: scale(1.02);
+.brands-showcase-slide.is-center:hover .brands-performance-img,
+.brands-showcase-slide.is-active:hover .brands-performance-img,
+.brands-slide-card:hover .brands-performance-img {
+  transform: scale(1.055);
+  filter: drop-shadow(0 28px 56px rgba(15, 23, 42, 0.24));
 }
 
 /* Ground reflection under stone podium */
@@ -11190,6 +11195,11 @@ body.mobile-menu-is-open .floating-whatsapp-btn {
   height: auto;
   transform: scaleY(-1);
   object-fit: contain;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brands-showcase-slide.is-center:hover .brands-ground-reflection-img {
+  transform: scaleY(-1) scale(1.055);
 }
 
 .brands-ground-reflection-mask {
@@ -16523,12 +16533,12 @@ h2.two-tone-pill-heading .pill-suffix {
   width: 100% !important;
   padding: 0 !important;
   margin: 0 !important;
-  transition: transform 0.3s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .website-showcase-window:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: none !important;
+  transform: translateY(-5px) scale(1.03) !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12) !important;
   border: none !important;
 }
 
@@ -16623,13 +16633,13 @@ h2.two-tone-pill-heading .pill-suffix {
   margin: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .home-category-clean-card:hover {
-  transform: translateY(-4px) !important;
+  transform: translateY(-5px) !important;
 }
 
 .home-clean-image-wrap {
@@ -16637,7 +16647,7 @@ h2.two-tone-pill-heading .pill-suffix {
   height: auto !important;
   background: transparent !important;
   display: block !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   padding: 0 !important;
   margin: 0 !important;
 }
@@ -16655,11 +16665,12 @@ h2.two-tone-pill-heading .pill-suffix {
   border-radius: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
-  transition: transform 0.35s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
 }
 
 .home-category-clean-card:hover .home-clean-image {
-  transform: scale(1.02);
+  transform: scale(1.055) !important;
+  filter: drop-shadow(0 14px 28px rgba(15, 23, 42, 0.16)) !important;
 }
 
 .home-clean-card-meta {
