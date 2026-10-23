@@ -3138,15 +3138,15 @@ h4.text-reveal-container {
 
 @media (max-width: 768px) {
   .works-infinite-scroll-wrap .auto-scroll-track {
-    gap: 20px;
+    gap: 14px;
   }
 
   .works-single-line-card {
-    /* 2 images visible at a time on tablet */
-    flex: 0 0 calc((100vw - 48px - 20px) / 2);
-    width: calc((100vw - 48px - 20px) / 2);
-    min-width: 200px;
-    max-width: 290px;
+    /* Proportionally decreased image cards on tablet */
+    flex: 0 0 clamp(165px, 28vw, 215px);
+    width: clamp(165px, 28vw, 215px);
+    min-width: 155px;
+    max-width: 225px;
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
@@ -3154,28 +3154,45 @@ h4.text-reveal-container {
 }
 
 @media (max-width: 480px) {
+  .works-infinite-scroll-wrap {
+    padding: 10px 0 20px;
+  }
+
   .works-infinite-scroll-wrap .auto-scroll-track {
-    gap: 16px;
+    gap: 10px;
   }
 
   .works-single-line-card {
-    /* Fluid preview on mobile */
-    flex: 0 0 clamp(220px, 68vw, 280px);
-    width: clamp(220px, 68vw, 280px);
-    min-width: 190px;
-    max-width: 300px;
+    /* Decreased image size a little bit when screen size is small */
+    flex: 0 0 clamp(135px, 42vw, 175px);
+    width: clamp(135px, 42vw, 175px);
+    min-width: 130px;
+    max-width: 180px;
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
   }
 
+  .single-line-image-wrap {
+    max-height: 220px;
+  }
+
   .single-line-inquire-badge {
-    padding: 6px 10px;
-    font-size: 8.5px;
+    padding: 5px 8px;
+    font-size: 8px;
   }
 
   .card-pdf-icon-indicator {
     display: none !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .works-single-line-card {
+    flex: 0 0 130px;
+    width: 130px;
+    min-width: 120px;
+    max-width: 140px;
   }
 }
 
@@ -9504,22 +9521,32 @@ h4.text-reveal-container {
 @media (max-width: 768px) {
   .works-infinite-scroll-wrap .works-single-line-card,
   #work .works-single-line-card {
-    /* 2 images visible at a time on tablet */
-    width: calc((100vw - 48px - 20px) / 2);
-    flex: 0 0 calc((100vw - 48px - 20px) / 2);
-    min-width: 200px;
-    max-width: 290px;
+    /* Proportionally decreased image cards on tablet */
+    width: clamp(165px, 28vw, 215px);
+    flex: 0 0 clamp(165px, 28vw, 215px);
+    min-width: 155px;
+    max-width: 225px;
   }
 }
 
 @media (max-width: 480px) {
   .works-infinite-scroll-wrap .works-single-line-card,
   #work .works-single-line-card {
-    /* Fluid preview on mobile */
-    width: clamp(220px, 68vw, 280px);
-    flex: 0 0 clamp(220px, 68vw, 280px);
-    min-width: 190px;
-    max-width: 300px;
+    /* Decreased image size a little bit when screen size is small */
+    width: clamp(135px, 42vw, 175px);
+    flex: 0 0 clamp(135px, 42vw, 175px);
+    min-width: 130px;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 360px) {
+  .works-infinite-scroll-wrap .works-single-line-card,
+  #work .works-single-line-card {
+    width: 130px;
+    flex: 0 0 130px;
+    min-width: 120px;
+    max-width: 140px;
   }
 }
 

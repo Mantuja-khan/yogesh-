@@ -166,15 +166,6 @@ export default function PackagingDesignPage() {
                 </div>
               </div>
 
-              <div className="subpage-split-cta-row">
-                <a href="#contact-form" className="subpage-btn-primary">
-                  <span>Start Packaging Project</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
-                <Link to="/works" search={{ category: "box-design" }} className="subpage-btn-secondary">
-                  <span>View Packaging Catalog</span>
-                </Link>
-              </div>
             </div>
           </section>
 

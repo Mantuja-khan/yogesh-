@@ -30,7 +30,7 @@ function WorksPage() {
   const search = useSearch({ from: "/works" });
   const navigate = useNavigate({ from: "/works" });
   const cursorRef = useRef(null);
-  const selectedCategory = search?.category || "all";
+  const selectedCategory = search?.category || "catalogue";
 
   useEffect(() => {
     const move = (event) => {
@@ -42,11 +42,7 @@ function WorksPage() {
   }, []);
 
   const handleCategoryChange = (newCat) => {
-    if (newCat === "all") {
-      navigate({ search: {}, replace: true });
-    } else {
-      navigate({ search: { category: newCat }, replace: true });
-    }
+    navigate({ search: { category: newCat }, replace: true });
   };
 
   return (

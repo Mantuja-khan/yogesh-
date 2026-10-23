@@ -4,29 +4,31 @@ import { portfolio } from "@/lib/portfolioData";
 
 // Complete category buttons matching Image 2 and website works
 export const PLAYBOOK_CATEGORIES = [
-  { id: "all", label: "ALL WORKS" },
-  { id: "marketing-collateral", label: "MARKETING COLLATERAL" },
-  { id: "publication", label: "PUBLICATION" },
+  { id: "catalogue", label: "CATALOGUE" },
   { id: "packaging", label: "PACKAGING" },
   { id: "logo-design", label: "LOGO" },
   { id: "box-design", label: "BOX DESIGN" },
   { id: "book-design", label: "BOOK DESIGN" },
   { id: "label-design", label: "LABLE" },
   { id: "meter-design", label: "METER DESIGN" },
-  { id: "mockup", label: "MOCHUP" },
   { id: "product-photoshoot", label: "PRODUCT PHOTOSHOOT" },
   { id: "post-design", label: "SOCIAL MEDIA POST" },
   { id: "visiting-card-design", label: "VISITING CARD" },
   { id: "invitation", label: "INVITATION" },
 ];
 
-export function PlaybookWorksSection({ initialCategory = "all", onCategoryChange = null }) {
-  const [activeCategory, setActiveCategory] = useState(initialCategory || "all");
+export function PlaybookWorksSection({ initialCategory = "catalogue", onCategoryChange = null }) {
+  const normalizeCat = (cat) => {
+    if (!cat || cat === "all" || cat === "marketing-collateral" || cat === "mockup") return "catalogue";
+    if (cat === "publication" || cat === "catalogu") return "catalogue";
+    return cat;
+  };
+  const [activeCategory, setActiveCategory] = useState(normalizeCat(initialCategory) || "catalogue");
   const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     if (initialCategory) {
-      setActiveCategory(initialCategory);
+      setActiveCategory(normalizeCat(initialCategory));
     }
   }, [initialCategory]);
 
@@ -49,7 +51,7 @@ export function PlaybookWorksSection({ initialCategory = "all", onCategoryChange
     const handleCategoryEvent = (e) => {
       const cat = e.detail?.category;
       if (cat) {
-        setActiveCategory(cat);
+        setActiveCategory(normalizeCat(cat));
       }
     };
     window.addEventListener("ss_select_work_category", handleCategoryEvent);
@@ -163,14 +165,12 @@ export function PlaybookWorksSection({ initialCategory = "all", onCategoryChange
       );
     }
 
-    if (activeCategory === "publication") {
+    if (activeCategory === "catalogue" || activeCategory === "publication" || activeCategory === "catalogu") {
       return all.filter(
         (p) =>
-          p.categoryKey === "book-design" ||
+          p.categoryKey === "catalogue" ||
           p.categoryKey === "catalogue-design" ||
-          p.category?.toLowerCase().includes("book") ||
-          p.category?.toLowerCase().includes("catalogue") ||
-          p.category?.toLowerCase().includes("publication")
+          p.id?.startsWith("cat-")
       );
     }
 

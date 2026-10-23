@@ -7,15 +7,10 @@ import website2 from "@/assets/websites/website2.png";
 import website3 from "@/assets/websites/website3.png";
 import website4 from "@/assets/websites/website4.png";
 
-// Catalogue Assets (8 items: 4 per line)
+// Catalogue Assets (from catalogue folder)
 import catalogue1 from "@/assets/catalogue/catalogue1.png";
 import catalogue2 from "@/assets/catalogue/catalogue2.png";
 import catalogue3 from "@/assets/catalogue/catalogue3.png";
-import catalogue4 from "@/assets/cateloguedeisgn.png";
-import catalogue5 from "@/assets/Book Design/Book Mockup copy.png";
-import catalogue6 from "@/assets/Book Design/BEYOND.png";
-import catalogue7 from "@/assets/Book Design/Ambedkar Islam.png";
-import catalogue8 from "@/assets/Book Design/MAHABHARAT.png";
 
 // Box Design Assets (8 items: 4 per line)
 import box1 from "@/assets/Box Design/boxdesign1.png";
@@ -53,11 +48,6 @@ export function HomeCategoryShowcaseSection() {
       { id: "cat-1", title: "Corporate Luxury Catalogue 01", image: catalogue1 },
       { id: "cat-2", title: "Master Product Portfolio Catalogue 02", image: catalogue2 },
       { id: "cat-3", title: "Architectural Surface Catalogue 03", image: catalogue3 },
-      { id: "cat-4", title: "Commercial Editorial Catalogue 04", image: catalogue4 },
-      { id: "cat-5", title: "Deluxe Hardcover Publication 05", image: catalogue5 },
-      { id: "cat-6", title: "Editorial Lookbook Monograph 06", image: catalogue6 },
-      { id: "cat-7", title: "Historical Editorial Edition 07", image: catalogue7 },
-      { id: "cat-8", title: "Master Cultural Anthology 08", image: catalogue8 },
     ],
 
     websites: [

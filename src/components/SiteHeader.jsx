@@ -116,11 +116,10 @@ export function SiteHeader() {
         items: [
           { label: "Book Design", link: "/works", categoryKey: "book-design" },
           { label: "Box Design", link: "/works", categoryKey: "box-design" },
-          { label: "Catalogue", link: "/works", categoryKey: "publication" },
+          { label: "Catalogue", link: "/works", categoryKey: "catalogue" },
           { label: "Lable", link: "/works", categoryKey: "label-design" },
           { label: "Logo", link: "/works", categoryKey: "logo-design" },
           { label: "Meter Design", link: "/works", categoryKey: "meter-design" },
-          { label: "Mochup", link: "/works", categoryKey: "mockup" },
           { label: "Social Media post", link: "/works", categoryKey: "post-design" },
           { label: "Visiting card", link: "/works", categoryKey: "visiting-card-design" },
           { label: "Invitartion", link: "/works", categoryKey: "invitation" },
