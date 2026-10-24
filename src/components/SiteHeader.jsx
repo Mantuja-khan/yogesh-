@@ -189,7 +189,10 @@ export function SiteHeader() {
               }
             }}
           >
-            <img src={portfolio.logo} alt={portfolio.name} className="site-firm-logo-img" />
+            <div className="navbar-scrolled-logo-pod">
+              <img src={portfolio.logo} alt={portfolio.name} className="site-firm-logo-img" />
+              <div className="navbar-logo-bottom-half-outline" aria-hidden="true" />
+            </div>
           </Link>
 
           {/* Right: Minimalist Menu Button */}

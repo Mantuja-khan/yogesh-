@@ -13477,11 +13477,11 @@ body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
   right: 0;
   width: 100%;
   height: 84px;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border-bottom: 1.5px solid rgba(15, 23, 42, 0.25) !important;
-    box-shadow: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
   z-index: 100;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
@@ -13489,18 +13489,37 @@ body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
   overflow: visible !important;
 }
 
+.editorial-nav.minimalist-nav::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: rgba(15, 23, 42, 0.25);
+  z-index: 5;
+  pointer-events: none;
+  transition: background 0.3s ease, height 0.3s ease;
+}
+
 .editorial-nav.minimalist-nav.is-scrolled {
   height: 72px;
   background: #FFFFFF !important;
   backdrop-filter: blur(14px) !important;
   -webkit-backdrop-filter: blur(14px) !important;
-  border-bottom: 2px solid #0F172A !important;
+  border-bottom: none !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.editorial-nav.minimalist-nav.is-scrolled::after,
+.editorial-nav.minimalist-nav.is-menu-active::after {
+  height: 1.2px;
+  background: #0F172A;
 }
   
 .editorial-nav.minimalist-nav.is-menu-active {
   background: #FFFFFF !important;
-  border-bottom: 2px solid #0F172A !important;
+  border-bottom: none !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
 }
 
@@ -13513,6 +13532,8 @@ body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   overflow: visible !important;
+  position: relative;
+  z-index: 20;
 }
   
 .navbar-brand-text-col {
@@ -13562,9 +13583,20 @@ body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
   }
 }
 
+.navbar-scrolled-logo-pod {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .site-firm-logo-img {
   width: clamp(68px, 6vw, 86px);
   height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   max-height: 72px;
   object-fit: contain;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.16));
@@ -13581,10 +13613,39 @@ body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
   transform: translateY(36px);
 }
 
+.editorial-nav.minimalist-nav.is-scrolled .navbar-scrolled-logo-pod {
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+  z-index: 120;
+  padding: 7px;
+}
+
 .editorial-nav.minimalist-nav.is-scrolled .site-firm-logo-img {
-  width: clamp(96px, 8.8vw, 122px);
-  max-height: 110px;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.22));
+  width: clamp(92px, 8.4vw, 116px);
+  max-height: 116px;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.16));
+  position: relative;
+  z-index: 125;
+}
+
+/* Hair-thin outline at the below 50% circular part with little gap from logo */
+.navbar-logo-bottom-half-outline {
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1.2px solid #0F172A;
+  border-top: none !important;
+  clip-path: polygon(-10% 49.5%, 110% 49.5%, 110% 120%, -10% 120%);
+  z-index: 130;
+  box-sizing: border-box;
+}
+
+.editorial-nav.minimalist-nav.is-scrolled .navbar-logo-bottom-half-outline {
+  opacity: 1;
 }
 
 .navbar-center-logo-link:hover .site-firm-logo-img,
@@ -15039,12 +15100,44 @@ h2.two-tone-pill-heading .pill-suffix {
   text-transform: uppercase;
 }
 
-.footer-brand-firm-sub {
-  font: 600 clamp(9px, 0.9vw, 11px)/1 var(--font-sans);
-  letter-spacing: 0.12em;
-  color: #60A5FA;
+.footer-brand-firm-sub,
+.footer-brand-tags-animated {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 4px;
+  font-family: var(--font-sans, "Poppins", sans-serif);
+  font-size: clamp(9px, 0.9vw, 11px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin-top: 3px;
+  white-space: nowrap;
+}
+
+.footer-brand-tags-animated .footer-tag-word {
+  color: #E2E8F0;
+  letter-spacing: 0.18em;
+  transition: color 0.25s ease, transform 0.25s ease, text-shadow 0.25s ease;
+  display: inline-block;
+}
+
+.footer-brand-tags-animated .footer-tag-divider {
+  color: #38BDF8;
+  font-weight: 800;
+  margin: 0 7px;
+  user-select: none;
+  opacity: 0.9;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer-brand-logo-link:hover .footer-brand-tags-animated .footer-tag-word {
+  color: #60A5FA;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.55);
+}
+
+.footer-brand-logo-link:hover .footer-brand-tags-animated .footer-tag-divider {
+  color: #93C5FD;
+  transform: scaleY(1.2);
 }
 
 .footer-hero-logo-img {

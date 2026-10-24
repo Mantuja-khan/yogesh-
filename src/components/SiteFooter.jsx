@@ -40,7 +40,13 @@ export function SiteFooter({ showDottedSquares = false }) {
             />
             <div className="footer-brand-firm-text-wrap">
               <span className="footer-brand-firm-title">SS production house</span>
-              <span className="footer-brand-firm-sub">Visual &amp; Packaging Studio</span>
+              <div className="footer-brand-tags-animated" aria-label="Design, Packaging, Transport">
+                <span className="footer-tag-word">DESIGN</span>
+                <span className="footer-tag-divider">|</span>
+                <span className="footer-tag-word">PACKAGING</span>
+                <span className="footer-tag-divider">|</span>
+                <span className="footer-tag-word">TRANSPORT</span>
+              </div>
             </div>
           </Link>
 
