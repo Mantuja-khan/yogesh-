@@ -177,67 +177,8 @@ export default function BrandStrategyPage() {
           </section>
 
           {/* Below: Strategy Works Grid (SHOW ONLY IMAGE PROPERLY - NO TEXT) */}
-          <section style={{ marginBottom: "54px" }}>
-            <div style={{ marginBottom: "28px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-              <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700", marginBottom: "8px" }}>
-                EDITORIAL &amp; IDENTITY SHOWCASE
-              </span>
-              <h2 className="two-tone-pill-heading" style={{ marginBottom: "12px", justifyContent: "center" }}>
-                <span className="pill-prefix">STRATEGY</span>
-                <span className="pill-suffix">WORKS</span>
-              </h2>
-              <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: "0 auto 16px", textAlign: "center", maxWidth: "700px" }}>
-                Strategic catalogues, editorial publications, and brand systems.
-              </p>
-              <Link to="/works" search={{ category: "publication" }} className="subpage-view-all-link">
-                <span>View Full Catalog</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </div>
 
-            {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}
-            <div className="subpage-works-pure-grid photography-clean-grid">
-              {strategyWorks.map((proj) => (
-                <div
-                  key={proj.id}
-                  className="subpage-pure-image-card photography-clean-card"
-                  onClick={() => setSelectedWork(proj)}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`View ${proj.title || "Strategy Work"}`}
-                >
-                  <img src={proj.image} alt={proj.title || "Brand Strategy Work"} loading="lazy" />
-                </div>
-              ))}
-            </div>
-          </section>
 
-          {/* Capabilities Grid */}
-          <section style={{ marginBottom: "56px" }}>
-            <div style={{ marginBottom: "24px" }}>
-              <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
-                STRATEGIC FRAMEWORKS
-              </span>
-              <h2 className="editorial-lead" style={{ margin: "6px 0 0 0" }}>
-                Brand Strategy Capabilities
-              </h2>
-            </div>
-
-            <div className="service-capabilities-grid is-borderless">
-              {capabilities.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div key={idx} className="capability-card-simple">
-                    <div className="capability-simple-icon">
-                      <Icon className="w-5 h-5 text-[#1C2752]" />
-                    </div>
-                    <h3 className="capability-simple-title">{item.title}</h3>
-                    <p className="capability-simple-desc">{item.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
 
           {/* Meaningful Discussion Contact Section */}
           <div id="contact-form">

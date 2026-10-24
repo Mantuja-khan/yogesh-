@@ -232,8 +232,12 @@ export function PlaybookWorksSection({ initialCategory = "catalogue", onCategory
           </div>
         </div>
 
-        {/* 4-Column Responsive Grid showing only image accordingly */}
-        <div className="playbook-works-grid">
+        {/* Responsive Grid / Masonry: Natural image height for labels with immediate vertical stacking */}
+        <div
+          className={`playbook-works-grid ${
+            activeCategory === "label-design" ? "playbook-works-grid-masonry is-label-masonry" : ""
+          }`}
+        >
           {filteredProjects.map((project, index) => (
             <div
               key={`${project.id || index}-${activeCategory}`}

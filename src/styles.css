@@ -14313,6 +14313,69 @@ body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
   }
 }
 
+/* Label Design Masonry: Intrinsic width & height per image, with next image starting directly underneath */
+.playbook-works-grid.is-label-masonry,
+.playbook-works-grid.playbook-works-grid-masonry {
+  display: block !important;
+  column-count: 3 !important;
+  column-gap: clamp(14px, 1.8vw, 22px) !important;
+}
+
+@media (min-width: 1400px) {
+  .playbook-works-grid.is-label-masonry,
+  .playbook-works-grid.playbook-works-grid-masonry {
+    column-count: 3 !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .playbook-works-grid.is-label-masonry,
+  .playbook-works-grid.playbook-works-grid-masonry {
+    column-count: 2 !important;
+    column-gap: 14px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .playbook-works-grid.is-label-masonry,
+  .playbook-works-grid.playbook-works-grid-masonry {
+    column-count: 1 !important;
+    column-gap: 0 !important;
+  }
+}
+
+.playbook-works-grid.is-label-masonry .playbook-work-card,
+.playbook-works-grid.playbook-works-grid-masonry .playbook-work-card {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+  -webkit-column-break-inside: avoid !important;
+  display: inline-block !important;
+  width: 100% !important;
+  height: auto !important;
+  margin-bottom: clamp(14px, 1.8vw, 22px) !important;
+  vertical-align: top !important;
+}
+
+.playbook-works-grid.is-label-masonry .playbook-card-visual,
+.playbook-works-grid.playbook-works-grid-masonry .playbook-card-visual {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  display: block !important;
+  background: transparent !important;
+}
+
+.playbook-works-grid.is-label-masonry .playbook-card-img,
+.playbook-works-grid.playbook-works-grid-masonry .playbook-card-img {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
 .playbook-work-card,
 .playbook-work-card.playbook-image-only-card {
   position: relative !important;
@@ -14417,7 +14480,7 @@ body.preloader-active .navbar-center-logo-link .site-firm-logo-img {
 }
 
 .playbook-image-only-card .playbook-card-visual {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: auto !important;
 }
 
 .playbook-card-title {

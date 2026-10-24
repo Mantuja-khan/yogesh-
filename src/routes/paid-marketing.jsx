@@ -176,68 +176,9 @@ export default function PaidMarketingPage() {
             </div>
           </section>
 
-          {/* Below: Paid Works Grid (SHOW ONLY IMAGE PROPERLY - NO TEXT) */}
-          <section style={{ marginBottom: "54px" }}>
-            <div style={{ marginBottom: "28px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-              <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700", marginBottom: "8px" }}>
-                CONVERTING ASSETS REEL
-              </span>
-              <h2 className="two-tone-pill-heading" style={{ marginBottom: "12px", justifyContent: "center" }}>
-                <span className="pill-prefix">PAID ADS</span>
-                <span className="pill-suffix">WORKS</span>
-              </h2>
-              <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: "0 auto 16px", textAlign: "center", maxWidth: "700px" }}>
-                High-converting static banners, dynamic promotions, and advertising packaging.
-              </p>
-              <Link to="/works" className="subpage-view-all-link">
-                <span>View Full Catalog</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}
-            <div className="subpage-works-pure-grid photography-clean-grid">
-              {paidWorks.map((proj) => (
-                <div
-                  key={proj.id}
-                  className="subpage-pure-image-card photography-clean-card"
-                  onClick={() => setSelectedWork(proj)}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`View ${proj.title || "Campaign Work"}`}
-                >
-                  <img src={proj.image} alt={proj.title || "Paid Marketing Work"} loading="lazy" />
-                </div>
-              ))}
-            </div>
-          </section>
 
           {/* Capabilities Grid */}
-          <section style={{ marginBottom: "56px" }}>
-            <div style={{ marginBottom: "24px" }}>
-              <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
-                PERFORMANCE CHANNELS
-              </span>
-              <h2 className="editorial-lead" style={{ margin: "6px 0 0 0" }}>
-                Paid Marketing Capabilities
-              </h2>
-            </div>
 
-            <div className="service-capabilities-grid is-borderless">
-              {capabilities.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div key={idx} className="capability-card-simple">
-                    <div className="capability-simple-icon">
-                      <Icon className="w-5 h-5 text-[#1C2752]" />
-                    </div>
-                    <h3 className="capability-simple-title">{item.title}</h3>
-                    <p className="capability-simple-desc">{item.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
 
           {/* Meaningful Discussion Contact Section */}
           <div id="contact-form">

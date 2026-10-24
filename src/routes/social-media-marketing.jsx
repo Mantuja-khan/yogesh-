@@ -211,32 +211,7 @@ export default function SocialMediaMarketingPage() {
             </div>
           </section>
 
-          {/* Capabilities Grid */}
-          <section style={{ marginBottom: "56px" }}>
-            <div style={{ marginBottom: "24px" }}>
-              <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
-                STRATEGIC EXECUTION
-              </span>
-              <h2 className="editorial-lead" style={{ margin: "6px 0 0 0" }}>
-                Social Media Marketing Capabilities
-              </h2>
-            </div>
 
-            <div className="service-capabilities-grid is-borderless">
-              {capabilities.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div key={idx} className="capability-card-simple">
-                    <div className="capability-simple-icon">
-                      <Icon className="w-5 h-5 text-[#1C2752]" />
-                    </div>
-                    <h3 className="capability-simple-title">{item.title}</h3>
-                    <p className="capability-simple-desc">{item.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
 
           {/* Meaningful Discussion Contact Section */}
           <div id="contact-form">
