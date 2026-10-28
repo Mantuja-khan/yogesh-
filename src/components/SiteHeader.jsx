@@ -1,4 +1,4 @@
-import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, ChevronRight, Menu, X, Mail, Phone, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { portfolio } from "@/lib/portfolioData";
@@ -6,9 +6,9 @@ import { portfolio } from "@/lib/portfolioData";
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const routerState = useRouterState();
+  const location = useLocation();
   const navigate = useNavigate();
-  const currentPath = routerState?.location?.pathname || "/";
+  const currentPath = location.pathname || "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -137,7 +137,7 @@ export function SiteHeader() {
   const handleLinkClick = (item) => {
     setMenuOpen(false);
     if (item.categoryKey) {
-      navigate({ to: "/works", search: { category: item.categoryKey } });
+      navigate(`/works?category=${item.categoryKey}`);
       if (typeof window !== "undefined") {
         window.dispatchEvent(
           new CustomEvent("ss_select_work_category", { detail: { category: item.categoryKey } })
@@ -270,8 +270,7 @@ export function SiteHeader() {
                   <div key={sec.id} className="creamy-section-group">
                     {sec.categoryKey ? (
                       <Link
-                        to="/works"
-                        search={{ category: sec.categoryKey }}
+                        to={`/works?category=${sec.categoryKey}`}
                         className="creamy-section-title-btn"
                         onClick={() => handleLinkClick(sec)}
                       >
@@ -298,8 +297,7 @@ export function SiteHeader() {
                           <li key={i}>
                             {sub.categoryKey ? (
                               <Link
-                                to="/works"
-                                search={{ category: sub.categoryKey }}
+                                to={`/works?category=${sub.categoryKey}`}
                                 className="creamy-sublink"
                                 onClick={() => handleLinkClick(sub)}
                               >
@@ -331,8 +329,7 @@ export function SiteHeader() {
                   .map((sec) => (
                     <div key={sec.id} className="creamy-section-group">
                       <Link
-                        to="/works"
-                        search={{ category: "logo-design" }}
+                        to="/works?category=logo-design"
                         className="creamy-section-title-btn"
                         onClick={() => handleLinkClick(sec)}
                       >
@@ -346,8 +343,7 @@ export function SiteHeader() {
                           {sec.items.map((sub, i) => (
                             <li key={i}>
                               <Link
-                                to="/works"
-                                search={{ category: sub.categoryKey }}
+                                to={`/works?category=${sub.categoryKey}`}
                                 className="creamy-sublink"
                                 onClick={() => handleLinkClick(sub)}
                               >

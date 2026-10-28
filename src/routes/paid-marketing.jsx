@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, DollarSign, Target, TrendingUp, CheckCircle2, ShieldCheck, PieChart, Zap, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -10,20 +10,6 @@ import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import paidImg from "@/assets/ariz-proj-ecommerce.jpg";
-
-export const Route = createFileRoute("/paid-marketing")({
-  head: () => ({
-    meta: [
-      { title: "Paid Marketing & Performance Advertising — SS Production House" },
-      {
-        name: "description",
-        content:
-          "High-ROAS Meta Ads, Google PPC campaigns, LinkedIn B2B targeting, and programmatic performance advertising engineered by SS Production House.",
-      },
-    ],
-  }),
-  component: PaidMarketingPage,
-});
 
 export default function PaidMarketingPage() {
   const cursorRef = useRef(null);

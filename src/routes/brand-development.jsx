@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Award, Compass, Sparkles, CheckCircle2, ShieldCheck, Target, Layers, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -10,20 +10,6 @@ import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import brandDevImg from "/brand-development-sketch.jpg";
-
-export const Route = createFileRoute("/brand-development")({
-  head: () => ({
-    meta: [
-      { title: "Brand Development Studio — SS Production House" },
-      {
-        name: "description",
-        content:
-          "End-to-end brand development, corporate identity architectures, trademark design, and brand guideline systems by SS Production House.",
-      },
-    ],
-  }),
-  component: BrandDevelopmentPage,
-});
 
 export default function BrandDevelopmentPage() {
   const cursorRef = useRef(null);

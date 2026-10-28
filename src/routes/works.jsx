@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
+import { useSearchParams } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -9,28 +9,10 @@ import { PlaybookWorksSection } from "@/components/PlaybookWorksSection";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import { TextReveal } from "@/components/TextReveal";
 
-export const Route = createFileRoute("/works")({
-  validateSearch: (search) => ({
-    category: typeof search?.category === "string" ? search.category : undefined,
-  }),
-  head: () => ({
-    meta: [
-      { title: "Products & Design Works — SS Production House" },
-      {
-        name: "description",
-        content:
-          "Explore our complete product catalog and design portfolio across Book Design, Box Design, Logo, Meter Design, Mockup, Product Photoshoot, Social Media Posts, and Visiting Cards.",
-      },
-    ],
-  }),
-  component: WorksPage,
-});
-
-function WorksPage() {
-  const search = useSearch({ from: "/works" });
-  const navigate = useNavigate({ from: "/works" });
+export default function WorksPage() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const cursorRef = useRef(null);
-  const selectedCategory = search?.category || "catalogue";
+  const selectedCategory = searchParams.get("category") || "catalogue";
 
   useEffect(() => {
     const move = (event) => {
@@ -42,7 +24,7 @@ function WorksPage() {
   }, []);
 
   const handleCategoryChange = (newCat) => {
-    navigate({ search: { category: newCat }, replace: true });
+    setSearchParams({ category: newCat }, { replace: true });
   };
 
   return (

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowDown, ArrowUpRight, Award, Camera, CheckCircle2, Compass, Eye, Film, Layers, Sparkles } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -12,17 +12,7 @@ import { MeaningfulContactSection } from "@/components/MeaningfulContactSection"
 import missionBg from "@/assets/mission-bg.jpg";
 import visionBg from "@/assets/vision-bg.jpg";
 
-export const Route = createFileRoute("/profile")({
-  head: () => ({
-    meta: [
-      { title: "Designer Profile & Studio — SS Production House" },
-      { name: "description", content: "Learn about SS Production House: graphic design philosophy, brand systems, 3D mockups, and tactile craft." },
-    ],
-  }),
-  component: ProfilePage,
-});
-
-function ProfilePage() {
+export default function ProfilePage() {
   const cursorRef = useRef(null);
 
   useEffect(() => {

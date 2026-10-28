@@ -1,8 +1,5 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { Navigate } from "react-router-dom";
 
-export const Route = createFileRoute("/our-clients")({
-  beforeLoad: () => {
-    throw redirect({ to: "/clients" });
-  },
-  component: () => null,
-});
+export default function OurClientsPage() {
+  return <Navigate to="/clients" replace />;
+}

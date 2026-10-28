@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -9,17 +9,7 @@ import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 
-export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Services & Production Capabilities — SS Production House" },
-      { name: "description", content: "Explore our creative services: Packaging Design, Catalogue Design, Logo Identity, Meter Design, Product Photoshoot, Post Design, and Visiting Cards." },
-    ],
-  }),
-  component: ServicesPage,
-});
-
-function ServicesPage() {
+export default function ServicesPage() {
   const cursorRef = useRef(null);
 
   useEffect(() => {

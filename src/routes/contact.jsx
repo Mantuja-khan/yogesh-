@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Clock, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -10,21 +9,7 @@ import { MeaningfulContactSection } from "@/components/MeaningfulContactSection"
 import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact & Production Inquiries — SS Production House" },
-      {
-        name: "description",
-        content:
-          "Connect with SS Production House and Creative Director Yogesh Dahiya for luxury packaging design, commercial product photoshoots, brand identity, and editorial suites.",
-      },
-    ],
-  }),
-  component: ContactPage,
-});
-
-function ContactPage() {
+export default function ContactPage() {
   const cursorRef = useRef(null);
 
   useEffect(() => {

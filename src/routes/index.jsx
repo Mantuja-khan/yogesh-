@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { LetterCascade } from "@/components/ui/letter-cascade";
 import { ArrowDown, ArrowLeft, ArrowLeftRight, ArrowRight, ArrowUpRight, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Compass, Eye, Layers, Pause, Play, ShieldCheck, Sparkles, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -30,21 +30,7 @@ import { HomeCategoryShowcaseSection } from "@/components/HomeCategoryShowcaseSe
 import { HomeMarketingStatsShowcase } from "@/components/HomeMarketingStatsShowcase";
 import { SeamlessHeroBackgroundVideo } from "@/components/SeamlessHeroBackgroundVideo";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "SS Production House — Graphic Designer & Spatial Studio" },
-      { name: "description", content: "A 3D graphic design studio for brand identity, packaging, editorial systems, and immersive visual worlds." },
-      { property: "og:title", content: "SS Production House — Graphic Designer & Spatial Studio" },
-      { property: "og:description", content: "Brand identity, packaging, and spatial graphic design by SS Production House." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: HomePage,
-});
-
-function HomePage() {
+export default function HomePage() {
   const [heroMounted, setHeroMounted] = useState(true);
   const [showPreloader, setShowPreloader] = useState(true);
   const cursorRef = useRef(null);
@@ -331,8 +317,7 @@ function HomePage() {
                     onDragStart={(e) => e.preventDefault()}
                   >
                     <Link
-                      to="/works"
-                      search={{ category: project.categoryKey }}
+                      to={`/works?category=${project.categoryKey}`}
                       className="single-line-image-wrap"
                       aria-label={`Explore ${project.title}`}
                       draggable={false}

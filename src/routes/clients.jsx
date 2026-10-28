@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Award, CheckCircle2, Globe, Sparkles, Star, Building2, Layers } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -17,16 +17,6 @@ import rengoLogo from "@/assets/rengologo.png";
 import sunstarLogo from "@/assets/sunstar_logo.png";
 import vmSolutionsLogo from "@/assets/vmsolutiions_logo.png";
 import vnAronaLogo from "@/assets/vn_arona_logo.jpg";
-
-export const Route = createFileRoute("/clients")({
-  head: () => ({
-    meta: [
-      { title: "Our Clients & Partnerships — SS Production House" },
-      { name: "description", content: "Explore our trusted client partnerships across packaging design, brand architecture, luxury dielines, and digital strategy." },
-    ],
-  }),
-  component: ClientsPage,
-});
 
 const ALL_CLIENTS = [
   {
@@ -165,7 +155,7 @@ const CATEGORIES = [
   { key: "cosmetics", label: "Cosmetics & Luxury" },
 ];
 
-function ClientsPage() {
+export default function ClientsPage() {
   const cursorRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
 

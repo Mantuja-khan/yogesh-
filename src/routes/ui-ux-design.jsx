@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Layout, Smartphone, MousePointer, Eye, Layers, CheckCircle2, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -11,20 +11,6 @@ import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import uiuxIllustration from "@/assets/uiux_designer_illustration.jpg";
 import uiuxShowcaseWork from "@/assets/uiux-work-showcase.png";
-
-export const Route = createFileRoute("/ui-ux-design")({
-  head: () => ({
-    meta: [
-      { title: "UI/UX Design Studio & Digital Products — SS Production House" },
-      {
-        name: "description",
-        content:
-          "Modern UI/UX design, mobile app interfaces, web application dashboards, design systems, and user journey mapping by SS Production House.",
-      },
-    ],
-  }),
-  component: UiUxDesignPage,
-});
 
 export default function UiUxDesignPage() {
   const cursorRef = useRef(null);

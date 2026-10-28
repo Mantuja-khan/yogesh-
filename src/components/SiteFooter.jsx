@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUp, ArrowUpRight, Star } from "lucide-react";
 import { portfolio } from "@/lib/portfolioData";
 
@@ -75,37 +75,32 @@ export function SiteFooter({ showDottedSquares = false }) {
               <Link to="/works">All Projects</Link>
             </li>
             <li>
-              <Link to="/works" search={{ category: "box-design" }}>
+              <Link to="/works?category=box-design">
                 Box Design
               </Link>
             </li>
             <li>
-              <Link to="/works" search={{ category: "book-design" }}>
+              <Link to="/works?category=book-design">
                 Book Design
               </Link>
             </li>
             <li>
-              <Link to="/works" search={{ category: "label-design" }}>
-                Label Design
-              </Link>
-            </li>
-            <li>
-              <Link to="/works" search={{ category: "logo-design" }}>
+              <Link to="/works?category=logo-design">
                 Logo Design
               </Link>
             </li>
             <li>
-              <Link to="/works" search={{ category: "product-photoshoot" }}>
+              <Link to="/works?category=product-photoshoot">
                 Product Photoshoot
               </Link>
             </li>
             <li>
-              <Link to="/works" search={{ category: "mockup" }}>
+              <Link to="/works?category=mockup">
                 Mockups
               </Link>
             </li>
             <li>
-              <Link to="/works" search={{ category: "visiting-card" }}>
+              <Link to="/works?category=visiting-card">
                 Visiting Card
               </Link>
             </li>
@@ -123,22 +118,22 @@ export function SiteFooter({ showDottedSquares = false }) {
               <Link to="/services">App Development</Link>
             </li>
             <li>
-              <Link to="/works" search={{ category: "box-design" }}>
+              <Link to="/works?category=box-design">
                 E-Commerce
               </Link>
             </li>
             <li>
-              <Link to="/works" search={{ category: "logo-design" }}>
+              <Link to="/works?category=logo-design">
                 Graphic Design
               </Link>
             </li>
             <li>
-              <Link to="/works" search={{ category: "box-design" }}>
+              <Link to="/works?category=box-design">
                 Packaging Design
               </Link>
             </li>
             <li>
-              <Link to="/works" search={{ category: "product-photoshoot" }}>
+              <Link to="/works?category=product-photoshoot">
                 Product Photoshoot
               </Link>
             </li>

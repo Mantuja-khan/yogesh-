@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useRouterState } from "@tanstack/react-router";
+import { useLocation } from "react-router-dom";
 
 /**
  * ScrollRevealProvider
@@ -7,8 +7,8 @@ import { useRouterState } from "@tanstack/react-router";
  * (content & images sliding in from left and right) across EVERY page on scroll.
  */
 export function ScrollRevealProvider() {
-  const routerState = useRouterState();
-  const currentPath = routerState?.location?.pathname;
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   useEffect(() => {
     let observer;

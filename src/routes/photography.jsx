@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Camera, Film, SunMedium, Image, Sliders, CheckCircle2, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -10,20 +10,6 @@ import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import photographerIllustration from "@/assets/photographer_illustration.jpg";
-
-export const Route = createFileRoute("/photography")({
-  head: () => ({
-    meta: [
-      { title: "Commercial Photography & Product Shoots — SS Production House" },
-      {
-        name: "description",
-        content:
-          "High-end commercial product photography, studio lighting, liquid splash captures, macro packaging details, and advertising imagery by SS Production House.",
-      },
-    ],
-  }),
-  component: PhotographyPage,
-});
 
 export default function PhotographyPage() {
   const cursorRef = useRef(null);

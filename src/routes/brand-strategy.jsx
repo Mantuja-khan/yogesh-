@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Compass, TrendingUp, Lightbulb, CheckCircle2, ShieldCheck, Target, BarChart2, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -10,20 +10,6 @@ import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import strategyImg from "@/assets/services_showcase_hexagon.jpg";
-
-export const Route = createFileRoute("/brand-strategy")({
-  head: () => ({
-    meta: [
-      { title: "Brand Strategy & Market Positioning — SS Production House" },
-      {
-        name: "description",
-        content:
-          "Strategic brand positioning, brand story architecture, customer persona mapping, and competitive analysis by SS Production House.",
-      },
-    ],
-  }),
-  component: BrandStrategyPage,
-});
 
 export default function BrandStrategyPage() {
   const cursorRef = useRef(null);

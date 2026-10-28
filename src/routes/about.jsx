@@ -1,8 +1,5 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { Navigate } from "react-router-dom";
 
-export const Route = createFileRoute("/about")({
-  beforeLoad: () => {
-    throw redirect({ to: "/profile" });
-  },
-  component: () => null,
-});
+export default function AboutPage() {
+  return <Navigate to="/profile" replace />;
+}

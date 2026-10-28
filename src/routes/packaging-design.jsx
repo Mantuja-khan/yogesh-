@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Box, Layers, Sparkles, CheckCircle2, ShieldCheck, Palette, FileText, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -9,20 +9,6 @@ import { StudioMascot } from "@/components/StudioMascot";
 import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
-
-export const Route = createFileRoute("/packaging-design")({
-  head: () => ({
-    meta: [
-      { title: "Packaging Design Studio — SS Production House" },
-      {
-        name: "description",
-        content:
-          "High-impact luxury packaging design, rigid boxes, corrugated dielines, folding cartons, and sustainable material engineering by SS Production House.",
-      },
-    ],
-  }),
-  component: PackagingDesignPage,
-});
 
 export default function PackagingDesignPage() {
   const cursorRef = useRef(null);

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Globe, Code, Zap, Smartphone, ShieldCheck, CheckCircle2, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -14,20 +14,6 @@ import website1 from "@/assets/websites/website1.png";
 import website2 from "@/assets/websites/website2.png";
 import website3 from "@/assets/websites/website3.png";
 import website4 from "@/assets/websites/website4.png";
-
-export const Route = createFileRoute("/website-design")({
-  head: () => ({
-    meta: [
-      { title: "Website Design & Development Studio — SS Production House" },
-      {
-        name: "description",
-        content:
-          "High-performance bespoke website design, corporate portals, responsive e-commerce platforms, and interactive 3D web experiences by SS Production House.",
-      },
-    ],
-  }),
-  component: WebsiteDesignPage,
-});
 
 export default function WebsiteDesignPage() {
   const cursorRef = useRef(null);

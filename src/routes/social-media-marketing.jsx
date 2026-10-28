@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Share2, Users, Flame, CheckCircle2, ShieldCheck, Heart, Sparkles, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -10,20 +10,6 @@ import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import smmImg from "@/assets/ariz-proj-photo.jpg";
-
-export const Route = createFileRoute("/social-media-marketing")({
-  head: () => ({
-    meta: [
-      { title: "Social Media Marketing & Content Creation — SS Production House" },
-      {
-        name: "description",
-        content:
-          "High-engagement social media campaigns, viral short-form video content, brand community growth, and influencer partnerships by SS Production House.",
-      },
-    ],
-  }),
-  component: SocialMediaMarketingPage,
-});
 
 export default function SocialMediaMarketingPage() {
   const cursorRef = useRef(null);

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Search, TrendingUp, Globe, CheckCircle2, ShieldCheck, BarChart3, FileSearch, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -10,20 +10,6 @@ import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import seoImg from "@/assets/ariz-proj-analytics.jpg";
-
-export const Route = createFileRoute("/search-engine-optimization")({
-  head: () => ({
-    meta: [
-      { title: "Search Engine Optimization (SEO) — SS Production House" },
-      {
-        name: "description",
-        content:
-          "Data-driven technical SEO, keyword ranking dominance, on-page optimization, and high-authority link architectures by SS Production House.",
-      },
-    ],
-  }),
-  component: SearchEngineOptimizationPage,
-});
 
 export default function SearchEngineOptimizationPage() {
   const cursorRef = useRef(null);

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Compass, Cylinder, Maximize2, Cpu, Sparkles, CheckCircle2, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -9,20 +9,6 @@ import { StudioMascot } from "@/components/StudioMascot";
 import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
-
-export const Route = createFileRoute("/product-shape-design")({
-  head: () => ({
-    meta: [
-      { title: "Product Shape Design & Industrial Form — SS Production House" },
-      {
-        name: "description",
-        content:
-          "Custom container profiles, ergonomic bottle contours, structural closures, and 3D industrial product shape modeling by SS Production House.",
-      },
-    ],
-  }),
-  component: ProductShapeDesignPage,
-});
 
 export default function ProductShapeDesignPage() {
   const cursorRef = useRef(null);

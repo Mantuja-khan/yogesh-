@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Megaphone, Target, BarChart2, Share2, Palette, CheckCircle2, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -9,20 +9,6 @@ import { StudioMascot } from "@/components/StudioMascot";
 import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
-
-export const Route = createFileRoute("/ads-design")({
-  head: () => ({
-    meta: [
-      { title: "Advertising Design & High-Conversion Campaigns — SS Production House" },
-      {
-        name: "description",
-        content:
-          "High-impact social media ad creatives, billboard outdoor branding, digital display campaigns, and print marketing collateral by SS Production House.",
-      },
-    ],
-  }),
-  component: AdsDesignPage,
-});
 
 export default function AdsDesignPage() {
   const cursorRef = useRef(null);
