@@ -29,7 +29,6 @@ export const Route = createRootRouteWithContext()({
       { rel: "icon", type: "image/png", href: "/sslogo.png" },
       { rel: "shortcut icon", type: "image/png", href: "/sslogo.png" },
       { rel: "apple-touch-icon", href: "/sslogo.png" },
-      { rel: "icon", href: "/favicon.ico" },
     ],
   }),
   shellComponent: RootShell, component: RootComponent, notFoundComponent: NotFoundComponent, errorComponent: ErrorComponent,
