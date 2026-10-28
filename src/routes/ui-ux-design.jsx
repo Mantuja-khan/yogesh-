@@ -10,6 +10,7 @@ import { portfolio } from "@/lib/portfolioData";
 import { TextReveal } from "@/components/TextReveal";
 import { MeaningfulContactSection } from "@/components/MeaningfulContactSection";
 import uiuxIllustration from "@/assets/uiux_designer_illustration.jpg";
+import uiuxShowcaseWork from "@/assets/uiux-work-showcase.png";
 
 export const Route = createFileRoute("/ui-ux-design")({
   head: () => ({
@@ -70,9 +71,6 @@ export default function UiUxDesignPage() {
       desc: "Clean Figma spec exports with vector SVG iconography, responsive CSS tokens, and interaction behavior documentation.",
     },
   ];
-
-  // UI/UX & digital interface works
-  const uiuxWorks = (portfolio.projects || []).slice(0, 12);
 
   return (
     <div className="portfolio-shell page-shell" ref={cursorRef} style={{ background: "#FFFFFF" }}>
@@ -171,7 +169,7 @@ export default function UiUxDesignPage() {
             </div>
           </section>
 
-          {/* Below: UI/UX Works Grid (SHOW ONLY IMAGE PROPERLY - NO TEXT) */}
+          {/* Below: UI/UX Works Section (SHOW ONLY THIS IMAGE AT WORK AREA) */}
           <section style={{ marginBottom: "54px" }}>
             <div style={{ marginBottom: "28px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
               <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700", marginBottom: "8px" }}>
@@ -181,29 +179,44 @@ export default function UiUxDesignPage() {
                 <span className="pill-prefix">UI/UX</span>
                 <span className="pill-suffix">WORKS</span>
               </h2>
-              <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: "0 auto 16px", textAlign: "center", maxWidth: "700px" }}>
-                Intuitive interfaces, Figma design systems, and seamless user experiences.
-              </p>
-              <Link to="/works" className="subpage-view-all-link">
-                <span>View Full Reel</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
             </div>
 
-            {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}
-            <div className="subpage-works-pure-grid photography-clean-grid">
-              {uiuxWorks.map((proj) => (
-                <div
-                  key={proj.id}
-                  className="subpage-pure-image-card photography-clean-card"
-                  onClick={() => setSelectedWork(proj)}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`View ${proj.title || "Interface Work"}`}
-                >
-                  <img src={proj.image} alt={proj.title || "Interface Design Work"} loading="lazy" />
-                </div>
-              ))}
+            {/* Single Showcase Display: Only This Image at Work Area */}
+            <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+              <div
+                className="subpage-pure-image-card photography-clean-card"
+                onClick={() => setSelectedWork({ image: uiuxShowcaseWork, title: "RNTS Mobile Application UI/UX Design" })}
+                role="button"
+                tabIndex={0}
+                aria-label="View RNTS Mobile Application UI/UX Design"
+                style={{
+                  maxWidth: "960px",
+                  width: "100%",
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                  boxShadow: "0 20px 50px rgba(28, 39, 82, 0.08)",
+                  border: "1px solid rgba(28, 39, 82, 0.08)",
+                  background: "#FFFFFF",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "clamp(16px, 3.5vw, 40px)",
+                }}
+              >
+                <img
+                  src={uiuxShowcaseWork}
+                  alt="RNTS Logistics & Transport Mobile App UI/UX Design"
+                  loading="eager"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    maxHeight: "720px",
+                    objectFit: "contain",
+                    display: "block",
+                  }}
+                />
+              </div>
             </div>
           </section>
 

@@ -185,13 +185,8 @@ export default function SocialMediaMarketingPage() {
                 <span className="pill-prefix">SOCIAL</span>
                 <span className="pill-suffix">WORKS</span>
               </h2>
-              <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: "0 auto 16px", textAlign: "center", maxWidth: "700px" }}>
-                High-converting promotional banners, social reels, and carousel graphics.
-              </p>
-              <Link to="/works" search={{ category: "post-design" }} className="subpage-view-all-link">
-                <span>View Full Catalog</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
+
+
             </div>
 
             {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}
@@ -210,9 +205,6 @@ export default function SocialMediaMarketingPage() {
               ))}
             </div>
           </section>
-
-
-
           {/* Meaningful Discussion Contact Section */}
           <div id="contact-form">
             <MeaningfulContactSection />
@@ -244,3 +236,4 @@ export default function SocialMediaMarketingPage() {
     </div>
   );
 }
+

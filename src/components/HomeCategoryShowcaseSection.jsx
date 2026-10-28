@@ -90,7 +90,6 @@ export function HomeCategoryShowcaseSection() {
       <div className="home-category-showcase-container">
         {/* Section Header */}
         <div className="home-category-showcase-header">
-          <p className="home-category-eyebrow">CURATED SPECIALIZATIONS</p>
           <h2 className="two-tone-pill-heading" style={{ marginBottom: "12px", justifyContent: "center" }}>
             <span className="pill-prefix">FEATURED</span>
             <span className="pill-suffix">DISCIPLINES</span>
@@ -98,7 +97,6 @@ export function HomeCategoryShowcaseSection() {
           <p className="home-category-subtitle">
             Explore curated work across our print catalogues, responsive websites, bespoke box packaging, and studio product photography.
           </p>
-
           {/* 4 Interactive Buttons on Top */}
           <div className="home-category-tabs-bar" role="tablist" aria-label="Showcase Categories">
             {tabs.map((tab) => {

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services & Production Capabilities — SS Production House" },
-      { name: "description", content: "Explore our creative services: Packaging Design, Catalogue Design, Label Design, Logo Identity, Meter Design, Product Photoshoot, Post Design, and Visiting Cards." },
+      { name: "description", content: "Explore our creative services: Packaging Design, Catalogue Design, Logo Identity, Meter Design, Product Photoshoot, Post Design, and Visiting Cards." },
     ],
   }),
   component: ServicesPage,

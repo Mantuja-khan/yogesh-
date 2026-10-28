@@ -206,13 +206,7 @@ export default function WebsiteDesignPage() {
                 <span className="pill-prefix">WEBSITE</span>
                 <span className="pill-suffix">WORKS</span>
               </h2>
-              <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: "0 auto 16px", textAlign: "center", maxWidth: "700px" }}>
-                High-performance modern digital flagships built with speed and elegance.
-              </p>
-              <Link to="/works" className="subpage-view-all-link">
-                <span>View Full Portfolio</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
+
             </div>
 
             {/* Pure Image Grid: Same hover-scroll viewport style as home page */}
@@ -242,41 +236,12 @@ export default function WebsiteDesignPage() {
             </div>
           </section>
 
-          {/* Standards Section: Simple and WITHOUT BORDER STYLING */}
-          <section style={{ marginBottom: "56px" }}>
-            <div style={{ marginBottom: "24px" }}>
-              <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
-                STANDARDS
-              </span>
-              <h2 className="editorial-lead" style={{ margin: "6px 0 0 0" }}>
-                Modern Web Development Standards
-              </h2>
-            </div>
-
-            <div className="service-capabilities-grid is-borderless">
-              {capabilities.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div key={idx} className="capability-card-simple">
-                    <div className="capability-simple-icon">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h3 className="capability-simple-title">{item.title}</h3>
-                    <p className="capability-simple-desc">{item.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
           {/* Meaningful Discussion Contact Section */}
           <div id="contact-form">
             <MeaningfulContactSection />
           </div>
         </div>
       </main>
-
-      {/* Lightbox Modal for Full View */}
       {selectedWork && (
         <div className="playbook-modal-backdrop" onClick={() => setSelectedWork(null)}>
           <div className="playbook-modal-box playbook-modal-image-only" onClick={(e) => e.stopPropagation()}>

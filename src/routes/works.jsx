@@ -19,7 +19,7 @@ export const Route = createFileRoute("/works")({
       {
         name: "description",
         content:
-          "Explore our complete product catalog and design portfolio across Book Design, Box Design, Label Design, Logo, Meter Design, Mockup, Product Photoshoot, Social Media Posts, and Visiting Cards.",
+          "Explore our complete product catalog and design portfolio across Book Design, Box Design, Logo, Meter Design, Mockup, Product Photoshoot, Social Media Posts, and Visiting Cards.",
       },
     ],
   }),

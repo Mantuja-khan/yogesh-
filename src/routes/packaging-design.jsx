@@ -37,16 +37,22 @@ export default function PackagingDesignPage() {
     return () => window.removeEventListener("pointermove", move);
   }, []);
 
-  // Filter all packaging & box design projects from portfolio
+  // Filter all packaging & box design projects from portfolio (strictly excluding label designs)
   const packagingProjects = (portfolio.projects || []).filter(
     (p) =>
-      p.categoryKey === "box-design" ||
-      p.categoryKey === "packaging" ||
-      p.categoryKeys?.includes("box-design") ||
-      p.categoryKeys?.includes("packaging") ||
-      p.category?.toLowerCase().includes("packaging") ||
-      p.category?.toLowerCase().includes("box") ||
-      p.title?.toLowerCase().includes("box")
+      (p.categoryKey === "box-design" ||
+        p.categoryKey === "packaging" ||
+        p.categoryKeys?.includes("box-design") ||
+        p.categoryKeys?.includes("packaging") ||
+        p.category?.toLowerCase().includes("packaging") ||
+        p.category?.toLowerCase().includes("box") ||
+        p.title?.toLowerCase().includes("box")) &&
+      p.categoryKey !== "label-design" &&
+      !p.categoryKeys?.includes("label-design") &&
+      !p.category?.toLowerCase().includes("label") &&
+      !p.category?.toLowerCase().includes("lable") &&
+      !p.title?.toLowerCase().includes("label") &&
+      !p.title?.toLowerCase().includes("lable")
   );
 
   const capabilities = [
@@ -206,14 +212,7 @@ export default function PackagingDesignPage() {
               <h2 className="two-tone-pill-heading" style={{ marginBottom: "12px", justifyContent: "center" }}>
                 <span className="pill-prefix">BOX</span>
                 <span className="pill-suffix">DESIGNS</span>
-              </h2>
-              <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: "0 auto 16px", textAlign: "center", maxWidth: "700px" }}>
-                Explore structural dielines, luxury rigid boxes, folding cartons, and retail packaging suites.
-              </p>
-              <Link to="/works" search={{ category: "box-design" }} className="subpage-view-all-link">
-                <span>View Full Packaging Catalog</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
+                </h2>
             </div>
 
             {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}

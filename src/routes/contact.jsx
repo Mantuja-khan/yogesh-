@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -49,13 +49,7 @@ function ContactPage() {
           </div>
           <div className="page-header-inner page-header-with-mascot">
             <div className="page-header-text">
-              <h2 className="two-tone-pill-heading" style={{ marginBottom: "16px", justifyContent: "flex-start" }}>
-                <span className="pill-prefix">CONTACT</span>
-                <span className="pill-suffix">US</span>
-              </h2>
-              <p className="section-index">
-                <span>01</span> <TextReveal triggerOnMount delay={0.06}>Production Inquiries</TextReveal>
-              </p>
+
               <h1 className="page-hero-title">
                 <TextReveal triggerOnMount delay={0.16} stagger={0.06}>
                   Have a production
@@ -79,39 +73,82 @@ function ContactPage() {
           </div>
         </section>
 
-        {/* Direct Studio Details Strip */}
-        <section className="page-content-section" style={{ paddingBottom: 0 }}>
-          <div className="contact-detail-items" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
-            <div className="contact-detail-box">
-              <span className="contact-box-label">
-                <Mail className="w-4 h-4 text-[#1C2752] inline mr-2" /> Direct Email
-              </span>
-              <a href={`mailto:${portfolio.email}`} className="contact-box-val highlight" style={{ color: "#1C2752" }}>
-                {portfolio.email}
-              </a>
+        {/* Direct Studio Details & Map Section */}
+        <section className="page-content-section contact-info-map-section" style={{ paddingBottom: 0 }}>
+          <div className="contact-info-map-grid">
+            {/* Left Column: Direct Studio Details (Email, Phone, Headquarters, Hours) */}
+            <div className="contact-detail-items-col">
+              <div className="contact-detail-box">
+                <span className="contact-box-label">
+                  <Mail className="w-4 h-4 text-[#1C2752] inline mr-2" /> Direct Email
+                </span>
+                <a href={`mailto:${portfolio.email}`} className="contact-box-val highlight" style={{ color: "#1C2752" }}>
+                  {portfolio.email}
+                </a>
+              </div>
+
+              <div className="contact-detail-box">
+                <span className="contact-box-label">
+                  <Phone className="w-4 h-4 text-[#1C2752] inline mr-2" /> Studio Telephone
+                </span>
+                <div className="contact-phones-row">
+                  <a href={`tel:${portfolio.phone}`} className="contact-box-val">
+                    {portfolio.phone}
+                  </a>
+                  <span className="phone-sep" style={{ margin: "0 8px", color: "rgba(0,0,0,0.3)" }}>|</span>
+                  <a href="tel:+919899977006" className="contact-box-val">
+                    +91 98999 77006
+                  </a>
+                </div>
+              </div>
+
+              <div className="contact-detail-box">
+                <span className="contact-box-label">
+                  <MapPin className="w-4 h-4 text-[#1C2752] inline mr-2" /> Studio Headquarters
+                </span>
+                <p className="contact-box-val">{portfolio.location}</p>
+              </div>
+
+              <div className="contact-detail-box">
+                <span className="contact-box-label">
+                  <Clock className="w-4 h-4 text-[#1C2752] inline mr-2" /> Working Hours &amp; Response
+                </span>
+                <p className="contact-box-val">Mon — Fri: 09:00 - 19:00 IST · Typical response in &lt; 24h</p>
+              </div>
             </div>
 
-            <div className="contact-detail-box">
-              <span className="contact-box-label">
-                <Phone className="w-4 h-4 text-[#1C2752] inline mr-2" /> Studio Telephone
-              </span>
-              <a href={`tel:${portfolio.phone}`} className="contact-box-val">
-                {portfolio.phone}
-              </a>
-            </div>
-
-            <div className="contact-detail-box">
-              <span className="contact-box-label">
-                <MapPin className="w-4 h-4 text-[#1C2752] inline mr-2" /> Studio Headquarters
-              </span>
-              <p className="contact-box-val">{portfolio.location}</p>
-            </div>
-
-            <div className="contact-detail-box">
-              <span className="contact-box-label">
-                <Clock className="w-4 h-4 text-[#1C2752] inline mr-2" /> Working Hours &amp; Response
-              </span>
-              <p className="contact-box-val">Mon — Fri: 09:00 - 19:00 IST · Typical response in &lt; 24h</p>
+            {/* Right Column: Studio Map Section */}
+            <div className="contact-map-col">
+              <div className="contact-page-map-card">
+                <div className="contact-page-map-header">
+                  <div className="contact-page-map-status">
+                    <span className="contact-page-map-dot" />
+                    <div>
+                      <h3 className="contact-page-map-heading">Our Studio on Google Maps</h3>
+                      <p className="contact-page-map-sub">{portfolio.location}</p>
+                    </div>
+                  </div>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Capital+Highstreet+Phoolbagh+Bhiwadi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-page-directions-btn"
+                  >
+                    <span>Get Directions</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+                <div className="contact-page-map-frame-wrapper">
+                  <iframe
+                    title="SS Production House Google Map"
+                    src="https://maps.google.com/maps?q=Capital%20Highstreet%2C%20Phoolbagh%2C%20Bhiwadi&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    className="contact-page-map-iframe"
+                    loading="lazy"
+                    allowFullScreen=""
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>

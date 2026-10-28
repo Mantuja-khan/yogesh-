@@ -176,10 +176,17 @@ function HomePage() {
       <SiteHeader />
 
       <main>
-        {/* Responsive Custom Hero with Full Video Background */}
-        <section className="editorial-hero custom-designer-hero hero-with-bg-video" id="top">
-          {/* Hero Video Background Layer (Seamless Non-Stop Looping, Zero Pause, Sound Permanently Off) */}
-          <SeamlessHeroBackgroundVideo />
+        {/* Responsive Custom Hero with Workspace Background Image */}
+        <section className="editorial-hero custom-designer-hero hero-with-bg-image" id="top">
+          {/* Hero Image Background Layer */}
+          <div className="hero-bg-image-wrapper" aria-hidden="true">
+            <img
+              src="/hero-designer-bg.png"
+              alt="SS Production House Designer Studio"
+              className="hero-bg-image-element"
+            />
+            <div className="hero-bg-image-scrim" />
+          </div>
 
           <div className="hero-banner-inner-grid hero-bg-video-grid">
             {/* Left Content Column (Left-aligned on large screen, Centered on small screen) */}
@@ -192,18 +199,18 @@ function HomePage() {
                 <span className="hero-studio-year">EST. 2023</span>
               </div>
               <h1 className="hero-custom-h1" aria-label="SS PRODUCTION HOUSE">
-                <span className="hero-custom-line-1">
+                <span className="hero-custom-line-1" style={{ color: "#1C2752", fontWeight: 800 }}>
                   <TextReveal triggerOnMount delay={0.16} stagger={0.06}>
                     SS
                   </TextReveal>
                 </span>
-                <span className="hero-custom-line-2">
+                <span className="hero-custom-line-2" style={{ color: "#1C2752", fontWeight: 800 }}>
                   <LetterCascade
                     text="PRODUCTION HOUSE"
                     stiffness={350}
                     damping={8}
                     staggerDuration={0.05}
-                    letterClassName={(i) => (i < 10 ? "hero-blue-text" : "hero-dark-text")}
+                    letterClassName={() => "hero-darkblue-bold"}
                   />
                 </span>
               </h1>

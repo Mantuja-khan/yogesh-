@@ -121,48 +121,17 @@ export default function AdsDesignPage() {
         </section>
 
         {/* Capabilities Grid */}
-        <section className="page-content-section">
-          <div className="page-subhead-wrap" style={{ marginBottom: "36px" }}>
-            <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
-              CAMPAIGN ARCHITECTURE
-            </span>
-            <h2 className="editorial-lead" style={{ margin: "8px 0 0 0" }}>
-              Engineered for High Commercial Impact
-            </h2>
-          </div>
 
-          <div className="service-capabilities-grid">
-            {capabilities.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div key={idx} className="capability-card card-3d">
-                  <div className="capability-icon-badge">
-                    <Icon className="w-5 h-5 text-[#1C2752]" />
-                  </div>
-                  <h3 className="capability-title">{item.title}</h3>
-                  <p className="capability-desc">{item.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
 
         {/* Featured Showcase */}
         {featuredWorks.length > 0 && (
           <section className="page-content-section" style={{ background: "#FFFFFF", padding: "48px 0" }}>
             <div className="page-subhead-wrap" style={{ marginBottom: "28px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "16px" }}>
               <div>
-                <span className="editorial-kicker" style={{ color: "#1C2752", fontWeight: "700" }}>
-                  CAMPAIGN REEL
-                </span>
-                <h2 className="editorial-lead" style={{ margin: "6px 0 0 0" }}>
-                  Selected Ad Creatives &amp; Posts
-                </h2>
+
+
               </div>
-              <Link to="/works" search={{ category: "post-design" }} className="subpage-view-all-link">
-                <span>View All Ad Works</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
+
             </div>
 
             {/* Pure Image Grid: Only Image Displayed (Matching Photography Page) */}

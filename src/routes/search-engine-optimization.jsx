@@ -172,10 +172,9 @@ export default function SearchEngineOptimizationPage() {
           {/* Below: Digital Works Grid (SHOW ONLY IMAGE PROPERLY - NO TEXT) */}
 
           {/* Capabilities Grid */}
-
           {/* Meaningful Discussion Contact Section */}
           <div id="contact-form">
-            <MeaningfulContactSection />
+            <MeaningfulContactSection/>
           </div>
         </div>
       </main>

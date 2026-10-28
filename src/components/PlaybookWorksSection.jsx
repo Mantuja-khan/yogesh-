@@ -2,14 +2,13 @@ import { useState, useEffect, useMemo } from "react";
 import { ArrowUpRight, Check, Eye, X, ZoomIn } from "lucide-react";
 import { portfolio } from "@/lib/portfolioData";
 
-// Complete category buttons matching Image 2 and website works
+// Complete category buttons matching Image 2 and website works (excluding label design)
 export const PLAYBOOK_CATEGORIES = [
   { id: "catalogue", label: "CATALOGUE" },
   { id: "packaging", label: "PACKAGING" },
   { id: "logo-design", label: "LOGO" },
   { id: "box-design", label: "BOX DESIGN" },
   { id: "book-design", label: "BOOK DESIGN" },
-  { id: "label-design", label: "LABLE" },
   { id: "meter-design", label: "METER DESIGN" },
   { id: "product-photoshoot", label: "PRODUCT PHOTOSHOOT" },
   { id: "post-design", label: "SOCIAL MEDIA POST" },
@@ -84,10 +83,16 @@ export function PlaybookWorksSection({ initialCategory = "catalogue", onCategory
     if (activeCategory === "box-design" || activeCategory === "packaging") {
       return all.filter(
         (p) =>
-          p.categoryKey === "box-design" ||
-          p.categoryKey === "packaging" ||
-          p.category?.toLowerCase().includes("box") ||
-          p.category?.toLowerCase().includes("packaging")
+          (p.categoryKey === "box-design" ||
+            p.categoryKey === "packaging" ||
+            p.category?.toLowerCase().includes("box") ||
+            p.category?.toLowerCase().includes("packaging")) &&
+          p.categoryKey !== "label-design" &&
+          !p.categoryKeys?.includes("label-design") &&
+          !p.category?.toLowerCase().includes("label") &&
+          !p.category?.toLowerCase().includes("lable") &&
+          !p.title?.toLowerCase().includes("label") &&
+          !p.title?.toLowerCase().includes("lable")
       );
     }
 

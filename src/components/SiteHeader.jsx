@@ -1,5 +1,5 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, ChevronRight, Menu, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronRight, Menu, X, Mail, Phone, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { portfolio } from "@/lib/portfolioData";
 
@@ -93,7 +93,6 @@ export function SiteHeader() {
         link: "/photography",
         items: [
           { label: "Photography", link: "/photography" },
-          { label: "Billboards & Airport Branding", link: "/ads-design" },
           { label: "Ads Design", link: "/ads-design" },
         ],
       },
@@ -117,7 +116,6 @@ export function SiteHeader() {
           { label: "Book Design", link: "/works", categoryKey: "book-design" },
           { label: "Box Design", link: "/works", categoryKey: "box-design" },
           { label: "Catalogue", link: "/works", categoryKey: "catalogue" },
-          { label: "Lable", link: "/works", categoryKey: "label-design" },
           { label: "Logo", link: "/works", categoryKey: "logo-design" },
           { label: "Meter Design", link: "/works", categoryKey: "meter-design" },
           { label: "Social Media post", link: "/works", categoryKey: "post-design" },
@@ -125,15 +123,15 @@ export function SiteHeader() {
           { label: "Invitartion", link: "/works", categoryKey: "invitation" },
         ],
       },
-      {
-        id: "contact-direct",
-        title: "Contact",
-        titleColor: "#1C2752",
-        link: "/contact",
-        email: portfolio.email || "hello@ssproductionhouse.com",
-        phones: ["+91-9671445186", "+91-9899977006"],
-      },
     ],
+    contact: {
+      id: "contact-direct",
+      title: "Contact & Studio",
+      link: "/contact",
+      email: portfolio.email || "hello@ssproductionhouse.com",
+      phones: ["+91-9671445186", "+91-9899977006"],
+      location: portfolio.location || "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019",
+    },
   };
 
   const handleLinkClick = (item) => {
@@ -363,53 +361,74 @@ export function SiteHeader() {
                     </div>
                   ))}
 
-                {/* Direct Contact Block */}
-                {menuSections.col3
-                  .filter((s) => s.id === "contact-direct")
-                  .map((sec) => (
-                    <div key={sec.id} className="creamy-section-group creamy-contact-group">
-                      <Link
-                        to={sec.link}
-                        className="creamy-section-title-btn"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        <span className="creamy-chevron-circle">
-                          <ChevronRight className="w-3 h-3" />
-                        </span>
-                        <span
-                          className="creamy-title-text"
-                          style={{ color: sec.titleColor || "#1C2752" }}
-                        >
-                          {sec.title}
-                        </span>
-                      </Link>
-                      <div className="creamy-contact-details">
-                        <a
-                          href={`mailto:${sec.email}`}
-                          className="creamy-contact-email"
-                        >
-                          {sec.email}
-                        </a>
-                        <div className="creamy-contact-phones">
-                          {sec.phones.map((phone, i) => (
-                            <span key={i}>
-                              <a href={`tel:${phone.replace(/[^\d+]/g, "")}`}>{phone}</a>
-                              {i < sec.phones.length - 1 && <span className="phone-sep"> | </span>}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
               </div>
+            </div>
+
+            {/* Contact & Map Section: Contact info on the left, Map on the right */}
+            <div className="creamy-contact-map-row">
+              <div className="creamy-contact-left-col">
+                <Link
+                  to={menuSections.contact.link}
+                  className="creamy-section-title-btn"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <span className="creamy-chevron-circle">
+                    <ChevronRight className="w-3 h-3" />
+                  </span>
+                  <span className="creamy-title-text" style={{ color: "#93C5FD" }}>
+                    {menuSections.contact.title}
+                  </span>
+                </Link>
+
+                <div className="creamy-contact-details">
+                  <div className="creamy-contact-detail-item">
+                    <span className="creamy-contact-detail-label">
+                      <Mail className="w-3 h-3 inline mr-1 text-[#93C5FD]" /> Email ID
+                    </span>
+                    <a
+                      href={`mailto:${menuSections.contact.email}`}
+                      className="creamy-contact-email"
+                    >
+                      {menuSections.contact.email}
+                    </a>
+                  </div>
+
+                  <div className="creamy-contact-detail-item">
+                    <span className="creamy-contact-detail-label">
+                      <Phone className="w-3 h-3 inline mr-1 text-[#93C5FD]" /> Phone Numbers
+                    </span>
+                    <div className="creamy-contact-phones">
+                      {menuSections.contact.phones.map((phone, i) => (
+                        <span key={i}>
+                          <a href={`tel:${phone.replace(/[^\d+]/g, "")}`}>{phone}</a>
+                          {i < menuSections.contact.phones.length - 1 && (
+                            <span className="phone-sep"> | </span>
+                          )}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="creamy-contact-detail-item">
+                    <span className="creamy-contact-detail-label">
+                      <MapPin className="w-3 h-3 inline mr-1 text-[#93C5FD]" /> Studio Location
+                    </span>
+                    <p className="creamy-contact-address">
+                      {menuSections.contact.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map Section at right side */}
+
             </div>
 
             {/* Bottom Bar inside Creamy Menu */}
             <div className="creamy-menu-footer">
               <div className="creamy-footer-left">
                 <span className="creamy-status-dot" />
-                <span>Available for Packaging, Brand Identity &amp; 3D Staging</span>
-              </div>
+                <span>Available for Packaging, Brand Identity &amp; 3D Staging</span></div>
               <div className="creamy-footer-right">
                 <span>Location: {portfolio.location || "Bhiwadi, NCR India"}</span>
               </div>
