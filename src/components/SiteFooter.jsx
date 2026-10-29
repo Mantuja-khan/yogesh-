@@ -156,11 +156,13 @@ export function SiteFooter({ showDottedSquares = false }) {
             <span className="footer-column-title" style={{ marginBottom: "2px" }}>
               Contact Us
             </span>
-            <a href={`mailto:${portfolio.email || "info@ssproductionhouse.com"}`}>
-              {portfolio.email || "info@ssproductionhouse.com"}
+            <a href={`mailto:${portfolio.email || "acc.ssproductionhouse@gmail.com"}`}>
+              {portfolio.email || "acc.ssproductionhouse@gmail.com"}
             </a>
-            <a href="tel:+919671445186">( 817 ) 799-8644 · +91-9671445186</a>
-            <p>DLF Cyber City, Phase II, Gurugram, Haryana 122002, India</p>
+            <a href={`tel:${(portfolio.phone || "+91 96714 45186").replace(/[^\d+]/g, "")}`}>
+              {portfolio.phone || "+91 96714 45186"}
+            </a>
+            <p>{portfolio.location || "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019"}</p>
           </div>
 
           {/* Payment Trust Cards Row matching Image 2 */}

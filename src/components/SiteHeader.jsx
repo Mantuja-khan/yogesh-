@@ -128,8 +128,8 @@ export function SiteHeader() {
       id: "contact-direct",
       title: "Contact & Studio",
       link: "/contact",
-      email: portfolio.email || "hello@ssproductionhouse.com",
-      phones: ["+91-9671445186", "+91-9899977006"],
+      email: portfolio.email || "acc.ssproductionhouse@gmail.com",
+      phones: [portfolio.phone || "+91 96714 45186"],
       location: portfolio.location || "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019",
     },
   };

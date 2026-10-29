@@ -77,12 +77,8 @@ export default function ContactPage() {
                   <Phone className="w-4 h-4 text-[#1C2752] inline mr-2" /> Studio Telephone
                 </span>
                 <div className="contact-phones-row">
-                  <a href={`tel:${portfolio.phone}`} className="contact-box-val">
+                  <a href={`tel:${portfolio.phone.replace(/[^\d+]/g, "")}`} className="contact-box-val highlight" style={{ color: "#1C2752" }}>
                     {portfolio.phone}
-                  </a>
-                  <span className="phone-sep" style={{ margin: "0 8px", color: "rgba(0,0,0,0.3)" }}>|</span>
-                  <a href="tel:+919899977006" className="contact-box-val">
-                    +91 98999 77006
                   </a>
                 </div>
               </div>
