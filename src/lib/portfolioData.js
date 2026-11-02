@@ -212,8 +212,10 @@ export const portfolio = {
   intro: "Crafting distinctive brand identities, bespoke packaging systems, editorial publications, and spatial 3D visuals with precision, depth, and creative intent.",
   email: "acc.ssproductionhouse@gmail.com",
   phone: "+91 96714 45186",
+  phones: ["+91 96714 45186", "+91 72300 17677"],
   location: "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019",
-  address: "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi, Rajasthan - 301019",
+  address: "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019",
+  googleMapsUrl: "https://www.google.com/maps/place/SS+PRODUCTION+HOUSE/@28.2119449,76.8604442,99m/data=!3m1!1e3!4m6!3m5!1s0x390d371285b76843:0x4f7956668d0651de!8m2!3d28.2119124!4d76.860826!16s%2Fg%2F11p2d4h4bp?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D",
   hero: {
     line1: "I am,",
     line2: "Yogesh Dahiya",
@@ -2851,7 +2853,9 @@ export const portfolio = {
     contactDetails: {
       email: "acc.ssproductionhouse@gmail.com",
       phone: "+91 96714 45186",
-      location: "Bhiwadi, Rajasthan, India",
+      phones: ["+91 96714 45186", "+91 72300 17677"],
+      location: "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019",
+      address: "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019",
       availability: "Open for new projects",
     },
     socialLinks: [

@@ -76,10 +76,17 @@ export default function ContactPage() {
                 <span className="contact-box-label">
                   <Phone className="w-4 h-4 text-[#1C2752] inline mr-2" /> Studio Telephone
                 </span>
-                <div className="contact-phones-row">
-                  <a href={`tel:${portfolio.phone.replace(/[^\d+]/g, "")}`} className="contact-box-val highlight" style={{ color: "#1C2752" }}>
-                    {portfolio.phone}
-                  </a>
+                <div className="contact-phones-row" style={{ display: "flex", flexWrap: "wrap", gap: "6px 12px", alignItems: "center" }}>
+                  {(portfolio.phones || ["+91 96714 45186", "+91 72300 17677"]).map((phone, i, arr) => (
+                    <span key={phone} style={{ display: "inline-flex", alignItems: "center" }}>
+                      <a href={`tel:${phone.replace(/[^\d+]/g, "")}`} className="contact-box-val highlight" style={{ color: "#1C2752" }}>
+                        {phone}
+                      </a>
+                      {i < arr.length - 1 && (
+                        <span style={{ margin: "0 8px", color: "#94A3B8" }}>|</span>
+                      )}
+                    </span>
+                  ))}
                 </div>
               </div>
 
@@ -87,7 +94,7 @@ export default function ContactPage() {
                 <span className="contact-box-label">
                   <MapPin className="w-4 h-4 text-[#1C2752] inline mr-2" /> Studio Headquarters
                 </span>
-                <p className="contact-box-val">{portfolio.location}</p>
+                <p className="contact-box-val">{portfolio.address || portfolio.location}</p>
               </div>
 
               <div className="contact-detail-box">
@@ -105,12 +112,12 @@ export default function ContactPage() {
                   <div className="contact-page-map-status">
                     <span className="contact-page-map-dot" />
                     <div>
-                      <h3 className="contact-page-map-heading">Our Studio on Google Maps</h3>
-                      <p className="contact-page-map-sub">{portfolio.location}</p>
+                      <h3 className="contact-page-map-heading">SS PRODUCTION HOUSE</h3>
+                      <p className="contact-page-map-sub">{portfolio.address || portfolio.location}</p>
                     </div>
                   </div>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=Capital+Highstreet+Phoolbagh+Bhiwadi"
+                    href={portfolio.googleMapsUrl || "https://www.google.com/maps/place/SS+PRODUCTION+HOUSE/@28.2119449,76.8604442,99m/data=!3m1!1e3!4m6!3m5!1s0x390d371285b76843:0x4f7956668d0651de!8m2!3d28.2119124!4d76.860826!16s%2Fg%2F11p2d4h4bp?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contact-page-directions-btn"
@@ -122,12 +129,29 @@ export default function ContactPage() {
                 <div className="contact-page-map-frame-wrapper">
                   <iframe
                     title="SS Production House Google Map"
-                    src="https://maps.google.com/maps?q=Capital%20Highstreet%2C%20Phoolbagh%2C%20Bhiwadi&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=28.2119124,76.860826+(SS%20PRODUCTION%20HOUSE)&t=&z=16&ie=UTF8&iwloc=B&output=embed"
                     className="contact-page-map-iframe"
                     loading="lazy"
                     allowFullScreen=""
                     referrerPolicy="no-referrer-when-downgrade"
                   />
+                </div>
+                <div className="contact-page-map-address-banner" style={{ padding: "12px 18px", background: "#F8FAFC", borderTop: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap", fontSize: "12.5px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#1E293B" }}>
+                    <MapPin className="w-4 h-4 text-[#1C2752] flex-shrink-0" />
+                    <span>
+                      <strong style={{ color: "#0F172A" }}>Address:</strong>{" "}
+                      {portfolio.address || portfolio.location}
+                    </span>
+                  </div>
+                  <a
+                    href={portfolio.googleMapsUrl || "https://www.google.com/maps/place/SS+PRODUCTION+HOUSE/@28.2119449,76.8604442,99m/data=!3m1!1e3!4m6!3m5!1s0x390d371285b76843:0x4f7956668d0651de!8m2!3d28.2119124!4d76.860826!16s%2Fg%2F11p2d4h4bp?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#1C2752", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "4px", textDecoration: "none" }}
+                  >
+                    Open in Maps <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </div>
             </div>

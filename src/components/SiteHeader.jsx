@@ -129,7 +129,7 @@ export function SiteHeader() {
       title: "Contact & Studio",
       link: "/contact",
       email: portfolio.email || "acc.ssproductionhouse@gmail.com",
-      phones: [portfolio.phone || "+91 96714 45186"],
+      phones: portfolio.phones || ["+91 96714 45186", "+91 72300 17677"],
       location: portfolio.location || "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019",
     },
   };

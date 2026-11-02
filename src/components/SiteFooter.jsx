@@ -159,10 +159,12 @@ export function SiteFooter({ showDottedSquares = false }) {
             <a href={`mailto:${portfolio.email || "acc.ssproductionhouse@gmail.com"}`}>
               {portfolio.email || "acc.ssproductionhouse@gmail.com"}
             </a>
-            <a href={`tel:${(portfolio.phone || "+91 96714 45186").replace(/[^\d+]/g, "")}`}>
-              {portfolio.phone || "+91 96714 45186"}
-            </a>
-            <p>{portfolio.location || "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019"}</p>
+            {(portfolio.phones || ["+91 96714 45186", "+91 72300 17677"]).map((phone) => (
+              <a key={phone} href={`tel:${phone.replace(/[^\d+]/g, "")}`}>
+                {phone}
+              </a>
+            ))}
+            <p>{portfolio.address || "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019"}</p>
           </div>
 
           {/* Payment Trust Cards Row matching Image 2 */}
@@ -203,10 +205,18 @@ export function SiteFooter({ showDottedSquares = false }) {
 
 {/* Google My Business Component matching Image 1 */ }
 function GoogleMyBusinessBadge() {
+  const gmbUrl =
+    portfolio.googleMapsUrl ||
+    "https://www.google.com/maps/place/SS+PRODUCTION+HOUSE/@28.2119449,76.8604442,99m/data=!3m1!1e3!4m6!3m5!1s0x390d371285b76843:0x4f7956668d0651de!8m2!3d28.2119124!4d76.860826!16s%2Fg%2F11p2d4h4bp?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D";
+
   return (
-    <div
+    <a
+      href={gmbUrl}
+      target="_blank"
+      rel="noopener noreferrer"
       className="google-my-business-badge-card"
-      aria-label="Google My Business Rating for SS Production House"
+      aria-label="Google My Business Rating for SS Production House - Open in Google Maps"
+      style={{ textDecoration: "none", color: "inherit", display: "flex" }}
     >
       {/* Left: Google Store Awning Logo + Text */}
       <div className="gmb-logo-left">
@@ -264,8 +274,10 @@ function GoogleMyBusinessBadge() {
           </div>
           <span className="gmb-reviews-count">105 Google reviews</span>
         </div>
-        <p className="gmb-agency-location">Advertising agency in Gurgaon, Haryana</p>
+        <p className="gmb-agency-location">
+          {portfolio.location || "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019"}
+        </p>
       </div>
-    </div>
+    </a>
   );
 }
