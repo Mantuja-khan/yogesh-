@@ -1,0 +1,74 @@
+[
+  {
+    "id": "inq_1794551371149_2n9vze",
+    "name": "Test Client",
+    "email": "test@example.com",
+    "phone": "+91 98765 43210",
+    "message": "Testing email delivery to acc.ssproductionhouse@gmail.com",
+    "source": "Live Email Test",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.6972",
+    "createdAt": "2026-11-13T06:29:31.150Z",
+    "status": "new"
+  },
+  {
+    "id": "inq_1793726226083_375v1i",
+    "name": "Test User",
+    "email": "mantujak@gmail.com",
+    "phone": "+91 98765 43210",
+    "message": "This is a live test submission to verify email delivery.",
+    "source": "Live Test",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.6972",
+    "createdAt": "2026-11-03T17:17:06.083Z",
+    "status": "new"
+  },
+  {
+    "id": "inq_1793705146189_nh3qio",
+    "name": "Mantuja khan",
+    "email": "mantujakhan79@gmail.com",
+    "phone": "7665556786",
+    "message": "dxgfchvb",
+    "source": "Contact Page - Footer Form",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "createdAt": "2026-11-03T11:25:46.189Z",
+    "status": "new"
+  },
+  {
+    "id": "inq_1793705078521_pn5c1d",
+    "name": "Mantuja khan",
+    "email": "mantujakhan79@gmail.com",
+    "phone": "7665556786",
+    "message": "hghjmfjh",
+    "source": "Contact Page - Footer Form",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "createdAt": "2026-11-03T11:24:38.521Z",
+    "status": "new"
+  },
+  {
+    "id": "inq_1793705020379_3e0uhl",
+    "name": "Mantuja khan",
+    "email": "mantujakhan79@gmail.com",
+    "phone": "7665556786",
+    "message": "stygkmafwesdfrhfggb",
+    "source": "Contact Page - Footer Form",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "createdAt": "2026-11-03T11:23:40.379Z",
+    "status": "new"
+  },
+  {
+    "id": "inq_1793699567069_kvx8r7",
+    "name": "Aarav Sharma",
+    "email": "aarav@example.com",
+    "phone": "+91 98765 43210",
+    "message": "I need premium luxury packaging design for organic tea boxes.",
+    "source": "Contact Page - Front Form",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.6972",
+    "createdAt": "2026-11-03T09:52:47.069Z",
+    "status": "new"
+  }
+]

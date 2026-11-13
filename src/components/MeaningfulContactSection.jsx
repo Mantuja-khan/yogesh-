@@ -18,18 +18,39 @@ export function MeaningfulContactSection() {
     if (errorMsg) setErrorMsg("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim()) {
       setErrorMsg("Please enter your name and email address.");
       return;
     }
-
     setIsLoading(true);
-    setTimeout(() => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || "http://localhost:5000"}/api/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          source: "Contact Page - Footer Form",
+        }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        setErrorMsg(data.message || "Submission failed.");
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMsg("Network error. Please try again later.");
+    } finally {
       setIsLoading(false);
-      setIsSubmitted(true);
-    }, 600);
+    }
   };
 
   const handleReset = () => {
