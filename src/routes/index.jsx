@@ -1,3 +1,4 @@
+import { FlashStyleHero } from "@/components/FlashStyleHero";
 import { Link } from "react-router-dom";
 import { LetterCascade } from "@/components/ui/letter-cascade";
 import { ArrowDown, ArrowLeft, ArrowLeftRight, ArrowRight, ArrowUpRight, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Compass, Eye, Layers, Pause, Play, ShieldCheck, Sparkles, Volume2, VolumeX } from "lucide-react";
@@ -162,126 +163,8 @@ export default function HomePage() {
       <SiteHeader />
 
       <main>
-        {/* Responsive Custom Hero with Workspace Background Image */}
-        <section className="editorial-hero custom-designer-hero hero-with-bg-image" id="top">
-          {/* Hero Image Background Layer */}
-          <div className="hero-bg-image-wrapper" aria-hidden="true">
-            <img
-              src="/hero-designer-bg.png"
-              alt="SS Production House Designer Studio"
-              className="hero-bg-image-element"
-            />
-            <div className="hero-bg-image-scrim" />
-          </div>
-
-          <div className="hero-banner-inner-grid hero-bg-video-grid">
-            {/* Left Content Column (Left-aligned on large screen, Centered on small screen) */}
-            <div className="hero-banner-content-col hero-banner-content-bg-mode">
-              {/* Studio Eyebrow Tag Row */}
-              <div className="hero-studio-tag-row">
-                <span className="hero-studio-badge-pill">
-                  PACKAGING ARCHITECTURE &amp; BRAND DESIGN
-                </span>
-                <span className="hero-studio-year">EST. 2023</span>
-              </div>
-              <h1 className="hero-custom-h1" aria-label="SS PRODUCTION HOUSE">
-                <span className="hero-custom-line-1" style={{ color: "#1C2752", fontWeight: 800 }}>
-                  <TextReveal triggerOnMount delay={0.16} stagger={0.06}>
-                    SS
-                  </TextReveal>
-                </span>
-                <span className="hero-custom-line-2" style={{ color: "#1C2752", fontWeight: 800 }}>
-                  <LetterCascade
-                    text="PRODUCTION HOUSE"
-                    stiffness={350}
-                    damping={8}
-                    staggerDuration={0.05}
-                    letterClassName={() => "hero-darkblue-bold"}
-                  />
-                </span>
-              </h1>
-
-              <p className="hero-designer-role-tag">
-                <TextReveal triggerOnMount delay={0.52} stagger={0.035}>
-                  Graphic Designer &amp; Creative Director · Bhiwadi-Rajasthan
-                </TextReveal>
-              </p>
-
-              {/* Decorative Accent Divider Bar */}
-              <div className="hero-custom-divider" aria-hidden="true" />
-
-              {/* Paragraph Narrative */}
-              <p className="hero-custom-desc">
-                <TextReveal triggerOnMount delay={0.65} stagger={0.016}>
-                  {portfolio.intro}
-                </TextReveal>
-              </p>
-
-              {/* Call to action buttons row: Explore Designs + Get In Touch */}
-              <div className="hero-custom-cta-wrap">
-                <a
-                  href="#work"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollTo("work");
-                  }}
-                  className="hero-custom-pill-btn"
-                >
-                  <span>EXPLORE SELECTED DESIGNS</span>
-                  <span className="hero-pill-arrow-circle">
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </a>
-
-                <Link
-                  to="/contact"
-                  className="hero-custom-secondary-pill-btn"
-                  title="Contact SS Production House"
-                >
-                  <span>GET IN TOUCH</span>
-                  <span className="hero-pill-arrow-circle">
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </span>
-                </Link>
-              </div>
-
-              {/* Studio Metrics Highlights */}
-              <div className="hero-quick-stats-strip">
-                <div className="hero-quick-stat-item">
-                  <strong>8+</strong> <span>Years Craft</span>
-                </div>
-                <span className="hero-stat-sep" aria-hidden="true">/</span>
-                <div className="hero-quick-stat-item">
-                  <strong>150+</strong> <span>Packaging Works</span>
-                </div>
-                <span className="hero-stat-sep" aria-hidden="true">/</span>
-                <div className="hero-quick-stat-item">
-                  <strong>99.4%</strong> <span>Client Rating</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Center: Scroll Down Indicator */}
-          <div
-            className="hero-custom-scroll-cue"
-            onClick={() => scrollTo("work")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") scrollTo("work");
-            }}
-            aria-label="Scroll down to selected designs"
-          >
-            <div className="hero-mouse-pill">
-              <span className="hero-mouse-dot" />
-            </div>
-            <div className="hero-scroll-caption">
-              <span>SCROLL DOWN</span>
-              <ArrowDown className="hero-scroll-caption-arrow" />
-            </div>
-          </div>
-        </section>
+        {/* ── FLASH-STYLE HERO — matches reference image ── */}
+        <FlashStyleHero />
 
         {/* Client Logos Stepped Reel — Emerging from Right Side One by One with Pause & Drag */}
         <DraggableSteppedLogoReel clients={portfolio.clientLogos || []} />
@@ -376,11 +259,6 @@ export default function HomePage() {
               <span className="pill-prefix">CREATIVE</span>
               <span className="pill-suffix">SOFTWARE &amp; TOOLS</span>
             </h2>
-            <p className="studio-stack-desc">
-              <TextReveal delay={0.18} stagger={0.015}>
-                Industry-standard design applications powering high-precision dielines, editorial typography, photo retouching, and 3D spatial staging.
-              </TextReveal>
-            </p>
           </div>
           <div className="studio-stack-ticker-inner">
             <AutoScrollRow
@@ -1266,10 +1144,7 @@ function BrandPerformanceSection() {
             <span className="pill-suffix">PERFORMANCE</span>
           </h2>
 
-          <p className="brands-performance-subtitle" style={{ font: "600 clamp(16px, 1.4vw, 20px)/1.4 var(--font-sans)", color: "#1E293B", margin: 0 }}>
-            <span>We Build Brands That Performs – </span>
-            <span className="brands-guaranteed-text" style={{ color: "#1C2752", fontWeight: "700" }}>Guaranteed.</span>
-          </p>
+          
         </div>
 
         {/* Packaging Showcase Stage - 3 Simultaneous Images with Smooth Orbital Transitions */}

@@ -236,12 +236,7 @@ export function HomeOurClientsSection() {
             <span className="pill-prefix">OUR</span>
             <span className="pill-suffix">CLIENTS</span>
           </h2>
-          <p className="home-clients-sub">
-            Brands that trust us with their creative, packaging and marketing work.
-          </p>
         </div>
-
-        {/* Stepped Draggable Carousel: logos slide one by one from right with 3s pause */}
         <div
           className={`home-clients-carousel-stage ${isDragging ? "is-dragging" : ""}`}
           onMouseEnter={() => setIsHovered(true)}

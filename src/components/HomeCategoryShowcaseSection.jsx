@@ -83,20 +83,14 @@ export function HomeCategoryShowcaseSection() {
   const currentItems =
     activeTab === "websites"
       ? (showcaseData.websites || []).slice(0, 3)
-      : (showcaseData[activeTab] || []).slice(0, 8);
+      : (showcaseData[activeTab] || []).slice(0, 4);
 
   return (
     <section className="home-category-showcase-section" aria-label="Specialized Category Showcase">
       <div className="home-category-showcase-container">
         {/* Section Header */}
         <div className="home-category-showcase-header">
-          <h2 className="two-tone-pill-heading" style={{ marginBottom: "12px", justifyContent: "center" }}>
-            <span className="pill-prefix">FEATURED</span>
-            <span className="pill-suffix">DISCIPLINES</span>
-          </h2>
-          <p className="home-category-subtitle">
-            Explore curated work across our print catalogues, responsive websites, bespoke box packaging, and studio product photography.
-          </p>
+
           {/* 4 Interactive Buttons on Top */}
           <div className="home-category-tabs-bar" role="tablist" aria-label="Showcase Categories">
             {tabs.map((tab) => {

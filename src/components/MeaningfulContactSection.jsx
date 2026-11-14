@@ -79,19 +79,13 @@ export function MeaningfulContactSection() {
             <div className="ref-top-line-left" aria-hidden="true" />
             <div className="ref-contact-title-wrap">
               {/* Dark Blue Consultation Badge directly ABOVE the heading */}
-              <div className="ref-speech-bubble-blue" aria-label="Direct Consultation Badge">
-                <span className="ref-bubble-text">
-                  Speak directly with a Senior Brand Consultant
-                </span>
-                <div className="ref-bubble-tail" aria-hidden="true" />
-              </div>
+
               <h2 className="ref-contact-title">
                 Great Brands start with  Discussion, Connect Us Now!
               </h2>
             </div>
             <div className="ref-top-line-right" aria-hidden="true" />
           </div>
-
           {/* Inner Form Area */}
           <div className="ref-contact-body">
             {isSubmitted ? (

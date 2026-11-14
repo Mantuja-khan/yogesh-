@@ -120,7 +120,10 @@ export default function ProfilePage() {
                     alt="SS Production House Logo"
                     className="who-we-are-card-emblem-img"
                   />
-                  <h3 className="who-we-are-card-title">SS PRODUCTION HOUSE</h3>
+                  <h3 className="who-we-are-card-title">
+                    <span className="profile-hero-ss">SS</span>{" "}
+                    <span className="profile-hero-prod">PRODUCTION HOUSE</span>
+                  </h3>
                   <p className="who-we-are-card-sub">
                     <span>DESIGN</span> <span className="card-sep">|</span> <span>PACKAGING</span> <span className="card-sep">|</span> <span>TRANSPORT</span>
                   </p>

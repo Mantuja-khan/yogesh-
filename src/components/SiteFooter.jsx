@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 import { ArrowUp, ArrowUpRight, Star } from "lucide-react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { portfolio } from "@/lib/portfolioData";
 
 export function SiteFooter({ showDottedSquares = false }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -16,19 +24,26 @@ export function SiteFooter({ showDottedSquares = false }) {
     }
   };
 
-  return (
-    <footer className="site-footer-expanded" aria-label="Site Footer">
-      {/* Floating Vertical 'Call Now' Tab on far left matching Image 2 */}
-      <a
-        href="tel:+919671445186"
-        className="footer-call-now-tab"
-        aria-label="Call Now"
-        title="Call Now"
-      >
-        <span>Call Now</span>
-      </a>
+  const callNowTab = (
+    <a
+      href="tel:+919671445186"
+      className="footer-call-now-tab"
+      aria-label="Call Now"
+      title="Call Now"
+    >
+      <span>Call Now</span>
+    </a>
+  );
 
-      {/* Main 3-Column Modern Grid matching Image 2 */}
+  return (
+    <>
+      {/* Portaled directly to document.body so it stays 100% viewport-fixed when scrolling */}
+      {mounted && typeof document !== "undefined"
+        ? createPortal(callNowTab, document.body)
+        : callNowTab}
+
+      <footer className="site-footer-expanded" aria-label="Site Footer">
+        {/* Main 3-Column Modern Grid matching Image 2 */}
       <div className="footer-image-two-grid">
         {/* Column 1: Brand Logo, Taglines, Status Pill, Google My Business, Newsletter */}
         <div className="footer-brand-hero-col">
@@ -200,10 +215,11 @@ export function SiteFooter({ showDottedSquares = false }) {
         </div>
       </div>
     </footer>
+    </>
   );
 }
 
-{/* Google My Business Component matching Image 1 */ }
+/* Google My Business Component matching Image 1 */
 function GoogleMyBusinessBadge() {
   const gmbUrl =
     portfolio.googleMapsUrl ||
@@ -260,19 +276,19 @@ function GoogleMyBusinessBadge() {
       {/* Vertical Divider Line */}
       <div className="gmb-vertical-divider" aria-hidden="true" />
 
-      {/* Right: Agency Name, 4.6 Stars, Location */}
+      {/* Right: Agency Name, 5.0 Stars, Location */}
       <div className="gmb-info-right">
         <h4 className="gmb-agency-title">SS PRODUCTION HOUSE</h4>
         <div className="gmb-rating-row">
-          <span className="gmb-score-num">4.6</span>
-          <div className="gmb-stars-row" aria-label="4.6 out of 5 stars">
+          <span className="gmb-score-num">5.0</span>
+          <div className="gmb-stars-row" aria-label="5.0 out of 5 stars">
             <Star className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
             <Star className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
             <Star className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
             <Star className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
-            <Star className="w-3.5 h-3.5 fill-[#F59E0B]/70 text-[#F59E0B]" />
+            <Star className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
           </div>
-          <span className="gmb-reviews-count">105 Google reviews</span>
+          <span className="gmb-reviews-count">1 Google review</span>
         </div>
         <p className="gmb-agency-location">
           {portfolio.location || "E-GF-56, Capital Highstreet, Phoolbagh, Bhiwadi - 301019"}
